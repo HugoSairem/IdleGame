@@ -1,0 +1,168 @@
+*,body{
+    margin :0;
+    padding:0;
+}
+
+.content{
+    width:100%;
+}
+
+#compteBanq{
+    width:100%;
+}
+
+.leftBlock{
+    float:left;
+    width:20%;
+    height:100vh;
+    background-color: #868686;
+    display: inline-block;
+}
+
+.middleBlock{
+    width:40%;
+    height:100vh;
+    display: inline-block;
+    background-color: #8959A8;
+}
+
+.rightBlock{
+    width:40%;
+    float:right;
+    height:100vh;
+    display: inline-block;
+}
+.buyButton{
+    width:100%;
+    height:100px;
+    color: white;
+    cursor:pointer;
+}
+
+.Button{
+    width:100%;
+    height:50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:pointer;
+    transition: all 0.3s;
+}
+
+.Button:hover{
+    background-color: white;
+    color:black;
+}
+
+.addMoneyButton{
+    background-color: blue;
+}
+
+.resetSave{
+    background-color: red;
+}
+
+.pushSave{
+    background-color: green;
+}
+
+.buyButton{
+    position:relative;
+    background-color: #66dd66;
+    border-bottom: #222222 solid;
+}
+
+.buyButton img{
+    position:absolute;
+    height:80px;
+    bottom:50%;
+    left:60%;
+    transform: translateY(50%);
+}
+
+#BlockMoney{
+    background-color: #6c6159;
+    width:100%;
+    height:250px;
+    text-align: center;
+}
+
+#BlockMoney h2{
+    padding-top:25px;
+}
+
+#subBlockMoney{
+    height:180px;
+}
+
+.unitCount{
+    width:15%;
+    height:100%;
+    float:left;
+    background-color: #222222;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:35px;
+}
+
+.recrutement{
+    display: block;
+    height:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prixBlock{
+    display: block;
+    height:50px;
+    font-size:15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.middleBuyButton{
+    width:50%;
+    display: inline-block;
+}
+
+.prix{
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.lifebarContent{
+    position:relative;
+    width:100%;
+    height:15px;
+    background-color: #222222;
+}
+
+.life{
+    max-width:100%;
+    height:15px;
+    background-color: darkred;
+    transition: all 1s;
+    transition-timing-function: linear;
+}
+
+#bossLifePoint{
+    color:white;
+    position:absolute;
+    display:flex;
+    right:50%;
+    transform: translateX(50%);
+}
+
+.middleBlock h1{
+    text-align: center;
+}
+
+.imgBoss{
+    display: flex;
+    justify-content: center;
+}

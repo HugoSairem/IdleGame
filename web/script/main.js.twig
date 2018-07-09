@@ -1,0 +1,443 @@
+var compteBanquaire;
+compteBanquaire =0;
+var showCompteBanquaire;
+var showIncomePSecond;
+var showLifeBoss;
+var showLifeTroops;
+var showLifeMainDoor;
+
+var incomePSecond;
+incomePSecond=0;
+var incomeSoldat;
+incomeSoldat=0;
+var incomeSoldat2;
+incomeSoldat=0;
+var incomeSoldat3;
+incomeSoldat=0;
+var incomeMecha;
+incomeMecha=0;
+
+var nbrSoldat;
+nbrSoldat =0;
+var prixSoldat;
+prixSoldat=10;
+var degatSoldat=1;
+
+var nbrSoldat2;
+nbrSoldat2 =0;
+var prixSoldat2;
+prixSoldat2=100;
+var degatSoldat2=10;
+
+var nbrSoldat3;
+nbrSoldat3 =0;
+var prixSoldat3;
+prixSoldat3=500;
+var degatSoldat3=50;
+
+
+var nbrMecha;
+nbrMecha =0;
+var prixMecha;
+prixMecha=2000;
+var degatMecha=200;
+
+var baseLifeBoss;
+baseLifeBoss = 100000;
+var lifeBoss;
+lifeBoss=10000;
+var levelBoss;
+levelBoss=0;
+var bonuKillBoss;
+bonuKillBoss = 0;
+
+var compteurBossDoor=5+levelBoss;
+var compteurBossTroops=10+levelBoss*2;
+
+var currentStage;
+currentStage="Main Door";
+
+var lifeMainDoor;
+lifeMainDoor=1000;
+var baseLifeMainDoor;
+baseLifeMainDoor=1000;
+var levelMainDoor;
+levelMainDoor=1;
+
+var lifeTroops;
+lifeTroops=10000
+var baseLifeTroops;
+baseLifeTroops=10000;
+var levelTroops;
+levelTroops=1;
+
+var lifeMegaBoss;
+lifeMegaBoss=100000
+
+var degatTotal=0;
+var stringimgBoss;
+
+lectureMoney();
+
+
+function translateNumber(numberToTranslate){
+    var fixedNumber = numberToTranslate.toFixed(0);
+    var stringNumber = fixedNumber.toString();
+    var formatedNumber;
+    if (numberToTranslate<1000){
+        formatedNumber=numberToTranslate.toFixed(0);
+    } else if (numberToTranslate>=1000 && numberToTranslate<1000000){
+        var divisedNumber = numberToTranslate/1000;
+        var stringdivisedNumber=divisedNumber.toFixed(2).toString();
+        formatedNumber=stringdivisedNumber+"K";
+    } else if (numberToTranslate>=1000000 && numberToTranslate<1000000000){
+        var divisedNumber = numberToTranslate/1000000;
+        var stringdivisedNumber=divisedNumber.toFixed(2).toString();
+        formatedNumber=stringdivisedNumber+"M";
+    } else if (numberToTranslate>=1000000000 && numberToTranslate<1000000000000){
+        var divisedNumber = numberToTranslate/1000000000;
+        var stringdivisedNumber=divisedNumber.toFixed(2).toString();
+        formatedNumber=stringdivisedNumber+"B";
+    } else if (numberToTranslate>=1000000000000 && numberToTranslate<1000000000000000){
+        var divisedNumber = numberToTranslate/1000000000000;
+        var stringdivisedNumber=divisedNumber.toFixed(2).toString();
+        formatedNumber=stringdivisedNumber+"T";
+    } else if (numberToTranslate>=1000000000000000 && numberToTranslate<1000000000000000000){
+        var divisedNumber = numberToTranslate/1000000000000000;
+        var stringdivisedNumber=divisedNumber.toFixed(2).toString();
+        formatedNumber=stringdivisedNumber+"P";
+    } else if (numberToTranslate>=1000000000000000000 && numberToTranslate<1000000000000000000000){
+        var divisedNumber = numberToTranslate/1000000000000000000;
+        var stringdivisedNumber=divisedNumber.toFixed(2).toString();
+        formatedNumber=stringdivisedNumber+"E";
+    } else if (numberToTranslate>=1000000000000000000000 && numberToTranslate<1000000000000000000000000){
+        var divisedNumber = numberToTranslate/1000000000000000000000;
+        var stringdivisedNumber=divisedNumber.toFixed(2).toString();
+        formatedNumber=stringdivisedNumber+"Z";
+    } else if (numberToTranslate>=1000000000000000000000000 && numberToTranslate<1000000000000000000000000000){
+        var divisedNumber = numberToTranslate/1000000000000000000000000;
+        var stringdivisedNumber=divisedNumber.toFixed(2).toString();
+        formatedNumber=stringdivisedNumber+"Y";
+    } else if (numberToTranslate>=1000000000000000000000000000 && numberToTranslate<1000000000000000000000000000000){
+        var divisedNumber = numberToTranslate/1000000000000000000000000000;
+        var stringdivisedNumber=divisedNumber.toFixed(2).toString();
+        formatedNumber=stringdivisedNumber+"Aa";
+    } else if (numberToTranslate>=1000000000000000000000000000000 && numberToTranslate<1000000000000000000000000000000000){
+        var divisedNumber = numberToTranslate/1000000000000000000000000000000;
+        var stringdivisedNumber=divisedNumber.toFixed(2).toString();
+        formatedNumber=stringdivisedNumber+"Ab";
+    }
+
+    return formatedNumber;
+}
+
+function saveMoney(){
+
+    var sauvegarde = {
+        compteBanquaire,
+        nbrSoldat,
+        nbrSoldat2,
+        prixSoldat2,
+        nbrSoldat3,
+        prixSoldat3,
+        prixSoldat,
+        nbrMecha,
+        prixMecha,
+        baseLifeBoss,
+        lifeBoss,
+        levelBoss,
+        baseLifeTroops,
+        baseLifeMainDoor,
+        lifeTroops,
+        lifeMainDoor,
+        levelMainDoor,
+        levelTroops,
+        currentStage,
+    };
+    localStorage.setItem('coord',JSON.stringify(sauvegarde));
+}
+
+function lectureMoney(){
+    var sauvegarde = JSON.parse(localStorage.getItem('coord'));
+    compteBanquaire = sauvegarde.compteBanquaire;
+    nbrSoldat=sauvegarde.nbrSoldat;
+    prixSoldat=sauvegarde.prixSoldat;
+    nbrSoldat2=sauvegarde.nbrSoldat2;
+    prixSoldat2=sauvegarde.prixSoldat2;
+    nbrSoldat3=sauvegarde.nbrSoldat3;
+    prixSoldat3=sauvegarde.prixSoldat3;
+    nbrMecha=sauvegarde.nbrMecha;
+    prixMecha=sauvegarde.prixMecha;
+    baseLifeBoss=sauvegarde.baseLifeBoss;
+    lifeBoss=sauvegarde.lifeBoss;
+    levelBoss=sauvegarde.levelBoss;
+    baseLifeTroops=sauvegarde.baseLifeTroops;
+    baseLifeMainDoor=sauvegarde.baseLifeMainDoor;
+    lifeTroops=sauvegarde.lifeTroops;
+    lifeMainDoor=sauvegarde.lifeMainDoor;
+    levelMainDoor=sauvegarde.levelMainDoor;
+    levelTroops=sauvegarde.levelTroops;
+    currentStage=sauvegarde.currentStage;
+}
+
+function addMoney (){
+    compteBanquaire = compteBanquaire+1;
+    return compteBanquaire;
+}
+
+function ShowBanq() {
+    showCompteBanquaire=translateNumber(compteBanquaire);
+    var div = document.getElementById("compteBanq");
+    div.textContent = showCompteBanquaire;
+
+    showIncomePSecond = translateNumber(incomePSecond);
+    var div2 = document.getElementById("incomePSecond");
+    div2.textContent = showIncomePSecond;
+
+    showLifeBoss = translateNumber(lifeBoss);
+    showLifeTroops = translateNumber(lifeTroops);
+    showLifeMainDoor = translateNumber(lifeMainDoor);
+
+    var div3 = document.getElementById("bossLifePoint");
+    if (currentStage=="Main Door"){
+        div3.textContent = showLifeMainDoor;
+    } else if (currentStage=="Troops"){
+        div3.textContent = showLifeTroops;
+    } else if(currentStage=="Boss") {
+        div3.textContent = showLifeBoss;
+    }
+
+    var div4 = document.getElementById("currentStage");
+    div4.textContent = currentStage;
+
+    setTimeout("ShowBanq()", 10);
+}
+
+function showimgBoss(){
+    if (currentStage==="Main Door"){
+        document.getElementById("imgBoss").src="../images/door01.gif";
+    } else if (currentStage==="Troops"){
+        document.getElementById("imgBoss").src="../images/soldat05.gif";
+    } else if (currentStage==="Boss"){
+        document.getElementById("imgBoss").src="../images/boss03.gif";
+    }
+}
+
+function showSoldat(){
+    var div2 = document.getElementById("nbrSoldat");
+    div2.textContent = nbrSoldat;
+    div2 = document.getElementById("prixSoldat");
+    div2.textContent = translateNumber(prixSoldat);
+}
+
+function showMecha(){
+    var div2 = document.getElementById("nbrMecha");
+    div2.textContent = nbrMecha;
+    div2 = document.getElementById("prixMecha");
+    div2.textContent = translateNumber(prixMecha);
+}
+
+function showSoldat2(){
+    var div2 = document.getElementById("nbrSoldat2");
+    div2.textContent = nbrSoldat2;
+    div2 = document.getElementById("prixSoldat2");
+    div2.textContent = translateNumber(prixSoldat2);
+}
+
+function showSoldat3(){
+    var div2 = document.getElementById("nbrSoldat3");
+    div2.textContent = nbrSoldat3;
+    div2 = document.getElementById("prixSoldat3");
+    div2.textContent = translateNumber(prixSoldat3);
+}
+
+
+
+function calcIncome(){
+    var soldat = calcIncomeSoldat();
+    var soldat2 = calcIncomeSoldat2();
+    var soldat3 = calcIncomeSoldat3();
+    var mecha = calcIncomeMecha();
+    incomePSecond= soldat + soldat2 + soldat3+ mecha;
+    return incomePSecond
+}
+
+function calcIncomeSoldat(){
+    incomeSoldat= nbrSoldat*0.5;
+    return incomeSoldat;
+}
+
+function calcIncomeMecha(){
+    incomeMecha= nbrMecha*350;
+    return incomeMecha;
+}
+
+function calcIncomeSoldat2(){
+    incomeSoldat2= nbrSoldat2*5;
+    return incomeSoldat2;
+}
+
+function calcIncomeSoldat3(){
+    incomeSoldat3= nbrSoldat3*50;
+    return incomeSoldat3;
+}
+
+function resetSave(){
+    if (confirm("Êtes-vous sur de vouloir supprimer votre sauvegarde ?")==true) {
+        compteBanquaire=0;
+        nbrSoldat=0;
+        prixSoldat=10;
+        nbrSoldat2=0;
+        prixSoldat2=100;
+        nbrSoldat3=0;
+        prixSoldat3=500;
+        baseLifeBoss=10000;
+        lifeBoss=10000;
+        levelBoss=0;
+        nbrMecha=0;
+        prixMecha=2000;
+        baseLifeTroops=10000;
+        baseLifeMainDoor=1000;
+        lifeTroops=10000;
+        lifeMainDoor=1000;
+        levelMainDoor=1;
+        levelTroops=1;
+        currentStage="Main Door";
+        saveMoney();
+        showSoldat();
+        showSoldat2();
+        showSoldat3();
+        showMecha();
+        showBossLevel();
+        alert('VOILA YA PLUS RIEN')
+    } else {
+        alert('Reset annulé')
+    }
+
+}
+
+function acheterSoldat(){
+    if (compteBanquaire >= prixSoldat){
+        compteBanquaire=compteBanquaire-prixSoldat;
+        prixSoldat=prixSoldat*1.1;
+        nbrSoldat=nbrSoldat+1;
+        showSoldat();
+    } else {
+
+    }
+}
+
+function acheterSoldat2(){
+    if (compteBanquaire >= prixSoldat2){
+        compteBanquaire=compteBanquaire-prixSoldat2;
+        prixSoldat2=prixSoldat2*1.2;
+        nbrSoldat2=nbrSoldat2+1;
+        showSoldat2();
+    } else {
+
+    }
+}
+
+function acheterSoldat3(){
+    if (compteBanquaire >= prixSoldat3){
+        compteBanquaire=compteBanquaire-prixSoldat3;
+        prixSoldat3=prixSoldat3*1.5;
+        nbrSoldat3=nbrSoldat3+1;
+        showSoldat3();
+    } else {
+
+    }
+}
+
+function acheterMecha(){
+    if (compteBanquaire >= prixMecha){
+        compteBanquaire=compteBanquaire-prixMecha;
+        prixMecha=prixMecha*2;
+        nbrMecha=nbrMecha+1;
+        showMecha();
+    } else {
+
+    }
+}
+
+function tickLoop(){
+    degatTotal=(degatSoldat*nbrSoldat)+(degatSoldat2*nbrSoldat2)+(degatSoldat3*nbrSoldat3)+(degatMecha*nbrMecha);
+    compteBanquaire=compteBanquaire+ calcIncome();
+
+    if (currentStage==="Main Door"){
+        lifeMainDoor=lifeMainDoor-degatTotal;
+        if (lifeMainDoor<=0) {
+            lifeMainDoor = baseLifeMainDoor * 1.1;
+            levelMainDoor = levelMainDoor + 1;
+            compteurBossDoor=(5+levelBoss);
+            if (levelMainDoor>=compteurBossDoor){
+                currentStage = "Troops";
+                levelMainDoor=1;
+                baseLifeMainDoor = lifeMainDoor;
+            } else{
+
+            }
+            showBossLevel();
+        }
+    } else if(currentStage==="Troops"){
+        lifeTroops=lifeTroops-degatTotal;
+        if (lifeTroops<=0){
+            lifeTroops=baseLifeTroops*1.1;
+            levelTroops=levelTroops+1;
+            compteurBossTroops=10+(levelBoss*2)
+            if (levelTroops>=compteurBossTroops){
+                currentStage="Boss";
+                levelTroops=1;
+                baseLifeTroops=lifeTroops;
+            }
+            showBossLevel();
+        }
+    } else if(currentStage==="Boss") {
+        lifeBoss=lifeBoss-degatTotal;
+        if (lifeBoss<=0){
+            bonuKillBoss=baseLifeBoss*0.3;
+            compteBanquaire=compteBanquaire+bonuKillBoss;
+            lifeBoss=baseLifeBoss*10;
+            baseLifeBoss=lifeBoss;
+            levelBoss=levelBoss+1;
+            currentStage="Main Door";
+            showBossLevel();
+        }
+    }
+
+    var pourcentlife;
+
+    if (currentStage==="Main Door"){
+        pourcentlife = (lifeMainDoor/baseLifeMainDoor)*100;
+    } else if (currentStage==="Troops"){
+        pourcentlife=(lifeTroops/baseLifeTroops)*100;;
+    } else if (currentStage==="Boss"){
+        pourcentlife= (lifeBoss/baseLifeBoss)*100;
+    }
+
+    document.getElementById('life').style.width = pourcentlife+'%';
+    saveMoney()
+    setTimeout("tickLoop()", 1000);
+}
+
+function showBossLevel() {
+    var div2 = document.getElementById("levelBoss");
+    if (currentStage==="Main Door"){
+        div2.textContent = levelMainDoor;
+    } else if (currentStage==="Troops"){
+        div2.textContent = levelTroops;
+    } else if (currentStage==="Boss"){
+        div2.textContent = levelBoss;
+    }
+    showimgBoss();
+
+
+}
+
+showSoldat();
+showSoldat2();
+showSoldat3();
+showMecha();
+tickLoop();
+ShowBanq();
+showBossLevel();

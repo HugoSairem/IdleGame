@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Idle War Game</title>
+    <link rel="stylesheet" href="{{ asset("css/main.css") }}"> <!-- asset s'occupe de trouver le chemin à partir du dossier web -->
+</head>
+<body>
+<div class="content">
+    <div class="leftBlock">
+        <div id="BlockMoney">
+            <h2>Compte en banque</h2>
+            <span id="subBlockMoney">
+                <h1><span id="compteBanq"></span>$</h1>
+                <h2><span id="incomePSecond"></span>$/s</h2>
+            </span>
+        </div>
+
+        <div class="addMoneyButton Button" onclick="addMoney()">Travailler</div>
+        <div class="pushSave Button" onclick="saveMoney()">Save</div>
+        <div class="resetSave Button" onclick="resetSave()">Reset Save</div>
+    </div>
+    <div class="middleBlock">
+        <h1 id="currentStage"></h1>
+        <h2>Level</h2><span id="levelBoss"></span>
+        <div id="lifebarContent" class="lifebarContent"><div id="bossLifePoint"></div>
+            <div id="life" class="life"></div>
+        </div>
+        <span class="imgBoss" >
+            <img src="" id="imgBoss" alt="">
+        </span>
+
+    </div>
+
+    <div class="rightBlock">
+        <div class="acheterSoldat buyButton" onclick="acheterSoldat()">
+            <span id="nbrSoldat" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Recruter 1 soldat</span>
+                <span class="prixBlock">Prix <span id="prixSoldat" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/soldat02.gif') }}" alt="">
+        </div>
+        <div class="acheterSoldat2 buyButton" onclick="acheterSoldat2()">
+            <span id="nbrSoldat2" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Former 1 commando</span>
+                <span class="prixBlock">Prix <span id="prixSoldat2" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/soldat07.gif') }}" alt="">
+        </div>
+        <div class="acheterSoldat3 buyButton" onclick="acheterSoldat3()">
+            <span id="nbrSoldat3" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Créer 1 cyber-soldat</span>
+                <span class="prixBlock">Prix <span id="prixSoldat3" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/soldat09.gif') }}" alt="">
+        </div>
+
+        <div class="acheterTank01 buyButton" onclick="acheterMecha()">
+            <span id="nbrTank01" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Construire 1 tank</span>
+                <span class="prixBlock">Prix <span id="prixTank01" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/tank01.gif') }}" alt="">
+        </div>
+
+        <div class="acheterMecha buyButton" onclick="acheterMecha()">
+            <span id="nbrMecha" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Construire 1 mecha</span>
+                <span class="prixBlock">Prix <span id="prixMecha" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/mecha01.gif') }}" alt="">
+        </div>
+
+        <div class="acheterMecha02 buyButton" onclick="acheterMecha()">
+            <span id="nbrMecha02" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Construire 1 mecha</span>
+                <span class="prixBlock">Prix <span id="prixMecha02" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/mecha01.gif') }}" alt="">
+        </div>
+
+
+    </div>
+</div>
+<script src="{{ asset('script/main.js.twig') }}"></script>
+    </body>
+    </html>

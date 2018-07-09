@@ -1,0 +1,7 @@
+idle_game:
+    resource: "@IdleGameBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
