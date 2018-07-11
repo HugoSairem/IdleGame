@@ -203,8 +203,13 @@ bonusGlobalUnit06=0;
 
 
 
+if (localStorage!=null){
+    lectureMoney();
+} else {
+    resetSave();
+    lectureMoney();
+}
 
-lectureMoney();
 checkUpgrade();
 
 // Fonction de transformation des nombres trop grand

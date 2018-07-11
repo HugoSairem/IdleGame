@@ -1,3 +1,7 @@
+filtres:
+    resource: "@filtresBundle/Resources/config/routing.yml"
+    prefix:   /
+
 idle_game:
     resource: "@IdleGameBundle/Resources/config/routing.yml"
     prefix:   /
