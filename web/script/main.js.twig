@@ -88,42 +88,79 @@ function saveMoney(){
         levelTroops,
         currentStage,
         // UPGRADE SECTION
-        //UNIT01
+        // ---UNIT01
+        // - MONEY
         upgUnit01_10GET,
         upgUnit01_25GET,
         upgUnit01_50GET,
         upgUnit01_100GET,
         upgUnit01_150GET,
+        // - DMG
+        upgDMGUnit01_10GET,
+        upgDMGUnit01_25GET,
+        upgDMGUnit01_50GET,
+        upgDMGUnit01_100GET,
+        upgDMGUnit01_150GET,
         //UNIT02
         upgUnit02_10GET,
         upgUnit02_25GET,
         upgUnit02_50GET,
         upgUnit02_100GET,
         upgUnit02_150GET,
+        // - DMG
+        upgDMGUnit02_10GET,
+        upgDMGUnit02_25GET,
+        upgDMGUnit02_50GET,
+        upgDMGUnit02_100GET,
+        upgDMGUnit02_150GET,
         //UNIT03
         upgUnit03_10GET,
         upgUnit03_25GET,
         upgUnit03_50GET,
         upgUnit03_100GET,
         upgUnit03_150GET,
+        // - DMG
+        upgDMGUnit03_10GET,
+        upgDMGUnit03_25GET,
+        upgDMGUnit03_50GET,
+        upgDMGUnit03_100GET,
+        upgDMGUnit03_150GET,
         //UNIT04
         upgUnit04_10GET,
         upgUnit04_25GET,
         upgUnit04_50GET,
         upgUnit04_100GET,
         upgUnit04_150GET,
+        // - DMG
+        upgDMGUnit04_10GET,
+        upgDMGUnit04_25GET,
+        upgDMGUnit04_50GET,
+        upgDMGUnit04_100GET,
+        upgDMGUnit04_150GET,
         //UNIT05
         upgUnit05_10GET,
         upgUnit05_25GET,
         upgUnit05_50GET,
         upgUnit05_100GET,
         upgUnit05_150GET,
+        // - DMG
+        upgDMGUnit05_10GET,
+        upgDMGUnit05_25GET,
+        upgDMGUnit05_50GET,
+        upgDMGUnit05_100GET,
+        upgDMGUnit05_150GET,
         //UNIT026
         upgUnit06_10GET,
         upgUnit06_25GET,
         upgUnit06_50GET,
         upgUnit06_100GET,
         upgUnit06_150GET,
+        // - DMG
+        upgDMGUnit06_10GET,
+        upgDMGUnit06_25GET,
+        upgDMGUnit06_50GET,
+        upgDMGUnit06_100GET,
+        upgDMGUnit06_150GET,
     };
     localStorage.setItem('coord',JSON.stringify(sauvegarde));
 }
@@ -154,43 +191,79 @@ function lectureMoney(){
     levelMainDoor=sauvegarde.levelMainDoor;
     levelTroops=sauvegarde.levelTroops;
     currentStage=sauvegarde.currentStage;
-    //UPGRADE SECTION
-    //UNIT01
+    //---------UPGRADE SECTION
+    //-----UNIT01
     upgUnit01_10GET=sauvegarde.upgUnit01_10GET;
     upgUnit01_25GET=sauvegarde.upgUnit01_25GET;
     upgUnit01_50GET=sauvegarde.upgUnit01_50GET;
     upgUnit01_100GET=sauvegarde.upgUnit01_100GET;
     upgUnit01_150GET=sauvegarde.upgUnit01_150GET;
+    //--DMG01
+    upgDMGUnit01_10GET=sauvegarde.upgDMGUnit01_10GET;
+    upgDMGUnit01_25GET=sauvegarde.upgDMGUnit01_25GET;
+    upgDMGUnit01_50GET=sauvegarde.upgDMGUnit01_50GET;
+    upgDMGUnit01_100GET=sauvegarde.upgDMGUnit01_100GET;
+    upgDMGUnit01_150GET=sauvegarde.upgDMGUnit01_150GET;
     //UNIT02
     upgUnit02_10GET=sauvegarde.upgUnit02_10GET;
     upgUnit02_25GET=sauvegarde.upgUnit02_25GET;
     upgUnit02_50GET=sauvegarde.upgUnit02_50GET;
     upgUnit02_100GET=sauvegarde.upgUnit02_100GET;
     upgUnit02_150GET=sauvegarde.upgUnit02_150GET;
+    //--DMG02
+    upgDMGUnit02_10GET=sauvegarde.upgDMGUnit02_10GET;
+    upgDMGUnit02_25GET=sauvegarde.upgDMGUnit02_25GET;
+    upgDMGUnit02_50GET=sauvegarde.upgDMGUnit02_50GET;
+    upgDMGUnit02_100GET=sauvegarde.upgDMGUnit02_100GET;
+    upgDMGUnit02_150GET=sauvegarde.upgDMGUnit02_150GET;
     //UNIT03
     upgUnit03_10GET=sauvegarde.upgUnit03_10GET;
     upgUnit03_25GET=sauvegarde.upgUnit03_25GET;
     upgUnit03_50GET=sauvegarde.upgUnit03_50GET;
     upgUnit03_100GET=sauvegarde.upgUnit03_100GET;
     upgUnit03_150GET=sauvegarde.upgUnit03_150GET;
+    //--DMG03
+    upgDMGUnit03_10GET=sauvegarde.upgDMGUnit03_10GET;
+    upgDMGUnit03_25GET=sauvegarde.upgDMGUnit03_25GET;
+    upgDMGUnit03_50GET=sauvegarde.upgDMGUnit03_50GET;
+    upgDMGUnit03_100GET=sauvegarde.upgDMGUnit03_100GET;
+    upgDMGUnit03_150GET=sauvegarde.upgDMGUnit03_150GET;
     //UNIT04
     upgUnit04_10GET=sauvegarde.upgUnit04_10GET;
     upgUnit04_25GET=sauvegarde.upgUnit04_25GET;
     upgUnit04_50GET=sauvegarde.upgUnit04_50GET;
     upgUnit04_100GET=sauvegarde.upgUnit04_100GET;
     upgUnit04_150GET=sauvegarde.upgUnit04_150GET;
+    //--DMG04
+    upgDMGUnit04_10GET=sauvegarde.upgDMGUnit04_10GET;
+    upgDMGUnit04_25GET=sauvegarde.upgDMGUnit04_25GET;
+    upgDMGUnit04_50GET=sauvegarde.upgDMGUnit04_50GET;
+    upgDMGUnit04_100GET=sauvegarde.upgDMGUnit04_100GET;
+    upgDMGUnit04_150GET=sauvegarde.upgDMGUnit04_150GET;
     //UNIT05
     upgUnit05_10GET=sauvegarde.upgUnit05_10GET;
     upgUnit05_25GET=sauvegarde.upgUnit05_25GET;
     upgUnit05_50GET=sauvegarde.upgUnit05_50GET;
     upgUnit05_100GET=sauvegarde.upgUnit05_100GET;
     upgUnit05_150GET=sauvegarde.upgUnit05_150GET;
+    //--DMG05
+    upgDMGUnit05_10GET=sauvegarde.upgDMGUnit05_10GET;
+    upgDMGUnit05_25GET=sauvegarde.upgDMGUnit05_25GET;
+    upgDMGUnit05_50GET=sauvegarde.upgDMGUnit05_50GET;
+    upgDMGUnit05_100GET=sauvegarde.upgDMGUnit05_100GET;
+    upgDMGUnit05_150GET=sauvegarde.upgDMGUnit05_150GET;
     //UNIT06
     upgUnit06_10GET=sauvegarde.upgUnit06_10GET;
     upgUnit06_25GET=sauvegarde.upgUnit06_25GET;
     upgUnit06_50GET=sauvegarde.upgUnit06_50GET;
     upgUnit06_100GET=sauvegarde.upgUnit06_100GET;
     upgUnit06_150GET=sauvegarde.upgUnit06_150GET;
+    //--DMG06
+    upgDMGUnit06_10GET=sauvegarde.upgDMGUnit06_10GET;
+    upgDMGUnit06_25GET=sauvegarde.upgDMGUnit06_25GET;
+    upgDMGUnit06_50GET=sauvegarde.upgDMGUnit06_50GET;
+    upgDMGUnit06_100GET=sauvegarde.upgDMGUnit06_100GET;
+    upgDMGUnit06_150GET=sauvegarde.upgDMGUnit06_150GET;
 }
 
 // Fonction du bouton travailler
@@ -383,42 +456,90 @@ function resetSave(){
         lifeMainDoor=15;
         levelMainDoor=1;
         levelTroops=1;
+        bonusGlobalUnit01=0;
+        bonusGlobalUnit02=0;
+        bonusGlobalUnit03=0;
+        bonusGlobalUnit04=0;
+        bonusGlobalUnit05=0;
+        bonusGlobalUnit06=0;
+        bonusDMGGlobalUnit01=0;
+        bonusDMGGlobalUnit02=0;
+        bonusDMGGlobalUnit03=0;
+        bonusDMGGlobalUnit04=0;
+        bonusDMGGlobalUnit05=0;
+        bonusDMGGlobalUnit06=0;
         // UNIT01 RESET
         upgUnit01_10GET=false;
         upgUnit01_25GET=false;
         upgUnit01_50GET=false;
         upgUnit01_100GET=false;
         upgUnit01_150GET=false;
+        //DMG01
+        upgDMGUnit01_10GET=false;
+        upgDMGUnit01_25GET=false;
+        upgDMGUnit01_50GET=false;
+        upgDMGUnit01_100GET=false;
+        upgDMGUnit01_150GET=false;
         // UNIT02 RESET
         upgUnit02_10GET=false;
         upgUnit02_25GET=false;
         upgUnit02_50GET=false;
         upgUnit02_100GET=false;
         upgUnit02_150GET=false;
+        //DMG02
+        upgDMGUnit02_10GET=false;
+        upgDMGUnit02_25GET=false;
+        upgDMGUnit02_50GET=false;
+        upgDMGUnit02_100GET=false;
+        upgDMGUnit02_150GET=false;
         // UNIT03 RESET
         upgUnit03_10GET=false;
         upgUnit03_25GET=false;
         upgUnit03_50GET=false;
         upgUnit03_100GET=false;
         upgUnit03_150GET=false;
+        //DMG03
+        upgDMGUnit03_10GET=false;
+        upgDMGUnit03_25GET=false;
+        upgDMGUnit03_50GET=false;
+        upgDMGUnit03_100GET=false;
+        upgDMGUnit03_150GET=false;
         // UNIT04 RESET
         upgUnit04_10GET=false;
         upgUnit04_25GET=false;
         upgUnit04_50GET=false;
         upgUnit04_100GET=false;
         upgUnit04_150GET=false;
+        //DMG04
+        upgDMGUnit04_10GET=false;
+        upgDMGUnit04_25GET=false;
+        upgDMGUnit04_50GET=false;
+        upgDMGUnit04_100GET=false;
+        upgDMGUnit04_150GET=false;
         // UNIT05 RESET
         upgUnit05_10GET=false;
         upgUnit05_25GET=false;
         upgUnit05_50GET=false;
         upgUnit05_100GET=false;
         upgUnit05_150GET=false;
+        //DMG05
+        upgDMGUnit05_10GET=false;
+        upgDMGUnit05_25GET=false;
+        upgDMGUnit05_50GET=false;
+        upgDMGUnit05_100GET=false;
+        upgDMGUnit05_150GET=false;
         // UNIT06 RESET
         upgUnit06_10GET=false;
         upgUnit06_25GET=false;
         upgUnit06_50GET=false;
         upgUnit06_100GET=false;
         upgUnit06_150GET=false;
+        //DMG06
+        upgDMGUnit06_10GET=false;
+        upgDMGUnit06_25GET=false;
+        upgDMGUnit06_50GET=false;
+        upgDMGUnit06_100GET=false;
+        upgDMGUnit06_150GET=false;
         currentStage="Main Door";
         saveMoney();
         showUnit01();
@@ -511,10 +632,9 @@ function calcDegats(){
     }
     if (bonusDMGGlobalUnit02===0){
         var degat02 =(degatUnit2*nbrUnit02);
-    }else{
+    } else {
         var degat02 =(degatUnit2*nbrUnit02)*bonusDMGGlobalUnit02;
     }
-
     console.log(degat02);
     var degat03 =(degatUnit03*nbrUnit03);
     var degat04 =(degatUnit04*nbrUnit04);
@@ -934,6 +1054,7 @@ function showBonus(){
 }
 
 
+
 // ------- CHECK UPGRADE ALREADY BOUGHT ---------
 // vérifie si des upgrades n'ont pas déja étées achetées aprés la lecture de la sauvegarde
 function checkUpgrade(){
@@ -969,7 +1090,6 @@ function checkUpgrade(){
     if (upgDMGUnit01_150GET ===true){
         bonusDMGGlobalUnit01=bonusDMGGlobalUnit01+2;
     }
-
     // ----- UNIT02 CHECK ------
     if (upgUnit02_10GET ===true){
         bonusGlobalUnit02=bonusGlobalUnit02+2;
@@ -985,6 +1105,22 @@ function checkUpgrade(){
     }
     if (upgUnit02_150GET ===true){
         bonusGlobalUnit02=bonusGlobalUnit02+2;
+    }
+    //DMG UNIT02
+    if (upgDMGUnit02_10GET ===true){
+        bonusDMGGlobalUnit02=bonusDMGGlobalUnit02+2;
+    }
+    if (upgDMGUnit02_25GET ===true){
+        bonusDMGGlobalUnit02=bonusDMGGlobalUnit02+2;
+    }
+    if (upgDMGUnit02_50GET ===true){
+        bonusDMGGlobalUnit02=bonusDMGGlobalUnit02+2;
+    }
+    if (upgDMGUnit02_100GET ===true){
+        bonusDMGGlobalUnit02=bonusDMGGlobalUnit02+2;
+    }
+    if (upgDMGUnit02_150GET ===true){
+        bonusDMGGlobalUnit02=bonusDMGGlobalUnit02+2;
     }
     // ----- UNIT03 CHECK ------
     if (upgUnit03_10GET ===true){

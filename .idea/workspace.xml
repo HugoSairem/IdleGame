@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9cd854c-e390-44fc-9c02-ff53c8bef180" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/upgrade.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/images/fist.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/script/buyUnit.js.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/script/upgradeUnit.js.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/script/varGame.js.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filtresBundle/Controller/DefaultController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filtresBundle/Resources/config/routing.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filtresBundle/Resources/config/services.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filtresBundle/Resources/views/Default/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filtresBundle/filtresBundle.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/script/main.js.twig" beforeDir="false" afterPath="$PROJECT_DIR$/web/script/main.js.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/script/upgradeUnit.js.twig" beforeDir="false" afterPath="$PROJECT_DIR$/web/script/upgradeUnit.js.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/script/varGame.js.twig" beforeDir="false" afterPath="$PROJECT_DIR$/web/script/varGame.js.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,8 +45,8 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="94" selection-start-line="94" selection-end-line="94" />
+            <state relative-caret-position="1365">
+              <caret line="91" column="19" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -68,11 +54,10 @@
       <file leaf-file-name="main.js.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/script/main.js.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="514" column="64" selection-start-line="514" selection-start-column="64" selection-end-line="514" selection-end-column="64" />
+            <state relative-caret-position="300">
+              <caret line="469" column="28" selection-start-line="469" selection-start-column="28" selection-end-line="469" selection-end-column="28" />
               <folding>
                 <element signature="e#3971#6915#0#JavaScript" />
-                <element signature="e#8534#11073#0#JavaScript" />
                 <element signature="e#12201#12542#0#JavaScript" />
               </folding>
             </state>
@@ -83,21 +68,7 @@
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/upgrade.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="207">
-              <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
-              <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
-              <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
-              <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
-              <caret line="63" column="46" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
-              <caret line="57" column="71" selection-start-line="57" selection-start-column="71" selection-end-line="57" selection-end-column="71" />
-              <caret line="54" column="71" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="71" />
-              <caret line="51" column="71" selection-start-line="51" selection-start-column="71" selection-end-line="51" selection-end-column="71" />
-              <caret line="60" column="72" selection-start-line="60" selection-start-column="72" selection-end-line="60" selection-end-column="72" />
-              <caret line="63" column="72" selection-start-line="63" selection-start-column="72" selection-end-line="63" selection-end-column="72" />
-              <caret line="63" column="96" selection-start-line="63" selection-start-column="96" selection-end-line="63" selection-end-column="96" />
-              <caret line="60" column="96" selection-start-line="60" selection-start-column="96" selection-end-line="60" selection-end-column="96" />
-              <caret line="57" column="94" selection-start-line="57" selection-start-column="94" selection-end-line="57" selection-end-column="94" />
-              <caret line="54" column="94" selection-start-line="54" selection-start-column="94" selection-end-line="54" selection-end-column="94" />
-              <caret line="51" column="94" selection-start-line="51" selection-start-column="94" selection-end-line="51" selection-end-column="94" />
+              <caret line="51" column="68" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -105,37 +76,8 @@
       <file leaf-file-name="upgradeUnit.js.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/script/upgradeUnit.js.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="153" column="24" selection-start-line="153" selection-start-column="24" selection-end-line="153" selection-end-column="24" />
-              <caret line="154" column="20" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
-              <caret line="155" column="20" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="20" />
-              <caret line="156" column="55" selection-start-line="156" selection-start-column="55" selection-end-line="156" selection-end-column="55" />
-              <caret line="158" column="28" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
-              <caret line="158" column="49" selection-start-line="158" selection-start-column="49" selection-end-line="158" selection-end-column="49" />
-              <caret line="163" column="24" selection-start-line="163" selection-start-column="24" selection-end-line="163" selection-end-column="24" />
-              <caret line="164" column="20" selection-start-line="164" selection-start-column="20" selection-end-line="164" selection-end-column="20" />
-              <caret line="165" column="20" selection-start-line="165" selection-start-column="20" selection-end-line="165" selection-end-column="20" />
-              <caret line="166" column="55" selection-start-line="166" selection-start-column="55" selection-end-line="166" selection-end-column="55" />
-              <caret line="168" column="28" selection-start-line="168" selection-start-column="28" selection-end-line="168" selection-end-column="28" />
-              <caret line="168" column="49" selection-start-line="168" selection-start-column="49" selection-end-line="168" selection-end-column="49" />
-              <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
-              <caret line="174" column="20" selection-start-line="174" selection-start-column="20" selection-end-line="174" selection-end-column="20" />
-              <caret line="175" column="20" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
-              <caret line="176" column="55" selection-start-line="176" selection-start-column="55" selection-end-line="176" selection-end-column="55" />
-              <caret line="178" column="28" selection-start-line="178" selection-start-column="28" selection-end-line="178" selection-end-column="28" />
-              <caret line="178" column="49" selection-start-line="178" selection-start-column="49" selection-end-line="178" selection-end-column="49" />
-              <caret line="183" column="24" selection-start-line="183" selection-start-column="24" selection-end-line="183" selection-end-column="24" />
-              <caret line="184" column="20" selection-start-line="184" selection-start-column="20" selection-end-line="184" selection-end-column="20" />
-              <caret line="185" column="20" selection-start-line="185" selection-start-column="20" selection-end-line="185" selection-end-column="20" />
-              <caret line="186" column="55" selection-start-line="186" selection-start-column="55" selection-end-line="186" selection-end-column="55" />
-              <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
-              <caret line="188" column="49" selection-start-line="188" selection-start-column="49" selection-end-line="188" selection-end-column="49" />
-              <caret line="193" column="24" selection-start-line="193" selection-start-column="24" selection-end-line="193" selection-end-column="24" />
-              <caret line="194" column="20" selection-start-line="194" selection-start-column="20" selection-end-line="194" selection-end-column="20" />
-              <caret line="195" column="20" selection-start-line="195" selection-start-column="20" selection-end-line="195" selection-end-column="20" />
-              <caret line="196" column="55" selection-start-line="196" selection-start-column="55" selection-end-line="196" selection-end-column="55" />
-              <caret line="198" column="49" selection-start-line="198" selection-start-column="49" selection-end-line="198" selection-end-column="49" />
-              <caret line="198" column="28" selection-start-line="198" selection-start-column="28" selection-end-line="198" selection-end-column="28" />
+            <state relative-caret-position="866">
+              <caret line="407" selection-start-line="407" selection-end-line="407" />
             </state>
           </provider>
         </entry>
@@ -143,8 +85,8 @@
       <file leaf-file-name="varGame.js.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/script/varGame.js.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="163" column="23" selection-start-line="163" selection-start-column="23" selection-end-line="163" selection-end-column="23" />
+            <state relative-caret-position="227">
+              <caret line="171" column="4" selection-start-line="171" selection-start-column="4" selection-end-line="171" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -179,7 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>prixMecha</find>
       <find>currentStage=&quot;Main Door&quot;</find>
       <find>if</find>
       <find>stringimg</find>
@@ -203,9 +144,13 @@
       <find>console</find>
       <find>sauve</find>
       <find>timeno</find>
-      <find>displ</find>
-      <find>calcD</find>
       <find>calc</find>
+      <find>displ</find>
+      <find>save</find>
+      <find>calcD</find>
+      <find>check</find>
+      <find>reset</find>
+      <find>upgDMGUnit02_10GET</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -231,10 +176,10 @@
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/web/script/buyUnit.js.html" />
-        <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/upgrade.html.twig" />
         <option value="$PROJECT_DIR$/web/script/varGame.js.twig" />
         <option value="$PROJECT_DIR$/web/script/upgradeUnit.js.twig" />
-        <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/upgrade.html.twig" />
+        <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/web/script/main.js.twig" />
       </list>
     </option>
@@ -414,18 +359,18 @@
       <updated>1530903833738</updated>
       <workItem from="1530903835216" duration="97186000" />
       <workItem from="1531318454976" duration="106000" />
-      <workItem from="1531327865202" duration="5103000" />
+      <workItem from="1531327865202" duration="8848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102395000" />
+    <option name="totallyTimeSpent" value="106140000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="23" width="1432" height="857" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25683454" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25683454" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -434,7 +379,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32971507" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32971507" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -473,7 +418,6 @@
           <caret line="256" column="65" selection-start-line="256" selection-start-column="34" selection-end-line="256" selection-end-column="65" />
           <folding>
             <element signature="e#3971#6915#0#JavaScript" />
-            <element signature="e#8534#11073#0#JavaScript" />
             <element signature="e#12201#12542#0#JavaScript" />
           </folding>
         </state>
@@ -665,82 +609,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/script/varGame.js.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="163" column="23" selection-start-line="163" selection-start-column="23" selection-end-line="163" selection-end-column="23" />
+        <state relative-caret-position="227">
+          <caret line="171" column="4" selection-start-line="171" selection-start-column="4" selection-end-line="171" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="91" column="19" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/script/upgradeUnit.js.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="153" column="24" selection-start-line="153" selection-start-column="24" selection-end-line="153" selection-end-column="24" />
-          <caret line="154" column="20" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
-          <caret line="155" column="20" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="20" />
-          <caret line="156" column="55" selection-start-line="156" selection-start-column="55" selection-end-line="156" selection-end-column="55" />
-          <caret line="158" column="28" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
-          <caret line="158" column="49" selection-start-line="158" selection-start-column="49" selection-end-line="158" selection-end-column="49" />
-          <caret line="163" column="24" selection-start-line="163" selection-start-column="24" selection-end-line="163" selection-end-column="24" />
-          <caret line="164" column="20" selection-start-line="164" selection-start-column="20" selection-end-line="164" selection-end-column="20" />
-          <caret line="165" column="20" selection-start-line="165" selection-start-column="20" selection-end-line="165" selection-end-column="20" />
-          <caret line="166" column="55" selection-start-line="166" selection-start-column="55" selection-end-line="166" selection-end-column="55" />
-          <caret line="168" column="28" selection-start-line="168" selection-start-column="28" selection-end-line="168" selection-end-column="28" />
-          <caret line="168" column="49" selection-start-line="168" selection-start-column="49" selection-end-line="168" selection-end-column="49" />
-          <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
-          <caret line="174" column="20" selection-start-line="174" selection-start-column="20" selection-end-line="174" selection-end-column="20" />
-          <caret line="175" column="20" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
-          <caret line="176" column="55" selection-start-line="176" selection-start-column="55" selection-end-line="176" selection-end-column="55" />
-          <caret line="178" column="28" selection-start-line="178" selection-start-column="28" selection-end-line="178" selection-end-column="28" />
-          <caret line="178" column="49" selection-start-line="178" selection-start-column="49" selection-end-line="178" selection-end-column="49" />
-          <caret line="183" column="24" selection-start-line="183" selection-start-column="24" selection-end-line="183" selection-end-column="24" />
-          <caret line="184" column="20" selection-start-line="184" selection-start-column="20" selection-end-line="184" selection-end-column="20" />
-          <caret line="185" column="20" selection-start-line="185" selection-start-column="20" selection-end-line="185" selection-end-column="20" />
-          <caret line="186" column="55" selection-start-line="186" selection-start-column="55" selection-end-line="186" selection-end-column="55" />
-          <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
-          <caret line="188" column="49" selection-start-line="188" selection-start-column="49" selection-end-line="188" selection-end-column="49" />
-          <caret line="193" column="24" selection-start-line="193" selection-start-column="24" selection-end-line="193" selection-end-column="24" />
-          <caret line="194" column="20" selection-start-line="194" selection-start-column="20" selection-end-line="194" selection-end-column="20" />
-          <caret line="195" column="20" selection-start-line="195" selection-start-column="20" selection-end-line="195" selection-end-column="20" />
-          <caret line="196" column="55" selection-start-line="196" selection-start-column="55" selection-end-line="196" selection-end-column="55" />
-          <caret line="198" column="49" selection-start-line="198" selection-start-column="49" selection-end-line="198" selection-end-column="49" />
-          <caret line="198" column="28" selection-start-line="198" selection-start-column="28" selection-end-line="198" selection-end-column="28" />
+        <state relative-caret-position="866">
+          <caret line="407" selection-start-line="407" selection-end-line="407" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/upgrade.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
-          <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
-          <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
-          <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
-          <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
-          <caret line="63" column="46" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
-          <caret line="57" column="71" selection-start-line="57" selection-start-column="71" selection-end-line="57" selection-end-column="71" />
-          <caret line="54" column="71" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="71" />
-          <caret line="51" column="71" selection-start-line="51" selection-start-column="71" selection-end-line="51" selection-end-column="71" />
-          <caret line="60" column="72" selection-start-line="60" selection-start-column="72" selection-end-line="60" selection-end-column="72" />
-          <caret line="63" column="72" selection-start-line="63" selection-start-column="72" selection-end-line="63" selection-end-column="72" />
-          <caret line="63" column="96" selection-start-line="63" selection-start-column="96" selection-end-line="63" selection-end-column="96" />
-          <caret line="60" column="96" selection-start-line="60" selection-start-column="96" selection-end-line="60" selection-end-column="96" />
-          <caret line="57" column="94" selection-start-line="57" selection-start-column="94" selection-end-line="57" selection-end-column="94" />
-          <caret line="54" column="94" selection-start-line="54" selection-start-column="94" selection-end-line="54" selection-end-column="94" />
-          <caret line="51" column="94" selection-start-line="51" selection-start-column="94" selection-end-line="51" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
+          <caret line="51" column="68" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/script/main.js.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="514" column="64" selection-start-line="514" selection-start-column="64" selection-end-line="514" selection-end-column="64" />
+        <state relative-caret-position="300">
+          <caret line="469" column="28" selection-start-line="469" selection-start-column="28" selection-end-line="469" selection-end-column="28" />
           <folding>
             <element signature="e#3971#6915#0#JavaScript" />
-            <element signature="e#8534#11073#0#JavaScript" />
             <element signature="e#12201#12542#0#JavaScript" />
           </folding>
         </state>
