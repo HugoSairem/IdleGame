@@ -23,4 +23,9 @@ class DefaultController extends Controller
             'password'=> $password,
         ));
     }
+
+    public function upgradeControlAction()
+    {
+        return $this->render('@IdleGame/Default/upgrade.html.twig');
+    }
 }

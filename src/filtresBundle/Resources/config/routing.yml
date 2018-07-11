@@ -1,3 +1,0 @@
-filtres_homepage:
-    path:     /
-    defaults: { _controller: filtresBundle:Default:index }
