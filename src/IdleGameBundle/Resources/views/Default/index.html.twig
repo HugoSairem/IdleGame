@@ -13,13 +13,115 @@
     <div class="leftBlock">
         <div id="BlockMoney">
             <h2>Compte en banque</h2>
-            <span id="subBlockMoney">
-                <h1><span id="compteBanq"></span>$</h1>
-                <h2><span id="incomePSecond"></span>$/s</h2>
-            </span>
+            <div class ="subBlockMoney" id="subBlockMoney">
+                <div>
+                    <h1><span id="compteBanq"></span></h1><img src="{{ asset("images/billet.png") }}" alt="">
+                </div>
+                <div>
+                    <h1>Income</h1><br><h2><span id="incomePSecond"></span></h2><img src="{{ asset("images/billet.png") }}" alt=""><h2>/s</h2>
+                </div>
+            </div>
         </div>
 
         <div class="addMoneyButton Button" onclick="addMoney()">Travailler</div>
+        <div class="upgrade">
+            <!-- ---------UNIT01 UPGRADE--------- -->
+            <div class="upgradeButton upg10 upgUnit01" onclick="buyUpgUnit01_10()" id="upgUnit01_10">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg25 upgUnit01" onclick="buyUpgUnit01_25()" id="upgUnit01_25">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg50 upgUnit01" onclick="buyUpgUnit01_50()" id="upgUnit01_50">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg100 upgUnit01" onclick="buyUpgUnit01_100()" id="upgUnit01_100">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg150 upgUnit01" onclick="buyUpgUnit01_150()" id="upgUnit01_150">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <!-- ---------UNIT02 UPGRADE--------- -->
+            <div class="upgradeButton upg10 upgUnit02" onclick="buyUpgUnit02_10()" id="upgUnit02_10">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg25 upgUnit02" onclick="buyUpgUnit02_25()" id="upgUnit02_25">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg50 upgUnit02" onclick="buyUpgUnit02_50()" id="upgUnit02_50">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg100 upgUnit02" onclick="buyUpgUnit02_100()" id="upgUnit02_100">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg150 upgUnit02" onclick="buyUpgUnit02_150()" id="upgUnit02_150">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <!-- ---------UNIT03 UPGRADE--------- -->
+            <div class="upgradeButton upg10 upgUnit03" onclick="buyUpgUnit03_10()" id="upgUnit03_10">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg25 upgUnit03" onclick="buyUpgUnit03_25()" id="upgUnit03_25">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg50 upgUnit03" onclick="buyUpgUnit03_50()" id="upgUnit03_50">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg100 upgUnit03" onclick="buyUpgUnit03_100()" id="upgUnit03_100">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg150 upgUnit03" onclick="buyUpgUnit03_150()" id="upgUnit03_150">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <!-- ---------UNIT04 UPGRADE--------- -->
+            <div class="upgradeButton upg10 upgUnit04" onclick="buyUpgUnit04_10()" id="upgUnit04_10">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg25 upgUnit04" onclick="buyUpgUnit04_25()" id="upgUnit04_25">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg50 upgUnit04" onclick="buyUpgUnit04_50()" id="upgUnit04_50">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg100 upgUnit04" onclick="buyUpgUnit04_100()" id="upgUnit04_100">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg150 upgUnit04" onclick="buyUpgUnit04_150()" id="upgUnit04_150">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <!-- ---------UNIT05 UPGRADE--------- -->
+            <div class="upgradeButton upg10 upgUnit05" onclick="buyUpgUnit05_10()" id="upgUnit05_10">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg25 upgUnit05" onclick="buyUpgUnit05_25()" id="upgUnit05_25">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg50 upgUnit05" onclick="buyUpgUnit05_50()" id="upgUnit05_50">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg100 upgUnit05" onclick="buyUpgUnit05_100()" id="upgUnit05_100">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg150 upgUnit05" onclick="buyUpgUnit05_150()" id="upgUnit05_150">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <!-- ---------UNIT06 UPGRADE--------- -->
+            <div class="upgradeButton upg10 upgUnit06" onclick="buyUpgUnit06_10()" id="upgUnit06_10">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg25 upgUnit06" onclick="buyUpgUnit06_25()" id="upgUnit06_25">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg50 upgUnit06" onclick="buyUpgUnit06_50()" id="upgUnit06_50">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg100 upgUnit06" onclick="buyUpgUnit06_100()" id="upgUnit06_100">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+            <div class="upgradeButton upg150 upgUnit06" onclick="buyUpgUnit06_150()" id="upgUnit06_150">
+                <div><p>x2</p><img src="{{ asset("images/billet.png") }}" alt=""></div>
+            </div>
+        </div>
         <div class="pushSave Button" onclick="saveMoney()">Save</div>
         <div class="resetSave Button" onclick="resetSave()">Reset Save</div>
     </div>
@@ -36,54 +138,54 @@
     </div>
 
     <div class="rightBlock">
-        <div class="acheterSoldat buyButton" onclick="acheterSoldat()">
-            <span id="nbrSoldat" class="unitCount"></span>
+        <div class="acheterSoldat buyButton" onclick="acheterUnit01()">
+            <span id="nbrUnit01" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Recruter 1 soldat</span>
-                <span class="prixBlock">Prix <span id="prixSoldat" class="prix"></span>$</span>
+                <span class="prixBlock">Prix <span id="prixUnit01" class="prix"></span>$</span>
             </span>
             <img src="{{ asset('images/soldat02.gif') }}" alt="">
         </div>
-        <div class="acheterSoldat2 buyButton" onclick="acheterSoldat2()">
-            <span id="nbrSoldat2" class="unitCount"></span>
+        <div class="acheterSoldat2 buyButton" onclick="acheterUnit02()">
+            <span id="nbrUnit02" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Former 1 commando</span>
-                <span class="prixBlock">Prix <span id="prixSoldat2" class="prix"></span>$</span>
+                <span class="prixBlock">Prix <span id="prixUnit02" class="prix"></span>$</span>
             </span>
             <img src="{{ asset('images/soldat07.gif') }}" alt="">
         </div>
-        <div class="acheterSoldat3 buyButton" onclick="acheterSoldat3()">
-            <span id="nbrSoldat3" class="unitCount"></span>
+        <div class="acheterSoldat3 buyButton" onclick="acheterUnit03()">
+            <span id="nbrUnit03" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Créer 1 cyber-soldat</span>
-                <span class="prixBlock">Prix <span id="prixSoldat3" class="prix"></span>$</span>
+                <span class="prixBlock">Prix <span id="prixUnit03" class="prix"></span>$</span>
             </span>
             <img src="{{ asset('images/soldat09.gif') }}" alt="">
         </div>
 
-        <div class="acheterTank01 buyButton" onclick="acheterMecha()">
-            <span id="nbrTank01" class="unitCount"></span>
+        <div class="acheterTank01 buyButton" onclick="acheterUnit04()">
+            <span id="nbrUnit04" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Construire 1 tank</span>
-                <span class="prixBlock">Prix <span id="prixTank01" class="prix"></span>$</span>
+                <span class="prixBlock">Prix <span id="prixUnit04" class="prix"></span>$</span>
             </span>
             <img src="{{ asset('images/tank01.gif') }}" alt="">
         </div>
 
-        <div class="acheterMecha buyButton" onclick="acheterMecha()">
-            <span id="nbrMecha" class="unitCount"></span>
+        <div class="acheterMecha buyButton" onclick="acheterUnit05()">
+            <span id="nbrUnit05" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Construire 1 mecha</span>
-                <span class="prixBlock">Prix <span id="prixMecha" class="prix"></span>$</span>
+                <span class="prixBlock">Prix <span id="prixUnit05" class="prix"></span>$</span>
             </span>
-            <img src="{{ asset('images/mecha01.gif') }}" alt="">
+            <img src="{{ asset('images/mecha04.gif') }}" alt="">
         </div>
 
-        <div class="acheterMecha02 buyButton" onclick="acheterMecha()">
-            <span id="nbrMecha02" class="unitCount"></span>
+        <div class="acheterMecha02 buyButton" onclick="acheterUnit06()">
+            <span id="nbrUnit06" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Construire 1 mecha</span>
-                <span class="prixBlock">Prix <span id="prixMecha02" class="prix"></span>$</span>
+                <span class="prixBlock">Prix <span id="prixUnit06" class="prix"></span>$</span>
             </span>
             <img src="{{ asset('images/mecha01.gif') }}" alt="">
         </div>
@@ -94,3 +196,5 @@
 <script src="{{ asset('script/main.js.twig') }}"></script>
     </body>
     </html>
+
+

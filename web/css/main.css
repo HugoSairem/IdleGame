@@ -12,6 +12,7 @@
 }
 
 .leftBlock{
+    position:fixed;
     float:left;
     width:20%;
     height:100vh;
@@ -24,6 +25,9 @@
     height:100vh;
     display: inline-block;
     background-color: #8959A8;
+    position:fixed;
+    left:20%;
+
 }
 
 .rightBlock{
@@ -89,12 +93,35 @@
 }
 
 #BlockMoney h2{
-    padding-top:25px;
+
 }
 
-#subBlockMoney{
-    height:180px;
+.subBlockMoney{
+    width:100%;
 }
+
+.subBlockMoney div{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subBlockMoney h1{
+    display: inline-block;
+}
+
+.subBlockMoney img{
+    display: inline-block;
+    width:40px;
+
+}
+
+.subBlockMoney h2{
+    display: inline-block;
+}
+
+
+
 
 .unitCount{
     width:15%;
@@ -165,4 +192,105 @@
 .imgBoss{
     display: flex;
     justify-content: center;
+}
+
+.upgradeButton{
+    justify-content: center;
+    align-items: center;
+    width:50px;
+    height:50px;
+    color:white;
+    font-weight: bold;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left:5px;
+    border:solid #222222 1px;
+
+}
+
+.upgradeButton p{
+    display: inline-block;
+    font-size:18px;
+}
+
+.upgradeButton img{
+    display: inline-block;
+    width:25px;
+}
+
+.upgradeButton div{
+    height:100%;
+    align-self: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upgUnit01{
+    background-image: url("../images/soldat02.gif");
+    background-size: cover;
+}
+
+.upgUnit02{
+    background-image: url("../images/soldat07.gif");
+    background-size: cover;
+}
+
+.upgUnit03{
+    background-image: url("../images/soldat09.gif");
+    background-size: cover;
+}
+
+.upgUnit04{
+    background-image: url("../images/tank01.gif");
+    background-size: cover;
+    background-position:center center;
+
+}
+
+.upgUnit05{
+    background-image: url("../images/mecha04.gif");
+    background-size: cover;
+}
+
+.upgUnit06{
+    background-image: url("../images/mecha01.gif");
+    background-size: cover;
+}
+
+
+.upg10{
+    background-color: #0088CC;
+}
+
+.upg25{
+    background-color: #00ccb0;
+}
+
+.upg50{
+    background-color: #01cc6a;
+}
+
+.upg100{
+    background-color: #00cc0f;
+}
+
+.upg150{
+    background-color: #80cc00;
+}
+
+.upg200{
+    background-color: #b7cc00;
+}
+
+.upg300{
+    background-color: #cc8600;
+}
+
+.upg400{
+    background-color: #cc4500;
+}
+
+.upg500{
+    background-color: #cc001b;
 }
