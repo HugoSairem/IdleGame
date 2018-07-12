@@ -17,10 +17,20 @@
                 <div>
                     <h1><span id="compteBanq"></span></h1><img src="{{ asset("images/billet.png") }}" alt="">
                 </div>
+            </div>
+            <h1>Income</h1>
+            <div class ="subBlockMoney" id="subBlockMoney">
                 <div>
-                    <h1>Income</h1><br><h2><span id="incomePSecond"></span></h2><img src="{{ asset("images/billet.png") }}" alt=""><h2>/s</h2>
+                    <br><h2><span id="incomePSecond"></span></h2><img src="{{ asset("images/billet.png") }}" alt=""><h2>/s</h2>
                 </div>
             </div>
+            <h1>Dégats par seconde</h1>
+            <div class ="subBlockMoney" id="subBlockMoney">
+                <div>
+                    <br><h2><span id="DPSecond"></span></h2><img src="{{ asset("images/fist.png") }}" alt=""><h2>/s</h2>
+                </div>
+            </div>
+
         </div>
 
         <div class="addMoneyButton Button" onclick="addMoney()">Travailler</div>
@@ -34,9 +44,11 @@
         <div id="lifebarContent" class="lifebarContent"><div id="bossLifePoint"></div>
             <div id="life" class="life"></div>
         </div>
+        <div class="backgroundBoss">
         <span class="imgBoss" >
             <img src="" id="imgBoss" alt="">
         </span>
+        </div>
 
     </div>
 

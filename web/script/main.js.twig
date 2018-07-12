@@ -285,16 +285,20 @@ function ShowBanq() {
     var div2 = document.getElementById("incomePSecond");
     div2.textContent = showIncomePSecond;
 
+    var showDPS = translateNumber(degatTotal);
+    var div2 = document.getElementById("DPSecond");
+    div2.textContent = showDPS;
+
     showLifeBoss = translateNumber(lifeBoss);
     showLifeTroops = translateNumber(lifeTroops);
     showLifeMainDoor = translateNumber(lifeMainDoor);
 
     var div3 = document.getElementById("bossLifePoint");
-    if (currentStage=="Main Door"){
+    if (currentStage==="Main Door"){
         div3.textContent = showLifeMainDoor;
-    } else if (currentStage=="Troops"){
+    } else if (currentStage==="Troops"){
         div3.textContent = showLifeTroops;
-    } else if(currentStage=="Boss") {
+    } else if(currentStage==="Boss") {
         div3.textContent = showLifeBoss;
     }
     var div4 = document.getElementById("currentStage");
@@ -441,8 +445,8 @@ function resetSave(){
         prixUnit02=100;
         nbrUnit03=0;
         prixUnit03=1100;
-        baseLifeBoss=1000;
-        lifeBoss=1000;
+        baseLifeBoss=1000000000;
+        lifeBoss=1000000000;
         levelBoss=1;
         nbrUnit04=0;
         prixUnit04=12000;
@@ -450,10 +454,10 @@ function resetSave(){
         prixUnit05=130000;
         nbrUnit06=0;
         prixUnit06=1400000;
-        baseLifeTroops=100;
-        baseLifeMainDoor=15;
-        lifeTroops=100;
-        lifeMainDoor=15;
+        baseLifeTroops=15;
+        baseLifeMainDoor=5;
+        lifeTroops=15;
+        lifeMainDoor=5;
         levelMainDoor=1;
         levelTroops=1;
         bonusGlobalUnit01=0;
@@ -635,7 +639,6 @@ function calcDegats(){
     } else {
         var degat02 =(degatUnit2*nbrUnit02)*bonusDMGGlobalUnit02;
     }
-    console.log(degat02);
     var degat03 =(degatUnit03*nbrUnit03);
     var degat04 =(degatUnit04*nbrUnit04);
     var degat05 =(degatUnit05*nbrUnit05);
@@ -674,6 +677,7 @@ function tickLoop(){
     } else if(currentStage==="Boss") {
         lifeBoss=lifeBoss-degatTotal;
         if (lifeBoss<=0){
+            console.log("Hello")
             bonuKillBoss=baseLifeBoss*2;
             compteBanquaire=compteBanquaire+bonuKillBoss;
             lifeBoss=(baseLifeBoss*2)*levelBoss;
@@ -681,7 +685,6 @@ function tickLoop(){
             levelBoss=levelBoss+1;
             currentStage="Main Door";
             document.getElementById("imgBoss").src="../images/explosion01.gif";
-            setTimeout("nextTickLoop()",1000);
         }
     } else {
     }
@@ -713,7 +716,8 @@ function tickLoop(){
         }
     } else {}
 
-
+    showimgBoss()
+    showBossLevel();
     saveMoney();
     setTimeout("tickLoop()",1000);
 }
