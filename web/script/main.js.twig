@@ -650,6 +650,7 @@ function calcDegats(){
 // Gére les dégats par seconde
 // ''    '' l'argent perçu par seconde
 function tickLoop(){
+    downTimerMission();
     calcDegats();
     compteBanquaire=compteBanquaire+ calcIncome();
 
@@ -685,6 +686,8 @@ function tickLoop(){
             levelBoss=levelBoss+1;
             currentStage="Main Door";
             document.getElementById("imgBoss").src="../images/explosion01.gif";
+            showimgBoss();
+            showBossLevel();
         }
     } else {
     }
@@ -715,9 +718,7 @@ function tickLoop(){
             document.getElementById('life').style.width = pourcentlife+'%';
         }
     } else {}
-
-    showimgBoss()
-    showBossLevel();
+    showTimerMission();
     saveMoney();
     setTimeout("tickLoop()",1000);
 }
@@ -735,6 +736,7 @@ function nextTickLoop(){
         levelTroops=1;
         baseLifeTroops=lifeTroops;
     }
+
     showimgBoss()
     showBossLevel();
 }
@@ -1191,6 +1193,135 @@ function checkUpgrade(){
         bonusGlobalUnit06=bonusGlobalUnit06+2;
     }
 }
+
+// ----- Hero Section
+
+// Envoi du héro en mission
+function timerMissionHero(){
+    var div = document.getElementById('imgHeros');
+    div.style.position = "absolute";
+    div.style.left = 120+"%";
+    div.style.top = -50+"%";
+    div = document.getElementById('enabledMissionButton');
+    div.style.display = "none";
+    div = document.getElementById('disabledMissionButton');
+    div.style.display = "flex";
+
+
+    inMission=true;
+    setTimeout('missionHero()',tempsMission);
+    setTimeout('showAttackHero()',1000);
+}
+
+function missionHero(){
+    if (currentStage==="Main Door"){
+        lifeMainDoor=lifeMainDoor-degatTotalHero;
+    } else if(currentStage==="Troops"){
+        lifeTroops=lifeTroops-degatTotalHero;
+
+    } else if(currentStage==="Boss") {
+        lifeBoss=lifeBoss-degatTotalHero;
+    }
+    compteBanquaire=compteBanquaire+incomeHero;
+    var div = document.getElementById('imgHeros');
+    div.src="../images/hero01.gif";
+    div.style.width=100+'px';
+    div.style.left =36+'%';
+    div.style.top =30+'%';
+
+    setTimeout('resetDeplacementHero()',1000)
+
+}
+
+function showAttackHero(){
+    var div = document.getElementById("imgHeros");
+    div.src="../images/hero01attack01.gif";
+    div.style.width=200+'px';
+}
+
+
+function resetDeplacementHero(){
+    inMission =false;
+    var div = document.getElementById('imgHeros');
+    div.style.position = "static";
+}
+
+function showTimerMission(){
+    var showableTimer = formateTimer(tempsMission);
+    var div = document.getElementById('timerMission');
+    div.textContent = showableTimer;
+    div =  document.getElementById('degatHero');
+    div.textContent = degatTotalHero;
+    div =  document.getElementById('incomeHero');
+    div.textContent = incomeHero;
+
+}
+
+function downTimerMission(){
+    hideMissionButton();
+    if (tempsMission>0 && inMission===true){
+        tempsMission = tempsMission-1000;
+    } else{
+        tempsMission=baseTempsMission;
+    }
+}
+
+function formateTimer(timeToTranslate){
+    var formatedTime;
+    if (timeToTranslate<60000){
+        formatedTime=timeToTranslate.toFixed(2);
+        formatedTime=formatedTime/1000;
+        formatedTime=formatedTime+" sec"
+    } else if (timeToTranslate>=60000 && timeToTranslate<3600000){
+        formatedTime = timeToTranslate/60000;
+        formatedTime=formatedTime+"min";
+    } else if (timeToTranslate>=3600000){
+        formatedTime = timeToTranslate/3600000;
+        formatedTime=formatedTime+"h";
+    }
+    return formatedTime;
+}
+
+function hideMissionButton(){
+    if (inMission===true){
+        var div = document.getElementById('enabledMissionButton');
+        div.style.display = 'none';
+        div = document.getElementById('disabledMissionButton');
+        div.style.display = 'flex';
+    } else {
+        var div = document.getElementById('disabledMissionButton');
+        div.style.display = 'none';
+        div = document.getElementById('enabledMissionButton');
+        div.style.display = 'flex';
+    }
+}
+
+// Affichage achat matériel
+//Weapon
+function showWeaponMenu(){
+    var div = document.getElementById('WeaponMenu');
+    div.style.left = 0+'px';
+}
+
+function hideWeaponMenu(){
+    var div = document.getElementById('WeaponMenu');
+    div.style.left = -500+'px';
+
+
+}
+
+//Buy Hero upg
+//Weapon
+
+function buyUpgWeaponHero01(){
+    if (compteBanquaire>=250){
+    var div = document.getElementById('upgWeaponHero01');
+    div.style.display = 'none';
+    compteBanquaire=compteBanquaire-250;
+    }
+
+}
+
 
 showUnit01();
 showUnit02();

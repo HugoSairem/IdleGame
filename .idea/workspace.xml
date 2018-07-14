@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9cd854c-e390-44fc-9c02-ff53c8bef180" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/web/images/metal01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/images/metal02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/hero01.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/hero01attack01.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/weapons/weapon01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/weapons/weapon01.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/weapons/weapon02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/weapons/weapon03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/weapons/weapon05.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/main.css" afterDir="false" />
@@ -36,7 +41,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="419">
@@ -45,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+            <state relative-caret-position="135">
+              <caret line="56" column="39" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -57,17 +62,8 @@
       <file leaf-file-name="main.js.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/script/main.js.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="682" column="29" selection-start-line="682" selection-start-column="29" selection-end-line="682" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="upgrade.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/upgrade.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-828">
-              <caret line="51" column="68" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
+            <state relative-caret-position="215">
+              <caret line="1253" column="37" selection-start-line="1253" selection-start-column="37" selection-end-line="1253" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -75,7 +71,7 @@
       <file leaf-file-name="upgradeUnit.js.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/script/upgradeUnit.js.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
+            <state relative-caret-position="357">
               <caret line="407" selection-start-line="407" selection-end-line="407" />
             </state>
           </provider>
@@ -84,8 +80,8 @@
       <file leaf-file-name="varGame.js.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/script/varGame.js.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1515">
-              <caret line="101" column="19" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="19" />
+            <state relative-caret-position="-2186">
+              <caret line="126" column="22" selection-start-line="126" selection-start-column="22" selection-end-line="126" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -93,8 +89,8 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="285">
+              <caret line="334" column="1" selection-start-line="334" selection-start-column="1" selection-end-line="334" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -120,22 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>prixUni</find>
-      <find>mecha</find>
-      <find>sub</find>
-      <find>upgUnit02</find>
-      <find>showBoss</find>
-      <find>compteBanquaire</find>
-      <find>showBanq</find>
-      <find>prix</find>
-      <find>deg</find>
-      <find>degatTotal</find>
-      <find>translate</find>
-      <find>translateNumber</find>
-      <find>width</find>
-      <find>life</find>
-      <find>getElementById('life')</find>
-      <find>console</find>
       <find>sauve</find>
       <find>timeno</find>
       <find>calc</find>
@@ -144,12 +124,28 @@
       <find>calcD</find>
       <find>check</find>
       <find>reset</find>
-      <find>show</find>
       <find>imgB</find>
       <find>upgDMGUnit02_10GET</find>
       <find>boss</find>
       <find>baseLifeTroop</find>
       <find>res</find>
+      <find>document</find>
+      <find>middl</find>
+      <find>transi</find>
+      <find>lifeTroops</find>
+      <find>src</find>
+      <find>width</find>
+      <find>life</find>
+      <find>show</find>
+      <find>miss</find>
+      <find>tick</find>
+      <find>inMission=true;</find>
+      <find>inMission</find>
+      <find>console</find>
+      <find>rgb</find>
+      <find>missi</find>
+      <find>hero</find>
+      <find>rgba</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -176,10 +172,10 @@
         <option value="$PROJECT_DIR$/web/script/buyUnit.js.html" />
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/upgrade.html.twig" />
         <option value="$PROJECT_DIR$/web/script/upgradeUnit.js.twig" />
-        <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/web/css/main.css" />
         <option value="$PROJECT_DIR$/web/script/varGame.js.twig" />
         <option value="$PROJECT_DIR$/web/script/main.js.twig" />
+        <option value="$PROJECT_DIR$/web/css/main.css" />
+        <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" />
       </list>
     </option>
   </component>
@@ -238,7 +234,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="5" />
     <option name="y" value="23" />
-    <option name="width" value="1432" />
+    <option name="width" value="1435" />
     <option name="height" value="857" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -310,6 +306,12 @@
               <item name="idle_game" type="b2602c69:ProjectViewProjectNode" />
               <item name="idle_game" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="idle_game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="idle_game" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="script" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -327,10 +329,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web/images" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/images/weapons" />
       <recent name="$PROJECT_DIR$/web/images" />
     </key>
   </component>
@@ -359,18 +362,18 @@
       <workItem from="1530903835216" duration="97186000" />
       <workItem from="1531318454976" duration="106000" />
       <workItem from="1531327865202" duration="11134000" />
-      <workItem from="1531382643742" duration="3190000" />
+      <workItem from="1531382643742" duration="27551000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111616000" />
+    <option name="totallyTimeSpent" value="135977000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="23" width="1432" height="857" extended-state="0" />
+    <frame x="5" y="23" width="1435" height="857" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26043165" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25987077" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -379,7 +382,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32971507" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32971507" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -627,52 +630,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+        <state relative-caret-position="419">
+          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/main.css">
+    <entry file="file://$PROJECT_DIR$/web/images/soldat03.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/images/soldat04.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/images/soldat05.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/images/soldat06.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/images/soldat07.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/images/soldat08.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/images/soldat09.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/upgrade.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="765">
+          <caret line="51" column="68" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/script/upgradeUnit.js.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
+        <state relative-caret-position="357">
           <caret line="407" selection-start-line="407" selection-end-line="407" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/script/varGame.js.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
-          <caret line="101" column="19" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/script/main.js.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="682" column="29" selection-start-line="682" selection-start-column="29" selection-end-line="682" selection-end-column="29" />
+        <state relative-caret-position="215">
+          <caret line="1253" column="37" selection-start-line="1253" selection-start-column="37" selection-end-line="1253" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/upgrade.html.twig">
+    <entry file="file://$PROJECT_DIR$/web/script/varGame.js.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-828">
-          <caret line="51" column="68" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
+        <state relative-caret-position="-2186">
+          <caret line="126" column="22" selection-start-line="126" selection-start-column="22" selection-end-line="126" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php">
+    <entry file="file://$PROJECT_DIR$/web/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+        <state relative-caret-position="285">
+          <caret line="334" column="1" selection-start-line="334" selection-start-column="1" selection-end-line="334" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="56" column="39" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
         </state>
       </provider>
     </entry>

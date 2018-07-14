@@ -32,8 +32,45 @@
             </div>
 
         </div>
-
-        <div class="addMoneyButton Button" onclick="addMoney()">Travailler</div>
+        <div class="heroBlock">
+            <div class="upgHeroMenu" id="WeaponMenu" >
+                <div class="crossContent">
+                    <div class="closeCross" onclick="hideWeaponMenu()">X</div>
+                </div>
+                    <div class="upgHero" id="upgWeaponHero01" onclick="buyUpgWeaponHero01()"></div>
+                    <div class="upgHero" id="upgWeaponHero02" onclick="buyUpgWeaponHero02()"></div>
+                    <div class="upgHero" id="upgWeaponHero03" onclick="buyUpgWeaponHero03()"></div>
+                    <div class="upgHero" id="upgWeaponHero04" onclick="buyUpgWeaponHero04()"></div>
+                    <div class="upgHero" id="upgWeaponHero05" onclick="buyUpgWeaponHero05()"></div>
+                    <div class="upgHero" id="upgWeaponHero06" onclick="buyUpgWeaponHero06()"></div>
+                    <div class="upgHero" id="upgWeaponHero07" onclick="buyUpgWeaponHero07()"></div>
+                    <div class="upgHero" id="upgWeaponHero08" onclick="buyUpgWeaponHero08()"></div>
+            </div>
+            <div class="statHero">
+                <span>
+                Degats :<div id="degatHero"></div>
+                </span>
+                <span>
+                Income :<div id="incomeHero"></div>
+                </span>
+            </div>
+            <div id="heroNameBlock"><h1 class="heroName" id="heroName">Delta</h1></div>
+            <div class="heroMiddle">
+                <div class="heroSlot" id="heroGear"></div>
+                <div class="heroSlot" id="heroWeapon" onclick="showWeaponMenu()"></div>
+                <div class="imgHeroBlock">
+                    <img class="imgHero" id="imgHeros" src="{{ asset('images/hero01.gif') }}" alt="">
+                </div>
+                <div class="heroSlot" id="heroSideWeapon"></div>
+                <div class="heroSlot" id="heroCompanion"></div>
+            </div>
+        </div>
+        <div class="timerMission">
+            <h2>Temps avant fin de mission</h2>
+            <h3 id="timerMission"></h3>
+        </div>
+        <div class="addMoneyButton Button" id="enabledMissionButton" onclick="timerMissionHero()">Envoyer en mission</div>
+        <div class="addMoneyButton Button DisabledButton" id="disabledMissionButton">Envoyer en mission</div>
         {{ render(controller('IdleGameBundle:Default:upgradeControl')) }}
         <div class="pushSave Button" onclick="saveMoney()">Save</div>
         <div class="resetSave Button" onclick="resetSave()">Reset Save</div>
