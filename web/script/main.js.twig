@@ -1,13 +1,11 @@
 // Vérification de l'existence d'une sauvegarde
-if (localStorage!=null){
+try{
     lectureMoney();// Charger la sauvegarde si elle existe
-} else {
-    resetSave();// Mettre les variables à leur valeur de début de partie
-    lectureMoney();// Lire la sauvegarde pour éviter tout problème de sauvegarde par la suite
+} catch {
+    saveMoney();
+    resetSave();
+    lectureMoney();
 }
-
-// Vérification de l'acquisition d'upgrade par le joueur
-checkUpgrade();
 
 // Fonction de transformation des nombres trop grand
 // 1000 =1K, 1.000.000 = 1M etc...
@@ -56,111 +54,23 @@ function translateNumber(numberToTranslate){
         var stringdivisedNumber=divisedNumber.toFixed(2).toString();
         formatedNumber=stringdivisedNumber+"Ab";
     }
-
     return formatedNumber;
 }
 
 // fonction de sauvegarde dans les cookies
 function saveMoney(){
-    localStorage.clear();
     var sauvegarde = {
         compteBanquaire,
-        nbrUnit01,
-        prixUnit01,
-        nbrUnit02,
-        prixUnit02,
-        nbrUnit03,
-        prixUnit03,
-        nbrUnit04,
-        prixUnit04,
-        nbrUnit05,
-        prixUnit05,
-        nbrUnit06,
-        prixUnit06,
-        baseLifeBoss,
-        lifeBoss,
-        levelBoss,
-        baseLifeTroops,
-        baseLifeMainDoor,
-        lifeTroops,
-        lifeMainDoor,
-        levelMainDoor,
-        levelTroops,
-        currentStage,
-        // UPGRADE SECTION
-        // ---UNIT01
-        // - MONEY
-        upgUnit01_10GET,
-        upgUnit01_25GET,
-        upgUnit01_50GET,
-        upgUnit01_100GET,
-        upgUnit01_150GET,
-        // - DMG
-        upgDMGUnit01_10GET,
-        upgDMGUnit01_25GET,
-        upgDMGUnit01_50GET,
-        upgDMGUnit01_100GET,
-        upgDMGUnit01_150GET,
-        //UNIT02
-        upgUnit02_10GET,
-        upgUnit02_25GET,
-        upgUnit02_50GET,
-        upgUnit02_100GET,
-        upgUnit02_150GET,
-        // - DMG
-        upgDMGUnit02_10GET,
-        upgDMGUnit02_25GET,
-        upgDMGUnit02_50GET,
-        upgDMGUnit02_100GET,
-        upgDMGUnit02_150GET,
-        //UNIT03
-        upgUnit03_10GET,
-        upgUnit03_25GET,
-        upgUnit03_50GET,
-        upgUnit03_100GET,
-        upgUnit03_150GET,
-        // - DMG
-        upgDMGUnit03_10GET,
-        upgDMGUnit03_25GET,
-        upgDMGUnit03_50GET,
-        upgDMGUnit03_100GET,
-        upgDMGUnit03_150GET,
-        //UNIT04
-        upgUnit04_10GET,
-        upgUnit04_25GET,
-        upgUnit04_50GET,
-        upgUnit04_100GET,
-        upgUnit04_150GET,
-        // - DMG
-        upgDMGUnit04_10GET,
-        upgDMGUnit04_25GET,
-        upgDMGUnit04_50GET,
-        upgDMGUnit04_100GET,
-        upgDMGUnit04_150GET,
-        //UNIT05
-        upgUnit05_10GET,
-        upgUnit05_25GET,
-        upgUnit05_50GET,
-        upgUnit05_100GET,
-        upgUnit05_150GET,
-        // - DMG
-        upgDMGUnit05_10GET,
-        upgDMGUnit05_25GET,
-        upgDMGUnit05_50GET,
-        upgDMGUnit05_100GET,
-        upgDMGUnit05_150GET,
-        //UNIT026
-        upgUnit06_10GET,
-        upgUnit06_25GET,
-        upgUnit06_50GET,
-        upgUnit06_100GET,
-        upgUnit06_150GET,
-        // - DMG
-        upgDMGUnit06_10GET,
-        upgDMGUnit06_25GET,
-        upgDMGUnit06_50GET,
-        upgDMGUnit06_100GET,
-        upgDMGUnit06_150GET,
+        Unit01,
+        Unit02,
+        Unit03,
+        Unit04,
+        Unit05,
+        Unit06,
+        ennemyDoor,
+        ennemyTroops,
+        ennemyBoss,
+        currentStage
     };
     localStorage.setItem('coord',JSON.stringify(sauvegarde));
 }
@@ -169,101 +79,16 @@ function saveMoney(){
 function lectureMoney(){
     var sauvegarde = JSON.parse(localStorage.getItem('coord'));
     compteBanquaire = sauvegarde.compteBanquaire;
-    nbrUnit01=sauvegarde.nbrUnit01;
-    prixUnit01=sauvegarde.prixUnit01;
-    nbrUnit02=sauvegarde.nbrUnit02;
-    prixUnit02=sauvegarde.prixUnit02;
-    nbrUnit03=sauvegarde.nbrUnit03;
-    prixUnit03=sauvegarde.prixUnit03;
-    nbrUnit04=sauvegarde.nbrUnit04;
-    prixUnit04=sauvegarde.prixUnit04;
-    nbrUnit05=sauvegarde.nbrUnit05;
-    prixUnit05=sauvegarde.prixUnit05;
-    nbrUnit06=sauvegarde.nbrUnit06;
-    prixUnit06=sauvegarde.prixUnit06;
-    baseLifeBoss=sauvegarde.baseLifeBoss;
-    lifeBoss=sauvegarde.lifeBoss;
-    levelBoss=sauvegarde.levelBoss;
-    baseLifeTroops=sauvegarde.baseLifeTroops;
-    baseLifeMainDoor=sauvegarde.baseLifeMainDoor;
-    lifeTroops=sauvegarde.lifeTroops;
-    lifeMainDoor=sauvegarde.lifeMainDoor;
-    levelMainDoor=sauvegarde.levelMainDoor;
-    levelTroops=sauvegarde.levelTroops;
+    Unit01 = sauvegarde.Unit01;
+    Unit02 = sauvegarde.Unit02;
+    Unit03 = sauvegarde.Unit03;
+    Unit04 = sauvegarde.Unit04;
+    Unit05 = sauvegarde.Unit05;
+    Unit06 = sauvegarde.Unit06;
+    ennemyDoor = sauvegarde.ennemyDoor;
+    ennemyTroops = sauvegarde.ennemyTroops;
+    ennemyBoss = sauvegarde.ennemyBoss;
     currentStage=sauvegarde.currentStage;
-    //---------UPGRADE SECTION
-    //-----UNIT01
-    upgUnit01_10GET=sauvegarde.upgUnit01_10GET;
-    upgUnit01_25GET=sauvegarde.upgUnit01_25GET;
-    upgUnit01_50GET=sauvegarde.upgUnit01_50GET;
-    upgUnit01_100GET=sauvegarde.upgUnit01_100GET;
-    upgUnit01_150GET=sauvegarde.upgUnit01_150GET;
-    //--DMG01
-    upgDMGUnit01_10GET=sauvegarde.upgDMGUnit01_10GET;
-    upgDMGUnit01_25GET=sauvegarde.upgDMGUnit01_25GET;
-    upgDMGUnit01_50GET=sauvegarde.upgDMGUnit01_50GET;
-    upgDMGUnit01_100GET=sauvegarde.upgDMGUnit01_100GET;
-    upgDMGUnit01_150GET=sauvegarde.upgDMGUnit01_150GET;
-    //UNIT02
-    upgUnit02_10GET=sauvegarde.upgUnit02_10GET;
-    upgUnit02_25GET=sauvegarde.upgUnit02_25GET;
-    upgUnit02_50GET=sauvegarde.upgUnit02_50GET;
-    upgUnit02_100GET=sauvegarde.upgUnit02_100GET;
-    upgUnit02_150GET=sauvegarde.upgUnit02_150GET;
-    //--DMG02
-    upgDMGUnit02_10GET=sauvegarde.upgDMGUnit02_10GET;
-    upgDMGUnit02_25GET=sauvegarde.upgDMGUnit02_25GET;
-    upgDMGUnit02_50GET=sauvegarde.upgDMGUnit02_50GET;
-    upgDMGUnit02_100GET=sauvegarde.upgDMGUnit02_100GET;
-    upgDMGUnit02_150GET=sauvegarde.upgDMGUnit02_150GET;
-    //UNIT03
-    upgUnit03_10GET=sauvegarde.upgUnit03_10GET;
-    upgUnit03_25GET=sauvegarde.upgUnit03_25GET;
-    upgUnit03_50GET=sauvegarde.upgUnit03_50GET;
-    upgUnit03_100GET=sauvegarde.upgUnit03_100GET;
-    upgUnit03_150GET=sauvegarde.upgUnit03_150GET;
-    //--DMG03
-    upgDMGUnit03_10GET=sauvegarde.upgDMGUnit03_10GET;
-    upgDMGUnit03_25GET=sauvegarde.upgDMGUnit03_25GET;
-    upgDMGUnit03_50GET=sauvegarde.upgDMGUnit03_50GET;
-    upgDMGUnit03_100GET=sauvegarde.upgDMGUnit03_100GET;
-    upgDMGUnit03_150GET=sauvegarde.upgDMGUnit03_150GET;
-    //UNIT04
-    upgUnit04_10GET=sauvegarde.upgUnit04_10GET;
-    upgUnit04_25GET=sauvegarde.upgUnit04_25GET;
-    upgUnit04_50GET=sauvegarde.upgUnit04_50GET;
-    upgUnit04_100GET=sauvegarde.upgUnit04_100GET;
-    upgUnit04_150GET=sauvegarde.upgUnit04_150GET;
-    //--DMG04
-    upgDMGUnit04_10GET=sauvegarde.upgDMGUnit04_10GET;
-    upgDMGUnit04_25GET=sauvegarde.upgDMGUnit04_25GET;
-    upgDMGUnit04_50GET=sauvegarde.upgDMGUnit04_50GET;
-    upgDMGUnit04_100GET=sauvegarde.upgDMGUnit04_100GET;
-    upgDMGUnit04_150GET=sauvegarde.upgDMGUnit04_150GET;
-    //UNIT05
-    upgUnit05_10GET=sauvegarde.upgUnit05_10GET;
-    upgUnit05_25GET=sauvegarde.upgUnit05_25GET;
-    upgUnit05_50GET=sauvegarde.upgUnit05_50GET;
-    upgUnit05_100GET=sauvegarde.upgUnit05_100GET;
-    upgUnit05_150GET=sauvegarde.upgUnit05_150GET;
-    //--DMG05
-    upgDMGUnit05_10GET=sauvegarde.upgDMGUnit05_10GET;
-    upgDMGUnit05_25GET=sauvegarde.upgDMGUnit05_25GET;
-    upgDMGUnit05_50GET=sauvegarde.upgDMGUnit05_50GET;
-    upgDMGUnit05_100GET=sauvegarde.upgDMGUnit05_100GET;
-    upgDMGUnit05_150GET=sauvegarde.upgDMGUnit05_150GET;
-    //UNIT06
-    upgUnit06_10GET=sauvegarde.upgUnit06_10GET;
-    upgUnit06_25GET=sauvegarde.upgUnit06_25GET;
-    upgUnit06_50GET=sauvegarde.upgUnit06_50GET;
-    upgUnit06_100GET=sauvegarde.upgUnit06_100GET;
-    upgUnit06_150GET=sauvegarde.upgUnit06_150GET;
-    //--DMG06
-    upgDMGUnit06_10GET=sauvegarde.upgDMGUnit06_10GET;
-    upgDMGUnit06_25GET=sauvegarde.upgDMGUnit06_25GET;
-    upgDMGUnit06_50GET=sauvegarde.upgDMGUnit06_50GET;
-    upgDMGUnit06_100GET=sauvegarde.upgDMGUnit06_100GET;
-    upgDMGUnit06_150GET=sauvegarde.upgDMGUnit06_150GET;
 }
 
 // Fonction du bouton travailler
@@ -276,7 +101,8 @@ function addMoney (){
 // tick toute les 33 millisecondes afin d'afficher 30 images par secondes
 // gére les affichages
 function ShowBanq() {
-    showBonus();
+    arrayUnit =[Unit01,Unit02,Unit03,Unit04,Unit05,Unit06];
+    showUpgrade();
     showCompteBanquaire=translateNumber(compteBanquaire);
     var div = document.getElementById("compteBanq");
     div.textContent = showCompteBanquaire;
@@ -289,9 +115,9 @@ function ShowBanq() {
     var div2 = document.getElementById("DPSecond");
     div2.textContent = showDPS;
 
-    showLifeBoss = translateNumber(lifeBoss);
-    showLifeTroops = translateNumber(lifeTroops);
-    showLifeMainDoor = translateNumber(lifeMainDoor);
+    showLifeBoss = translateNumber(ennemyBoss.life);
+    showLifeTroops = translateNumber(ennemyTroops.life);
+    showLifeMainDoor = translateNumber(ennemyDoor.life);
 
     var div3 = document.getElementById("bossLifePoint");
     if (currentStage==="Main Door"){
@@ -322,44 +148,44 @@ function showimgBoss(){
 //Unit01
 function showUnit01(){
     var div2 = document.getElementById("nbrUnit01");
-    div2.textContent = nbrUnit01;
+    div2.textContent = Unit01.quantity;
     div2 = document.getElementById("prixUnit01");
-    div2.textContent = translateNumber(prixUnit01);
+    div2.textContent = translateNumber(Unit01.prix);
 }
 //Unit02
 function showUnit02(){
     var div2 = document.getElementById("nbrUnit02");
-    div2.textContent = nbrUnit02;
+    div2.textContent = Unit02.quantity;
     div2 = document.getElementById("prixUnit02");
-    div2.textContent = translateNumber(prixUnit02);
+    div2.textContent = translateNumber(Unit02.prix);
 }
 //Unit03
 function showUnit03(){
     var div2 = document.getElementById("nbrUnit03");
-    div2.textContent = nbrUnit03;
+    div2.textContent = Unit03.quantity;
     div2 = document.getElementById("prixUnit03");
-    div2.textContent = translateNumber(prixUnit03);
+    div2.textContent = translateNumber(Unit03.prix);
 }
 //Unit04
 function showUnit04(){
     var div2 = document.getElementById("nbrUnit04");
-    div2.textContent = nbrUnit04;
+    div2.textContent = Unit04.quantity;
     div2 = document.getElementById("prixUnit04");
-    div2.textContent = translateNumber(prixUnit04);
+    div2.textContent = translateNumber(Unit04.prix);
 }
 //Unit05
 function showUnit05(){
     var div2 = document.getElementById("nbrUnit05");
-    div2.textContent = nbrUnit05;
+    div2.textContent = Unit05.quantity;
     div2 = document.getElementById("prixUnit05");
-    div2.textContent = translateNumber(prixUnit05);
+    div2.textContent = translateNumber(Unit05.prix);
 }
 //Unit06
 function showUnit06(){
     var div2 = document.getElementById("nbrUnit06");
-    div2.textContent = nbrUnit06;
+    div2.textContent = Unit06.quantity;
     div2 = document.getElementById("prixUnit06");
-    div2.textContent = translateNumber(prixUnit06);
+    div2.textContent = translateNumber(Unit06.prix);
 }
 
 // Calcule l'argent perçu par seconde total
@@ -376,174 +202,85 @@ function calcIncome(){
 
 // Calcule l'argent perçu par seconde pour UNIT01
 function calcIncomeUnit01(){
-    if (bonusGlobalUnit01===0){
-        incomeUnit01= (nbrUnit01*0.1);
+    if (Unit01.globalBonus===0){
+        Unit01.income = (Unit01.quantity*0.1);
 
     } else {
-        incomeUnit01= (nbrUnit01*0.1)*bonusGlobalUnit01;
+        Unit01.income= (Unit01.quantity*0.1)*Unit01.globalBonus;
     }
-    return incomeUnit01;
+
+    return Unit01.income;
 }
 
 // Calcule l'argent perçu par seconde pour UNIT02
 function calcIncomeUnit02(){
-    if (bonusGlobalUnit02===0) {
-        incomeUnit02 = nbrUnit02 * 1;
+    if (Unit02.globalBonus===0) {
+        Unit02.income = Unit02.quantity * 1;
     } else {
-        incomeUnit02= (nbrUnit02*1)*bonusGlobalUnit02
+        Unit02.income= (Unit02.quantity*1)*Unit02.globalBonus
     }
-    return incomeUnit02;
+    return Unit02.income;
 }
 
 // Calcule l'argent perçu par seconde pour UNIT03
 function calcIncomeUnit03(){
-    if (bonusGlobalUnit03===0) {
-        incomeUnit03 = nbrUnit03 * 8;
+    if (Unit03.globalBonus===0) {
+        Unit03.income = Unit03.quantity * 8;
     } else {
-        incomeUnit03= (nbrUnit03*8)*bonusGlobalUnit03
+        Unit03.income= (Unit03.quantity*8)*Unit03.globalBonus
     }
-    return incomeUnit03;
+    return Unit03.income;
 }
 
 // Calcule l'argent perçu par seconde pour UNIT04
 function calcIncomeUnit04(){
-    if (bonusGlobalUnit04===0) {
-        incomeUnit04 = nbrUnit04 * 47;
+    if (Unit04.globalBonus===0) {
+        Unit04.income = Unit04.quantity * 47;
     } else {
-        incomeUnit04= (nbrUnit04*47)*bonusGlobalUnit04
+        Unit04.income= (Unit04.quantity*47)*Unit04.globalBonus
     }
-    return incomeUnit04;
+    return Unit04.income;
 }
 
 // Calcule l'argent perçu par seconde pour UNIT05
 function calcIncomeUnit05(){
-    if (bonusGlobalUnit05===0) {
-        incomeUnit05 = nbrUnit05 * 260;
+    if (Unit05.globalBonus===0) {
+        Unit05.income = Unit05.quantity * 260;
     } else {
-        incomeUnit05= (nbrUnit05*260)*bonusGlobalUnit05
+        Unit05.income= (Unit05.quantity*260)*Unit05.globalBonus
     }
-    return incomeUnit05;
+    return Unit05.income;
 }
 
 // Calcule l'argent perçu par seconde pour UNIT06
 function calcIncomeUnit06(){
-    if (bonusGlobalUnit06===0) {
-        incomeUnit06 = nbrUnit06 * 1400;
+    if (Unit06.globalBonus===0) {
+        Unit06.income = Unit06.quantity * 1400;
     } else {
-        incomeUnit06= (nbrUnit06*1400)*bonusGlobalUnit06
+        Unit06.income= (Unit06.quantity*1400)*Unit06.globalBonus
     }
-    return incomeUnit06;
+    return Unit06.income;
 }
 
 // ------ RESET SAVE ------
 function resetSave(){
     if (confirm("Êtes-vous sur de vouloir supprimer votre sauvegarde ?")==true) {
         compteBanquaire=0;
-        nbrUnit01=0;
-        prixUnit01=15;
-        nbrUnit02=0;
-        prixUnit02=100;
-        nbrUnit03=0;
-        prixUnit03=1100;
-        baseLifeBoss=1000000000;
-        lifeBoss=1000000000;
-        levelBoss=1;
-        nbrUnit04=0;
-        prixUnit04=12000;
-        nbrUnit05=0;
-        prixUnit05=130000;
-        nbrUnit06=0;
-        prixUnit06=1400000;
-        baseLifeTroops=15;
-        baseLifeMainDoor=5;
-        lifeTroops=15;
-        lifeMainDoor=5;
-        levelMainDoor=1;
-        levelTroops=1;
-        bonusGlobalUnit01=0;
-        bonusGlobalUnit02=0;
-        bonusGlobalUnit03=0;
-        bonusGlobalUnit04=0;
-        bonusGlobalUnit05=0;
-        bonusGlobalUnit06=0;
-        bonusDMGGlobalUnit01=0;
-        bonusDMGGlobalUnit02=0;
-        bonusDMGGlobalUnit03=0;
-        bonusDMGGlobalUnit04=0;
-        bonusDMGGlobalUnit05=0;
-        bonusDMGGlobalUnit06=0;
-        // UNIT01 RESET
-        upgUnit01_10GET=false;
-        upgUnit01_25GET=false;
-        upgUnit01_50GET=false;
-        upgUnit01_100GET=false;
-        upgUnit01_150GET=false;
-        //DMG01
-        upgDMGUnit01_10GET=false;
-        upgDMGUnit01_25GET=false;
-        upgDMGUnit01_50GET=false;
-        upgDMGUnit01_100GET=false;
-        upgDMGUnit01_150GET=false;
-        // UNIT02 RESET
-        upgUnit02_10GET=false;
-        upgUnit02_25GET=false;
-        upgUnit02_50GET=false;
-        upgUnit02_100GET=false;
-        upgUnit02_150GET=false;
-        //DMG02
-        upgDMGUnit02_10GET=false;
-        upgDMGUnit02_25GET=false;
-        upgDMGUnit02_50GET=false;
-        upgDMGUnit02_100GET=false;
-        upgDMGUnit02_150GET=false;
-        // UNIT03 RESET
-        upgUnit03_10GET=false;
-        upgUnit03_25GET=false;
-        upgUnit03_50GET=false;
-        upgUnit03_100GET=false;
-        upgUnit03_150GET=false;
-        //DMG03
-        upgDMGUnit03_10GET=false;
-        upgDMGUnit03_25GET=false;
-        upgDMGUnit03_50GET=false;
-        upgDMGUnit03_100GET=false;
-        upgDMGUnit03_150GET=false;
-        // UNIT04 RESET
-        upgUnit04_10GET=false;
-        upgUnit04_25GET=false;
-        upgUnit04_50GET=false;
-        upgUnit04_100GET=false;
-        upgUnit04_150GET=false;
-        //DMG04
-        upgDMGUnit04_10GET=false;
-        upgDMGUnit04_25GET=false;
-        upgDMGUnit04_50GET=false;
-        upgDMGUnit04_100GET=false;
-        upgDMGUnit04_150GET=false;
-        // UNIT05 RESET
-        upgUnit05_10GET=false;
-        upgUnit05_25GET=false;
-        upgUnit05_50GET=false;
-        upgUnit05_100GET=false;
-        upgUnit05_150GET=false;
-        //DMG05
-        upgDMGUnit05_10GET=false;
-        upgDMGUnit05_25GET=false;
-        upgDMGUnit05_50GET=false;
-        upgDMGUnit05_100GET=false;
-        upgDMGUnit05_150GET=false;
-        // UNIT06 RESET
-        upgUnit06_10GET=false;
-        upgUnit06_25GET=false;
-        upgUnit06_50GET=false;
-        upgUnit06_100GET=false;
-        upgUnit06_150GET=false;
-        //DMG06
-        upgDMGUnit06_10GET=false;
-        upgDMGUnit06_25GET=false;
-        upgDMGUnit06_50GET=false;
-        upgDMGUnit06_100GET=false;
-        upgDMGUnit06_150GET=false;
+        Unit01=basearrayUnit[0];
+        Unit02=basearrayUnit[1];
+        Unit03=basearrayUnit[2];
+        Unit04=basearrayUnit[3];
+        Unit05=basearrayUnit[4];
+        Unit06=basearrayUnit[5];
+        ennemyBoss.baseLife=1000000000;
+        ennemyBoss.life=1000000000;
+        ennemyBoss.level=1;
+        ennemyTroops.baseLife=15;
+        ennemyDoor.baseLife=5;
+        ennemyTroops.life=15;
+        ennemyDoor.life=5;
+        ennemyDoor.level=1;
+        ennemyTroops.level=1;
         currentStage="Main Door";
         saveMoney();
         showUnit01();
@@ -561,88 +298,47 @@ function resetSave(){
 }
 
 // ------ BUY UNIT ------
-function acheterUnit01(){
-    if (compteBanquaire >= prixUnit01){
-        compteBanquaire=compteBanquaire-prixUnit01;
-        prixUnit01=prixUnit01*1.15;
-        nbrUnit01=nbrUnit01+1;
-        showUnit01();
-    } else {
 
-    }
-}
-
-function acheterUnit02(){
-    if (compteBanquaire >= prixUnit02){
-        compteBanquaire=compteBanquaire-prixUnit02;
-        prixUnit02=prixUnit02*1.15;
-        nbrUnit02=nbrUnit02+1;
-        showUnit02();
-    } else {
-
-    }
-}
-
-function acheterUnit03(){
-    if (compteBanquaire >= prixUnit03){
-        compteBanquaire=compteBanquaire-prixUnit03;
-        prixUnit03=prixUnit03*1.15;
-        nbrUnit03=nbrUnit03+1;
-        showUnit03();
-    } else {
-
-    }
-}
-
-function acheterUnit04(){
-    if (compteBanquaire >= prixUnit04){
-        compteBanquaire=compteBanquaire-prixUnit04;
-        prixUnit04=prixUnit04*1.15;
-        nbrUnit04=nbrUnit04+1;
-        showUnit04();
-    } else {
-
-    }
-}
-
-function acheterUnit05(){
-    if (compteBanquaire >= prixUnit05){
-        compteBanquaire=compteBanquaire-prixUnit05;
-        prixUnit05=prixUnit05*1.15;
-        nbrUnit05=nbrUnit05+1;
-        showUnit05();
-    } else {
-
-    }
-}
-
-function acheterUnit06(){
-    if (compteBanquaire >= prixUnit06){
-        compteBanquaire=compteBanquaire-prixUnit06;
-        prixUnit06=prixUnit06*1.15;
-        nbrUnit06=nbrUnit06+1;
-        showUnit06();
-    } else {
-
+function buyUnit(name,show){
+    if (compteBanquaire >= name.prix){
+        name.quantity+=1;
+        compteBanquaire-=name.prix;
+        show();
     }
 }
 
 //Calcule les dégats
 function calcDegats(){
-    if (bonusDMGGlobalUnit01===0){
-        var degat01 =(degatUnit01*nbrUnit01);
+    if (Unit01.globalDmgBonus===0){
+        var degat01 =(Unit01.degats*Unit01.quantity);
     } else {
-        var degat01 =(degatUnit01*nbrUnit01)*bonusDMGGlobalUnit01;
+        var degat01 =(Unit01.degats*Unit01.quantity)*Unit01.globalDmgBonus;
     }
-    if (bonusDMGGlobalUnit02===0){
-        var degat02 =(degatUnit2*nbrUnit02);
+    if (Unit02.globalDmgBonus===0){
+        var degat02 =(Unit02.degats*Unit02.quantity);
     } else {
-        var degat02 =(degatUnit2*nbrUnit02)*bonusDMGGlobalUnit02;
+        var degat02 =(Unit02.degats*Unit02.quantity)*Unit02.globalDmgBonus;
     }
-    var degat03 =(degatUnit03*nbrUnit03);
-    var degat04 =(degatUnit04*nbrUnit04);
-    var degat05 =(degatUnit05*nbrUnit05);
-    var degat06 =(degatUnit06*nbrUnit06);
+    if (Unit03.globalDmgBonus===0){
+        var degat03 =(Unit03.degats*Unit03.quantity);
+    } else {
+        var degat03 =(Unit03.degats*Unit03.quantity)*Unit03.globalDmgBonus;
+    }
+    if (Unit04.globalDmgBonus===0){
+        var degat04 =(Unit04.degats*Unit04.quantity);
+    } else {
+        var degat04 =(Unit04.degats*Unit04.quantity)*Unit04.globalDmgBonus;
+    }
+    if (Unit05.globalDmgBonus===0){
+        var degat05 =(Unit05.degats*Unit05.quantity);
+    } else {
+        var degat05 =(Unit05.degats*Unit05.quantity)*Unit05.globalDmgBonus;
+    }
+    if (Unit06.globalDmgBonus===0){
+        var degat06 =(Unit06.degats*Unit06.quantity);
+    } else {
+        var degat06 =(Unit06.degats*Unit06.quantity)*Unit06.globalDmgBonus;
+    }
     degatTotal= degat01+degat02+degat03+degat04+degat05+degat06;
 }
 
@@ -655,35 +351,34 @@ function tickLoop(){
     compteBanquaire=compteBanquaire+ calcIncome();
 
     if (currentStage==="Main Door"){
-        lifeMainDoor=lifeMainDoor-degatTotal;
-        if (lifeMainDoor<=0) {
-            lifeMainDoor = ((baseLifeMainDoor * 1.2)*levelMainDoor)*levelBoss;
-            baseLifeMainDoor=lifeMainDoor;
-            levelMainDoor = levelMainDoor + 1;
-            compteurBossDoor = (5 + levelBoss);
+        ennemyDoor.life=ennemyDoor.life-degatTotal;
+        if (ennemyDoor.life<=0) {
+            ennemyDoor.life = ((ennemyDoor.baseLife * 1.2)*ennemyDoor.level)*ennemyBoss.level;
+            ennemyDoor.baseLife=ennemyDoor.life;
+            ennemyDoor.level = ennemyDoor.level + 1;
+            compteurBossDoor = (5 + ennemyBoss.level);
             document.getElementById("imgBoss").src = "../images/explosion01.gif";
             setTimeout("nextTickLoop()",1000);
         }
 
     } else if(currentStage==="Troops"){
-        lifeTroops=lifeTroops-degatTotal;
-        if (lifeTroops<=0){
-            levelTroops=levelTroops+1;
-            lifeTroops=((baseLifeTroops*1.2)*levelTroops)*levelBoss;
-            baseLifeTroops=lifeTroops;
-            compteurBossTroops=10+(levelBoss*2)
+        ennemyTroops.life=ennemyTroops.life-degatTotal;
+        if (ennemyTroops.life<=0){
+            ennemyTroops.level=ennemyTroops.level+1;
+            ennemyTroops.life=((ennemyTroops.baseLife*1.2)*ennemyTroops.level)*ennemyBoss.level;
+            ennemyTroops.baseLife=ennemyTroops.life;
+            compteurBossTroops=10+(ennemyBoss.level*2)
             document.getElementById("imgBoss").src="../images/explosion01.gif";
             setTimeout("nextTickLoop()",1000);
         }
     } else if(currentStage==="Boss") {
-        lifeBoss=lifeBoss-degatTotal;
-        if (lifeBoss<=0){
-            console.log("Hello")
-            bonuKillBoss=baseLifeBoss*2;
-            compteBanquaire=compteBanquaire+bonuKillBoss;
-            lifeBoss=(baseLifeBoss*2)*levelBoss;
-            baseLifeBoss=lifeBoss;
-            levelBoss=levelBoss+1;
+        ennemyBoss.life=ennemyBoss.life-degatTotal;
+        if (ennemyBoss.life<=0){
+            ennemyBoss.bonusKill=ennemyBoss.baseLife*2;
+            compteBanquaire=compteBanquaire+ennemyBoss.bonusKill;
+            ennemyBoss.life=(ennemyBoss.baseLife*2)*ennemyBoss.level;
+            ennemyBoss.baseLife=ennemyBoss.life;
+            ennemyBoss.level=ennemyBoss.level+1;
             currentStage="Main Door";
             document.getElementById("imgBoss").src="../images/explosion01.gif";
             showimgBoss();
@@ -694,24 +389,24 @@ function tickLoop(){
 
     var pourcentlife;
     if (currentStage==="Main Door"){
-        pourcentlife = (lifeMainDoor/baseLifeMainDoor)*100;
-        if (lifeMainDoor<0){
+        pourcentlife = (ennemyDoor.life/ennemyDoor.baseLife)*100;
+        if (ennemyDoor.life<0){
             document.getElementById('life').style.width = 0+'%';
         } else {
             pourcentlife = pourcentlife.toFixed(0);
             document.getElementById('life').style.width = pourcentlife+'%';
         }
     } else if (currentStage==="Troops"){
-        pourcentlife=(lifeTroops/baseLifeTroops)*100;
-        if (lifeTroops<0){
+        pourcentlife=(ennemyTroops.life/ennemyTroops.baseLife)*100;
+        if (ennemyTroops.life<0){
             document.getElementById('life').style.width = 0+'%';
         } else {
             pourcentlife = pourcentlife.toFixed(0);
             document.getElementById('life').style.width = pourcentlife+'%';
         }
     } else if (currentStage==="Boss"){
-        pourcentlife= (lifeBoss/baseLifeBoss)*100;
-        if (lifeBoss<0){
+        pourcentlife= (ennemyBoss.life/ennemyBoss.baseLife)*100;
+        if (ennemyBoss.life<0){
             document.getElementById('life').style.width = 0+'%';
         } else {
             pourcentlife = pourcentlife.toFixed(0);
@@ -725,16 +420,16 @@ function tickLoop(){
 
 // Suite de la boucle principale
 function nextTickLoop(){
-    if (levelMainDoor >= compteurBossDoor) {
+    if (ennemyDoor.level >= compteurBossDoor) {
         currentStage = "Troops";
-        levelMainDoor = 1;
-        baseLifeMainDoor = lifeMainDoor;
+        ennemyDoor.level = 1;
+        ennemyDoor.baseLife = ennemyDoor.life;
 
     }
-    if (levelTroops>=compteurBossTroops){
+    if (ennemyTroops.level>=compteurBossTroops){
         currentStage="Boss";
-        levelTroops=1;
-        baseLifeTroops=lifeTroops;
+        ennemyTroops.level=1;
+        ennemyTroops.baseLife=ennemyTroops.life;
     }
 
     showimgBoss()
@@ -745,11 +440,11 @@ function nextTickLoop(){
 function showBossLevel() {
     var div2 = document.getElementById("levelBoss");
     if (currentStage==="Main Door"){
-        div2.textContent = levelMainDoor;
+        div2.textContent = ennemyDoor.level;
     } else if (currentStage==="Troops"){
-        div2.textContent = levelTroops;
+        div2.textContent = ennemyTroops.level;
     } else if (currentStage==="Boss"){
-        div2.textContent = levelBoss;
+        div2.textContent = ennemyBoss.level;
     }
     showimgBoss();
 
@@ -757,442 +452,39 @@ function showBossLevel() {
 }
 
 // ----------- SHOW UPGRADE UNIT -----------
-function showBonus(){
-    // ----- Show Upgrade Unit01 ------
-    if (nbrUnit01 >= 10 && upgUnit01_10GET===false){
-        var div = document.getElementById('upgUnit01_10');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit01_10');
-        div.style.display = 'none';
-    }
-    if (nbrUnit01 >= 25 && upgUnit01_25GET===false){
-        var div = document.getElementById('upgUnit01_25');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit01_25');
-        div.style.display = 'none';
-    }
+function showUpgrade(){
+    var arrayLength = arrayUnit.length;
+    for (var i = 0; i < arrayLength; i++) {
 
-    if (nbrUnit01 >= 50 && upgUnit01_50GET===false){
-        var div = document.getElementById('upgUnit01_50');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit01_50');
-        div.style.display = 'none';
-    }
+        var name = arrayUnit[i];
+        var keyGet = Object.keys(name.bonus);
+        var keyGetD = Object.keys(name.bonusD);
+        var arrayKey = keyGet.length;
 
-    if (nbrUnit01 >= 100 && upgUnit01_100GET===false){
-        var div = document.getElementById('upgUnit01_100');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit01_100');
-        div.style.display = 'none';
-    }
+        for (var j = 0; j < arrayKey; j++) {
+            var key = keyGet[j];
+            var keyD = keyGetD[j];
+            if (name.quantity >= name.bonus[key][3] && name.bonus[key][0]===false){
+                var div = document.getElementById(name.bonus[key][2]);
+                div.style.display = 'inline-block';
+            } else {
+                var div = document.getElementById(name.bonus[key][2]);
+                div.style.display = 'none';
+            }
 
-    if (nbrUnit01 >= 150 && upgUnit01_150GET===false){
-        var div = document.getElementById('upgUnit01_150');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit01_150');
-        div.style.display = 'none';
-    }
-    //DMG Unit01
-    if (nbrUnit01 >= 10 && upgDMGUnit01_10GET===false){
-        var div = document.getElementById('upgDMGUnit01_10');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgDMGUnit01_10');
-        div.style.display = 'none';
-    }
-    if (nbrUnit01 >= 25 && upgDMGUnit01_25GET===false){
-        var div = document.getElementById('upgDMGUnit01_25');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgDMGUnit01_25');
-        div.style.display = 'none';
-    }
+            if (name.quantity >= name.bonusD[keyD][3] && name.bonusD[keyD][0]===false){
+                var div = document.getElementById(name.bonusD[keyD][2]);
+                div.style.display = 'inline-block';
 
-    if (nbrUnit01 >= 50 && upgDMGUnit01_50GET===false){
-        var div = document.getElementById('upgDMGUnit01_50');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgDMGUnit01_50');
-        div.style.display = 'none';
-    }
-
-    if (nbrUnit01 >= 100 && upgDMGUnit01_100GET===false){
-        var div = document.getElementById('upgDMGUnit01_100');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgDMGUnit01_100');
-        div.style.display = 'none';
-    }
-
-    if (nbrUnit01 >= 150 && upgDMGUnit01_150GET===false){
-        var div = document.getElementById('upgDMGUnit01_150');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgDMGUnit01_150');
-        div.style.display = 'none';
-    }
-    // ----- Show Upgrade Unit02 ------
-    if (nbrUnit02 >= 10 && upgUnit02_10GET===false){
-        var div = document.getElementById('upgUnit02_10');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit02_10');
-        div.style.display = 'none';
-    }
-    if (nbrUnit02 >= 25 && upgUnit02_25GET===false){
-        var div = document.getElementById('upgUnit02_25');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit02_25');
-        div.style.display = 'none';
-    }
-    if (nbrUnit02 >= 50 && upgUnit02_50GET===false){
-        var div = document.getElementById('upgUnit02_50');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit02_50');
-        div.style.display = 'none';
-    }
-    if (nbrUnit02 >= 100 && upgUnit02_100GET===false){
-        var div = document.getElementById('upgUnit02_100');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit02_100');
-        div.style.display = 'none';
-    }
-    if (nbrUnit02 >= 150 && upgUnit02_150GET===false){
-        var div = document.getElementById('upgUnit02_150');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit02_150');
-        div.style.display = 'none';
-    }
-    //DMG Unit02
-    if (nbrUnit02 >= 10 && upgDMGUnit02_10GET===false){
-        var div = document.getElementById('upgDMGUnit02_10');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgDMGUnit02_10');
-        div.style.display = 'none';
-    }
-    if (nbrUnit02 >= 25 && upgDMGUnit02_25GET===false){
-        var div = document.getElementById('upgDMGUnit02_25');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgDMGUnit02_25');
-        div.style.display = 'none';
-    }
-
-    if (nbrUnit02 >= 50 && upgDMGUnit02_50GET===false){
-        var div = document.getElementById('upgDMGUnit02_50');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgDMGUnit02_50');
-        div.style.display = 'none';
-    }
-
-    if (nbrUnit02 >= 100 && upgDMGUnit02_100GET===false){
-        var div = document.getElementById('upgDMGUnit02_100');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgDMGUnit02_100');
-        div.style.display = 'none';
-    }
-
-    if (nbrUnit02 >= 150 && upgDMGUnit02_150GET===false){
-        var div = document.getElementById('upgDMGUnit02_150');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgDMGUnit02_150');
-        div.style.display = 'none';
-    }
-    // ----- Show Upgrade Unit03 ------
-    if (nbrUnit03 >= 10 && upgUnit03_10GET===false){
-        var div = document.getElementById('upgUnit03_10');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit03_10');
-        div.style.display = 'none';
-    }
-    if (nbrUnit03 >= 25 && upgUnit03_25GET===false){
-        var div = document.getElementById('upgUnit03_25');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit03_25');
-        div.style.display = 'none';
-    }
-    if (nbrUnit03 >= 50 && upgUnit03_50GET===false){
-        var div = document.getElementById('upgUnit03_50');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit03_50');
-        div.style.display = 'none';
-    }
-    if (nbrUnit03 >= 100 && upgUnit03_100GET===false){
-        var div = document.getElementById('upgUnit03_100');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit03_100');
-        div.style.display = 'none';
-    }
-    if (nbrUnit03 >= 150 && upgUnit03_150GET===false){
-        var div = document.getElementById('upgUnit03_150');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit03_150');
-        div.style.display = 'none';
-    }
-
-    // ----- Show Upgrade Unit04 ------
-    if (nbrUnit04 >= 10 && upgUnit04_10GET===false){
-        var div = document.getElementById('upgUnit04_10');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit04_10');
-        div.style.display = 'none';
-    }
-    if (nbrUnit04 >= 25 && upgUnit04_25GET===false){
-        var div = document.getElementById('upgUnit04_25');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit04_25');
-        div.style.display = 'none';
-    }
-    if (nbrUnit04 >= 50 && upgUnit04_50GET===false){
-        var div = document.getElementById('upgUnit04_50');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit04_50');
-        div.style.display = 'none';
-    }
-    if (nbrUnit04 >= 100 && upgUnit04_100GET===false){
-        var div = document.getElementById('upgUnit04_100');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit04_100');
-        div.style.display = 'none';
-    }
-    if (nbrUnit04 >= 150 && upgUnit04_150GET===false){
-        var div = document.getElementById('upgUnit04_150');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit04_150');
-        div.style.display = 'none';
-    }
-    // ----- Show Upgrade Unit05 ------
-    if (nbrUnit05 >= 10 && upgUnit05_10GET===false){
-        var div = document.getElementById('upgUnit05_10');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit05_10');
-        div.style.display = 'none';
-    }
-    if (nbrUnit05 >= 25 && upgUnit05_25GET===false){
-        var div = document.getElementById('upgUnit05_25');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit05_25');
-        div.style.display = 'none';
-    }
-    if (nbrUnit05 >= 50 && upgUnit05_50GET===false){
-        var div = document.getElementById('upgUnit05_50');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit05_50');
-        div.style.display = 'none';
-    }
-    if (nbrUnit05 >= 100 && upgUnit05_100GET===false){
-        var div = document.getElementById('upgUnit05_100');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit05_100');
-        div.style.display = 'none';
-    }
-    if (nbrUnit05 >= 150 && upgUnit05_150GET===false){
-        var div = document.getElementById('upgUnit05_150');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit05_150');
-        div.style.display = 'none';
-    }
-
-    // ----- Show Upgrade Unit06 ------
-    if (nbrUnit06 >= 10 && upgUnit06_10GET===false){
-        var div = document.getElementById('upgUnit06_10');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit06_10');
-        div.style.display = 'none';
-    }
-    if (nbrUnit06 >= 25 && upgUnit06_25GET===false){
-        var div = document.getElementById('upgUnit06_25');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit06_25');
-        div.style.display = 'none';
-    }
-    if (nbrUnit06 >= 50 && upgUnit06_50GET===false){
-        var div = document.getElementById('upgUnit06_50');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit06_50');
-        div.style.display = 'none';
-    }
-    if (nbrUnit06 >= 100 && upgUnit06_100GET===false){
-        var div = document.getElementById('upgUnit06_100');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit06_100');
-        div.style.display = 'none';
-    }
-    if (nbrUnit06 >= 150 && upgUnit06_150GET===false){
-        var div = document.getElementById('upgUnit06_150');
-        div.style.display = 'inline-block';
-    } else {
-        var div = document.getElementById('upgUnit06_150');
-        div.style.display = 'none';
+            } else {
+                var div = document.getElementById(name.bonusD[keyD][2]);
+                div.style.display = 'none';
+            }
+        }
     }
 }
-
-
-
 // ------- CHECK UPGRADE ALREADY BOUGHT ---------
 // vérifie si des upgrades n'ont pas déja étées achetées aprés la lecture de la sauvegarde
-function checkUpgrade(){
-    // ----- UNIT01 CHECK ------
-    if (upgUnit01_10GET ===true){
-        bonusGlobalUnit01=bonusGlobalUnit01+2;
-    }
-    if (upgUnit01_25GET ===true){
-        bonusGlobalUnit01=bonusGlobalUnit01+2;
-    }
-    if (upgUnit01_50GET ===true){
-        bonusGlobalUnit01=bonusGlobalUnit01+2;
-    }
-    if (upgUnit01_100GET ===true){
-        bonusGlobalUnit01=bonusGlobalUnit01+2;
-    }
-    if (upgUnit01_150GET ===true){
-        bonusGlobalUnit01=bonusGlobalUnit01+2;
-    }
-    //DMG UNIT01
-    if (upgDMGUnit01_10GET ===true){
-        bonusDMGGlobalUnit01=bonusDMGGlobalUnit01+2;
-    }
-    if (upgDMGUnit01_25GET ===true){
-        bonusDMGGlobalUnit01=bonusDMGGlobalUnit01+2;
-    }
-    if (upgDMGUnit01_50GET ===true){
-        bonusDMGGlobalUnit01=bonusDMGGlobalUnit01+2;
-    }
-    if (upgDMGUnit01_100GET ===true){
-        bonusDMGGlobalUnit01=bonusDMGGlobalUnit01+2;
-    }
-    if (upgDMGUnit01_150GET ===true){
-        bonusDMGGlobalUnit01=bonusDMGGlobalUnit01+2;
-    }
-    // ----- UNIT02 CHECK ------
-    if (upgUnit02_10GET ===true){
-        bonusGlobalUnit02=bonusGlobalUnit02+2;
-    }
-    if (upgUnit02_25GET ===true){
-        bonusGlobalUnit02=bonusGlobalUnit02+2;
-    }
-    if (upgUnit02_50GET ===true){
-        bonusGlobalUnit02=bonusGlobalUnit02+2;
-    }
-    if (upgUnit02_100GET ===true){
-        bonusGlobalUnit02=bonusGlobalUnit02+2;
-    }
-    if (upgUnit02_150GET ===true){
-        bonusGlobalUnit02=bonusGlobalUnit02+2;
-    }
-    //DMG UNIT02
-    if (upgDMGUnit02_10GET ===true){
-        bonusDMGGlobalUnit02=bonusDMGGlobalUnit02+2;
-    }
-    if (upgDMGUnit02_25GET ===true){
-        bonusDMGGlobalUnit02=bonusDMGGlobalUnit02+2;
-    }
-    if (upgDMGUnit02_50GET ===true){
-        bonusDMGGlobalUnit02=bonusDMGGlobalUnit02+2;
-    }
-    if (upgDMGUnit02_100GET ===true){
-        bonusDMGGlobalUnit02=bonusDMGGlobalUnit02+2;
-    }
-    if (upgDMGUnit02_150GET ===true){
-        bonusDMGGlobalUnit02=bonusDMGGlobalUnit02+2;
-    }
-    // ----- UNIT03 CHECK ------
-    if (upgUnit03_10GET ===true){
-        bonusGlobalUnit03=bonusGlobalUnit03+2;
-    }
-    if (upgUnit03_25GET ===true){
-        bonusGlobalUnit03=bonusGlobalUnit03+2;
-    }
-    if (upgUnit03_50GET ===true){
-        bonusGlobalUnit03=bonusGlobalUnit03+2;
-    }
-    if (upgUnit03_100GET ===true){
-        bonusGlobalUnit03=bonusGlobalUnit03+2;
-    }
-    if (upgUnit03_150GET ===true){
-        bonusGlobalUnit03=bonusGlobalUnit03+2;
-    }
-    // ----- UNIT04 CHECK ------
-    if (upgUnit04_10GET ===true){
-        bonusGlobalUnit04=bonusGlobalUnit04+2;
-    }
-    if (upgUnit04_25GET ===true){
-        bonusGlobalUnit04=bonusGlobalUnit04+2;
-    }
-    if (upgUnit04_50GET ===true){
-        bonusGlobalUnit04=bonusGlobalUnit04+2;
-    }
-    if (upgUnit04_100GET ===true){
-        bonusGlobalUnit04=bonusGlobalUnit04+2;
-    }
-    if (upgUnit04_150GET ===true){
-        bonusGlobalUnit04=bonusGlobalUnit04+2;
-    }
-    // ----- UNIT05 CHECK ------
-    if (upgUnit05_10GET ===true){
-        bonusGlobalUnit05=bonusGlobalUnit05+2;
-    }
-    if (upgUnit05_25GET ===true){
-        bonusGlobalUnit05=bonusGlobalUnit05+2;
-    }
-    if (upgUnit05_50GET ===true){
-        bonusGlobalUnit05=bonusGlobalUnit05+2;
-    }
-    if (upgUnit05_100GET ===true){
-        bonusGlobalUnit05=bonusGlobalUnit05+2;
-    }
-    if (upgUnit05_150GET ===true){
-        bonusGlobalUnit05=bonusGlobalUnit05+2;
-    }
-    // ----- UNIT06 CHECK ------
-    if (upgUnit06_10GET ===true){
-        bonusGlobalUnit06=bonusGlobalUnit06+2;
-    }
-    if (upgUnit06_25GET ===true){
-        bonusGlobalUnit06=bonusGlobalUnit06+2;
-    }
-    if (upgUnit06_50GET ===true){
-        bonusGlobalUnit06=bonusGlobalUnit06+2;
-    }
-    if (upgUnit06_100GET ===true){
-        bonusGlobalUnit06=bonusGlobalUnit06+2;
-    }
-    if (upgUnit06_150GET ===true){
-        bonusGlobalUnit06=bonusGlobalUnit06+2;
-    }
-}
 
 // ----- Hero Section
 
@@ -1215,12 +507,12 @@ function timerMissionHero(){
 
 function missionHero(){
     if (currentStage==="Main Door"){
-        lifeMainDoor=lifeMainDoor-degatTotalHero;
+        ennemyDoor.life=ennemyDoor.life-degatTotalHero;
     } else if(currentStage==="Troops"){
-        lifeTroops=lifeTroops-degatTotalHero;
+        ennemyTroops.life=ennemyTroops.life-degatTotalHero;
 
     } else if(currentStage==="Boss") {
-        lifeBoss=lifeBoss-degatTotalHero;
+        ennemyBoss.life=ennemyBoss.life-degatTotalHero;
     }
     compteBanquaire=compteBanquaire+incomeHero;
     var div = document.getElementById('imgHeros');
@@ -1306,8 +598,6 @@ function showWeaponMenu(){
 function hideWeaponMenu(){
     var div = document.getElementById('WeaponMenu');
     div.style.left = -500+'px';
-
-
 }
 
 //Buy Hero upg

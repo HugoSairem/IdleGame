@@ -1,51 +1,64 @@
 // -------- UPGRADE FONCTION --------
+
+function buyUpgMoney(name,upgrade,event){
+    console.log(name.bPrice[upgrade])
+    if (name.bonus[upgrade]===false && compteBanquaire >= name.bPrice[upgrade]){
+        name.bonus[upgrade]=true;
+    }
+    var id = event.target.id
+    var div = document.getElementById(id);
+    div.style.display = 'none';
+    name.globalBonus=name.globalBonus+2;
+    compteBanquaire=compteBanquaire-name.bPrice[upgrade];
+}
+
 //  ----- Unit01 Upgrade -----
 function buyUpgUnit01_10(){
-if (upgUnit01_10GET===false && compteBanquaire >= 250){
-upgUnit01_10GET=true;
+if (Unit01.bonus['10GET']===false && compteBanquaire >= 250){
+    Unit01.bonus['10GET']=true;
 var div = document.getElementById('upgUnit01_10');
 div.style.display = 'none';
-bonusGlobalUnit01=bonusGlobalUnit01+2;
+Unit01.globalBonus=Unit01.globalBonus+2;
 compteBanquaire=compteBanquaire-250
 }
 }
 
 function buyUpgUnit01_25(){
-if (upgUnit01_25GET===false && compteBanquaire >= 1500){
-upgUnit01_25GET=true;
+if (Unit01.bonus['25GET']===false && compteBanquaire >= 1500){
+    Unit01.bonus['25GET']=true;
 var div = document.getElementById('upgUnit01_25');
 div.style.display = 'none';
-bonusGlobalUnit01=bonusGlobalUnit01+2;
+Unit01.globalBonus=Unit01.globalBonus+2;
 compteBanquaire=compteBanquaire-1500
 }
 }
 
 function buyUpgUnit01_50(){
-if (upgUnit01_50GET===false && compteBanquaire >= 15000){
-upgUnit01_50GET=true;
+if (Unit01.bonus['50GET']===false && compteBanquaire >= 15000){
+    Unit01.bonus['50GET']=true;
 var div = document.getElementById('upgUnit01_50');
 div.style.display = 'none';
-bonusGlobalUnit01=bonusGlobalUnit01+2;
+    Unit01.globalBonus=Unit01.globalBonus+2;
 compteBanquaire=compteBanquaire-15000
 }
 }
 
 function buyUpgUnit01_100(){
-if (upgUnit01_100GET===false && compteBanquaire >= 165000){
-upgUnit01_100GET=true;
+if (Unit01.bonus['100GET']===false && compteBanquaire >= 165000){
+    Unit01.bonus['100GET']=true;
 var div = document.getElementById('upgUnit01_100');
 div.style.display = 'none';
-bonusGlobalUnit01=bonusGlobalUnit01+2;
+    Unit01.globalBonus=Unit01.globalBonus+2;
 compteBanquaire=compteBanquaire-165000
 }
 }
 
 function buyUpgUnit01_150(){
-if (upgUnit01_150GET===false && compteBanquaire >= 1980000){
-upgUnit01_150GET=true;
+if (Unit01.bonus['150GET']===false && compteBanquaire >= 1980000){
+    Unit01.bonus['150GET']=true;
 var div = document.getElementById('upgUnit01_150');
 div.style.display = 'none';
-bonusGlobalUnit01=bonusGlobalUnit01+2;
+    Unit01.globalBonus=Unit01.globalBonus+2;
 compteBanquaire=compteBanquaire-1980000
 }
 }

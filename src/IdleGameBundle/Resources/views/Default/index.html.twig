@@ -90,7 +90,7 @@
     </div>
 
     <div class="rightBlock">
-        <div class="acheterSoldat buyButton" onclick="acheterUnit01()">
+        <div class="acheterSoldat buyButton" onclick="buyUnit(Unit01,showUnit01)">
             <span id="nbrUnit01" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Recruter 1 soldat</span>
@@ -98,7 +98,7 @@
             </span>
             <img src="{{ asset('images/soldat02.gif') }}" alt="">
         </div>
-        <div class="acheterSoldat2 buyButton" onclick="acheterUnit02()">
+        <div class="acheterSoldat2 buyButton" onclick="buyUnit(Unit02,showUnit02)">
             <span id="nbrUnit02" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Former 1 commando</span>
@@ -106,7 +106,7 @@
             </span>
             <img src="{{ asset('images/soldat07.gif') }}" alt="">
         </div>
-        <div class="acheterSoldat3 buyButton" onclick="acheterUnit03()">
+        <div class="acheterSoldat3 buyButton" onclick="buyUnit(Unit03,showUnit03)">
             <span id="nbrUnit03" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Créer 1 cyber-soldat</span>
@@ -115,7 +115,7 @@
             <img src="{{ asset('images/soldat09.gif') }}" alt="">
         </div>
 
-        <div class="acheterTank01 buyButton" onclick="acheterUnit04()">
+        <div class="acheterTank01 buyButton" onclick="buyUnit(Unit04,showUnit04)">
             <span id="nbrUnit04" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Construire 1 tank</span>
@@ -124,7 +124,7 @@
             <img src="{{ asset('images/tank01.gif') }}" alt="">
         </div>
 
-        <div class="acheterMecha buyButton" onclick="acheterUnit05()">
+        <div class="acheterMecha buyButton" onclick="buyUnit(Unit05,showUnit05)">
             <span id="nbrUnit05" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Construire 1 mecha</span>
@@ -133,7 +133,7 @@
             <img src="{{ asset('images/mecha04.gif') }}" alt="">
         </div>
 
-        <div class="acheterMecha02 buyButton" onclick="acheterUnit06()">
+        <div class="acheterMecha02 buyButton" onclick="buyUnit(Unit06,showUnit06)">
             <span id="nbrUnit06" class="unitCount"></span>
             <span class="middleBuyButton">
                 <span class="recrutement">Construire 1 mecha</span>
@@ -148,7 +148,6 @@
 <script src="{{ asset('script/varGame.js.twig') }}"></script>
 <script src="{{ asset('script/main.js.twig') }}"></script>
 <script src="{{ asset('script/upgradeUnit.js.twig') }}"></script>
-<script src="{{ asset('script/buyUnit.js.twig') }}"></script>
     </body>
     </html>
 
