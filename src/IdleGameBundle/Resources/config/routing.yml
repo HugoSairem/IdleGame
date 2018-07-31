@@ -1,11 +1,3 @@
 game_idle_game:
     path:     /home
     defaults: { _controller: IdleGameBundle:Default:index }
-
-login_idle_game:
-    path:     /login
-    defaults: { _controller: IdleGameBundle:Default:login }
-
-transition_idle_game:
-    path:     /transition
-    defaults: { _controller: IdleGameBundle:Default:transition }

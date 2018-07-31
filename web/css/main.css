@@ -412,3 +412,85 @@
 .timerMission{
     text-align: center;
 }
+
+.loginBox{
+    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:100vh;
+    margin:0 auto;
+    background-color: #1c1b1d;
+    background-image: url("https://images7.alphacoders.com/717/717360.jpg");
+    background-size: cover;
+    background-position:50% 50%;
+    color:white;
+}
+
+.labelLogin{
+    font-size:30px;
+}
+
+form{
+    border-top:solid white 1px;
+}
+
+input[type=button], input[type=submit] {
+    background-color: #e4e4e4;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition:all 0.3s;
+    font-size:20px;
+}
+
+input[type=reset]{
+    background-color: #c5181f;
+    color:white;
+}
+
+input[type=submit]:hover{
+    color: white;
+    background-color: #e4563d;
+    padding-left:36px;
+    padding-right:28px;
+    box-shadow: inset 5px 5px 0px 0px #6a2a1e;
+}
+
+.userInput{
+    border:none;
+    font-size:25px;
+    border-radius: 5px;
+    height:40px;
+    width:400px;
+    text-align: center;
+}
+
+.subLoginBox{
+    margin:25px;
+}
+
+.abortForm{
+    font-family: Arial;
+    background-color: #e4e4e4;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition:all 0.3s;
+    font-size:20px;
+}
+
+.abortForm:hover{
+    color: white;
+    background-color: #e4563d;
+    padding-left:36px;
+    padding-right:28px;
+    box-shadow: inset 5px 5px 0px 0px #6a2a1e;
+}

@@ -1,0 +1,29 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<h1>- S'INSCRIRE -</h1>
+{{ form_start(form)}}
+
+{{ form_errors(form) }}
+<div class="subLoginBox">
+{{ form_label(form.username, 'Identifiant', {'label_attr': {'class': 'labelLogin'}}) }}<br>
+{{ form_widget(form.username, {'attr': {'class': 'userInput'}}) }}
+{{ form_errors(form.username) }}
+</div>
+<div class="subLoginBox">
+{{ form_label(form.email, 'Email', {'label_attr': {'class': 'labelLogin'}}) }}<br>
+{{ form_widget(form.email, {'attr': {'class': 'userInput'}}) }}
+{{ form_errors(form.email) }}
+</div>
+<div class="subLoginBox">
+{{ form_label(form.plainPassword.first, 'Mot de Passe', {'label_attr': {'class': 'labelLogin'}}) }}<br>
+{{ form_widget(form.plainPassword.first, {'attr': {'class': 'userInput'}}) }}
+{{ form_errors(form.plainPassword.first) }}
+</div>
+<div class="subLoginBox">
+{{ form_label(form.plainPassword.second, 'Répétez le mot de passe', {'label_attr': {'class': 'labelLogin'}}) }}<br>
+{{ form_widget(form.plainPassword.second, {'attr': {'class': 'userInput'}}) }}
+</div>
+{{ form_rest(form) }}
+<div>
+    <input type="submit" value="{{ 'registration.submit'|trans }}"/>
+</div>
+{{ form_end(form) }}

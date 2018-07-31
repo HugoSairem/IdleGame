@@ -303,6 +303,7 @@ function buyUnit(name,show){
     if (compteBanquaire >= name.prix){
         name.quantity+=1;
         compteBanquaire-=name.prix;
+        name.prix= name.prix*1.2;
         show();
     }
 }
@@ -609,7 +610,6 @@ function buyUpgWeaponHero01(){
     div.style.display = 'none';
     compteBanquaire=compteBanquaire-250;
     }
-
 }
 
 

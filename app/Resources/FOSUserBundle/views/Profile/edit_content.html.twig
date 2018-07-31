@@ -1,0 +1,25 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{{ form_start(form)}}
+
+{{ form_errors(form) }}
+<div class="subLoginBox">
+    {{ form_label(form.username, 'Identifiant', {'label_attr': {'class': 'labelLogin'}}) }}<br>
+    {{ form_widget(form.username, {'attr': {'class': 'userInput'}}) }}
+    {{ form_errors(form.username) }}
+</div>
+<div class="subLoginBox">
+    {{ form_label(form.email, 'Email', {'label_attr': {'class': 'labelLogin'}}) }}<br>
+    {{ form_widget(form.email, {'attr': {'class': 'userInput'}}) }}
+    {{ form_errors(form.email) }}
+</div>
+<div class="subLoginBox">
+    {{ form_label(form.current_password, 'Mot de Passe', {'label_attr': {'class': 'labelLogin'}}) }}<br>
+    {{ form_widget(form.current_password, {'attr': {'class': 'userInput'}}) }}
+    {{ form_errors(form.current_password) }}
+</div>
+{{ form_rest(form) }}
+<div>
+    <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+    <a class="abortForm" href="{{ path('fos_user_profile_show') }}">Annuler</a>
+</div>
+{{ form_end(form) }}
