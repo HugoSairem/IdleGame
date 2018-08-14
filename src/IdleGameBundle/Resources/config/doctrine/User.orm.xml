@@ -8,5 +8,12 @@
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
+        <one-to-one
+                field="dataUser"
+        target-entity="dataUser"
+        inversed-by="user">
+
+        <join-column name="dataUser_id" referenced-column-name="id"/>
+        </one-to-one>
     </entity>
 </doctrine-mapping>

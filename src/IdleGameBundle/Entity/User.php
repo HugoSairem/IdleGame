@@ -24,5 +24,33 @@ class User extends BaseUser
     {
         return $this->id;
     }
-}
+    /**
+     * @var \IdleGameBundle\Entity\dataUser
+     */
+    private $dataUser;
 
+
+    /**
+     * Set dataUser
+     *
+     * @param \IdleGameBundle\Entity\dataUser $dataUser
+     *
+     * @return User
+     */
+    public function setDataUser(\IdleGameBundle\Entity\dataUser $dataUser = null)
+    {
+        $this->dataUser = $dataUser;
+
+        return $this;
+    }
+
+    /**
+     * Get dataUser
+     *
+     * @return \IdleGameBundle\Entity\dataUser
+     */
+    public function getDataUser()
+    {
+        return $this->dataUser;
+    }
+}

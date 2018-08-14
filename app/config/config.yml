@@ -7,7 +7,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi: ~
@@ -72,6 +72,12 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: IdleGameBundle\Entity\User
+    registration:
+            confirmation:
+                enabled: true
+                template:   FOSUserBundle:Registration:email.txt.twig
+    service:
+            mailer: fos_user.mailer.twig_swift
     from_email:
           address: "hugo.merias@lapiscine.pro"
           sender_name: "Hugo"
