@@ -17,6 +17,11 @@ class dataUser
      */
     private $id;
 
+    /**
+     * @var \IdleGameBundle\Entity\User
+     */
+    private $user;
+
 
     /**
      * Set amountMoney
@@ -51,4 +56,29 @@ class dataUser
     {
         return $this->id;
     }
+
+    /**
+     * Set user
+     *
+     * @param \IdleGameBundle\Entity\User $user
+     *
+     * @return dataUser
+     */
+    public function setUser(\IdleGameBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \IdleGameBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }
+
