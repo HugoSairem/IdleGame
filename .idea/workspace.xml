@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9cd854c-e390-44fc-9c02-ff53c8bef180" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/save.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/script/jquery-3.3.1.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Entity/dataUser.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/script/buyUnit.js.twig" beforeDir="false" afterPath="$PROJECT_DIR$/web/script/buyUnit.js.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/script/upgradeUnit.js.twig" beforeDir="false" afterPath="$PROJECT_DIR$/web/script/upgradeUnit.js.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/script/varGame.js.twig" beforeDir="false" afterPath="$PROJECT_DIR$/web/script/varGame.js.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,14 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="219" column="47" selection-start-line="219" selection-start-column="47" selection-end-line="219" selection-end-column="47" />
-              <caret line="220" column="47" selection-start-line="220" selection-start-column="47" selection-end-line="220" selection-end-column="47" />
-              <caret line="221" column="44" selection-start-line="221" selection-start-column="44" selection-end-line="221" selection-end-column="44" />
-              <caret line="222" column="45" selection-start-line="222" selection-start-column="45" selection-end-line="222" selection-end-column="45" />
+            <state relative-caret-position="237">
+              <caret line="210" column="50" lean-forward="true" selection-start-line="210" selection-start-column="50" selection-end-line="210" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -61,23 +51,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="varGame.js.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/script/varGame.js.twig">
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-69">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+            <state relative-caret-position="113">
+              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="37" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
+            <state relative-caret-position="155">
+              <caret line="18" column="71" lean-forward="true" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
               <folding>
                 <element signature="e#45#90#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="security.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataUser.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Entity/dataUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-286">
+              <caret line="545" column="5" selection-start-line="545" selection-end-line="546" />
             </state>
           </provider>
         </entry>
@@ -86,29 +99,16 @@
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="288" selection-start-line="5" selection-start-column="288" selection-end-line="5" selection-end-column="288" />
-              <caret line="5" column="305" selection-start-line="5" selection-start-column="305" selection-end-line="5" selection-end-column="305" />
-              <caret line="5" column="319" selection-start-line="5" selection-start-column="319" selection-end-line="5" selection-end-column="319" />
-              <caret line="5" column="335" selection-start-line="5" selection-start-column="335" selection-end-line="5" selection-end-column="335" />
-              <caret line="5" column="351" selection-start-line="5" selection-start-column="351" selection-end-line="5" selection-end-column="351" />
-              <caret line="5" column="367" selection-start-line="5" selection-start-column="367" selection-end-line="5" selection-end-column="367" />
-              <caret line="5" column="384" selection-start-line="5" selection-start-column="384" selection-end-line="5" selection-end-column="384" />
-              <caret line="5" column="401" selection-start-line="5" selection-start-column="401" selection-end-line="5" selection-end-column="401" />
-              <caret line="5" column="418" selection-start-line="5" selection-start-column="418" selection-end-line="5" selection-end-column="418" />
-              <caret line="5" column="435" selection-start-line="5" selection-start-column="435" selection-end-line="5" selection-end-column="435" />
-              <caret line="5" column="452" selection-start-line="5" selection-start-column="452" selection-end-line="5" selection-end-column="452" />
-              <caret line="5" column="470" selection-start-line="5" selection-start-column="470" selection-end-line="5" selection-end-column="470" />
-              <caret line="5" column="488" selection-start-line="5" selection-start-column="488" selection-end-line="5" selection-end-column="488" />
-              <caret line="5" column="508" selection-start-line="5" selection-start-column="508" selection-end-line="5" selection-end-column="508" />
+              <caret line="5" column="523" lean-forward="true" selection-start-line="5" selection-start-column="523" selection-end-line="5" selection-end-column="523" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dataUser.orm.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dataUser.orm.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="27" column="65" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
+            <state relative-caret-position="140">
+              <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -213,11 +213,11 @@
         <option value="$PROJECT_DIR$/web/script/buyUnit.js.twig" />
         <option value="$PROJECT_DIR$/web/script/upgradeUnit.js.twig" />
         <option value="$PROJECT_DIR$/web/script/varGame.js.twig" />
+        <option value="$PROJECT_DIR$/src/IdleGameBundle/Entity/dataUser.php" />
+        <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml" />
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml" />
-        <option value="$PROJECT_DIR$/src/IdleGameBundle/Entity/dataUser.php" />
       </list>
     </option>
   </component>
@@ -477,15 +477,16 @@
       <workItem from="1532355887558" duration="4588000" />
       <workItem from="1532595359774" duration="721000" />
       <workItem from="1532954894577" duration="36471000" />
-      <workItem from="1534237875007" duration="35156000" />
+      <workItem from="1534237875007" duration="40356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265344000" />
+    <option name="totallyTimeSpent" value="270544000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="32" y="23" width="1408" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -515,13 +516,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="110" selection-start-line="21" selection-start-column="110" selection-end-line="21" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Resetting/reset_content.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -704,13 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -746,13 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Repository/UserRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -780,13 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/User.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/script/upgradeUnit.js.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -797,6 +770,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/User.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/script/main.js.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -804,10 +784,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Entity/dataUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-286">
+          <caret line="545" column="5" selection-start-line="545" selection-end-line="546" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
+        <state relative-caret-position="155">
+          <caret line="18" column="71" lean-forward="true" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
           <folding>
             <element signature="e#45#90#0#PHP" expanded="true" />
           </folding>
@@ -817,44 +828,14 @@
     <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="288" selection-start-line="5" selection-start-column="288" selection-end-line="5" selection-end-column="288" />
-          <caret line="5" column="305" selection-start-line="5" selection-start-column="305" selection-end-line="5" selection-end-column="305" />
-          <caret line="5" column="319" selection-start-line="5" selection-start-column="319" selection-end-line="5" selection-end-column="319" />
-          <caret line="5" column="335" selection-start-line="5" selection-start-column="335" selection-end-line="5" selection-end-column="335" />
-          <caret line="5" column="351" selection-start-line="5" selection-start-column="351" selection-end-line="5" selection-end-column="351" />
-          <caret line="5" column="367" selection-start-line="5" selection-start-column="367" selection-end-line="5" selection-end-column="367" />
-          <caret line="5" column="384" selection-start-line="5" selection-start-column="384" selection-end-line="5" selection-end-column="384" />
-          <caret line="5" column="401" selection-start-line="5" selection-start-column="401" selection-end-line="5" selection-end-column="401" />
-          <caret line="5" column="418" selection-start-line="5" selection-start-column="418" selection-end-line="5" selection-end-column="418" />
-          <caret line="5" column="435" selection-start-line="5" selection-start-column="435" selection-end-line="5" selection-end-column="435" />
-          <caret line="5" column="452" selection-start-line="5" selection-start-column="452" selection-end-line="5" selection-end-column="452" />
-          <caret line="5" column="470" selection-start-line="5" selection-start-column="470" selection-end-line="5" selection-end-column="470" />
-          <caret line="5" column="488" selection-start-line="5" selection-start-column="488" selection-end-line="5" selection-end-column="488" />
-          <caret line="5" column="508" selection-start-line="5" selection-start-column="508" selection-end-line="5" selection-end-column="508" />
+          <caret line="5" column="523" lean-forward="true" selection-start-line="5" selection-start-column="523" selection-end-line="5" selection-end-column="523" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="219" column="47" selection-start-line="219" selection-start-column="47" selection-end-line="219" selection-end-column="47" />
-          <caret line="220" column="47" selection-start-line="220" selection-start-column="47" selection-end-line="220" selection-end-column="47" />
-          <caret line="221" column="44" selection-start-line="221" selection-start-column="44" selection-end-line="221" selection-end-column="44" />
-          <caret line="222" column="45" selection-start-line="222" selection-start-column="45" selection-end-line="222" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Entity/dataUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="637" column="4" selection-start-line="637" selection-start-column="4" selection-end-line="637" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="27" column="65" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
+        <state relative-caret-position="237">
+          <caret line="210" column="50" lean-forward="true" selection-start-line="210" selection-start-column="50" selection-end-line="210" selection-end-column="50" />
         </state>
       </provider>
     </entry>

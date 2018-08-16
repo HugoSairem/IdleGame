@@ -9,8 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function saveAction($compteBanquaire,
-                               $unit01Quantity, $unit01Price,
+    public function saveAction($compteBanquaire, $unit01Quantity, $unit01Price,
                                $unit01Bonus10, $unit01Bonus25, $unit01Bonus50, $unit01Bonus100, $unit01Bonus150,
                                $unit01BonusD10, $unit01BonusD25, $unit01BonusD50, $unit01BonusD100, $unit01BonusD150,
                                $unit01GlobalBonus,$unit01GlobalDmgBonus,
