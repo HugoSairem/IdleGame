@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Idle War Game</title>
+    <script src="{{ asset('script/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('script/jquery.min.js') }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset("css/main.css") }}"> <!-- asset s'occupe de trouver le chemin à partir du dossier web -->
 </head>
@@ -74,7 +76,7 @@
         <div class="addMoneyButton Button" id="enabledMissionButton" onclick="timerMissionHero()">Envoyer en mission</div>
         <div class="addMoneyButton Button DisabledButton" id="disabledMissionButton">Envoyer en mission</div>
         {{ render(controller('IdleGameBundle:Default:upgradeControl')) }}
-        <div class="pushSave Button" onclick="saveMoney()">Save</div>
+        <div id="saveButton" class="pushSave Button" onclick="saveMoney()">Save</div>
         <div class="resetSave Button" onclick="resetSave()">Reset Save</div>
     </div>
     <div class="middleBlock">
@@ -147,7 +149,94 @@
 
     </div>
 </div>
-<script src="{{ asset('script/jquery.min.js') }}"></script>
+<div id="result"></div>
+
+<script>
+    $('#saveButton').on('click', function () {
+
+        //donc je met en paramètre de ma route 0 en dur
+
+        var url = "{{ path('game_idle_save',{
+            'compteBanquaire': 'compteBanquaire',
+            'unit01Quantity': 'unit01q',
+            'unit01Price': 'unit01p',
+            'unit01Bonus10':'unit01b10',
+            'unit01Bonus25':'unit01b25',
+            'unit01Bonus50':'unit01b50',
+            'unit01Bonus100':'unit01b100',
+            'unit01Bonus150':'unit01b150',
+            'unit01BonusD10':'unit01bd10',
+            'unit01BonusD25':'unit01bd25',
+            'unit01BonusD50':'unit01bd50',
+            'unit01BonusD100':'unit01bd100',
+            'unit01BonusD150':'unit01bd150',
+            'unit01GlobalBonus':'unit01gb',
+            'unit01GlobalDmgBonus':'unit01gdb',
+
+            'unit02Quantity': 'unit02q',
+            'unit02Price': 'unit02p',
+            'unit02Bonus10':'unit02b10',
+            'unit02Bonus25':'unit02b25',
+            'unit02Bonus50':'unit02b50',
+            'unit02Bonus100':'unit02b100',
+            'unit02Bonus150':'unit02b150',
+            'unit02BonusD10':'unit02bd10',
+            'unit02BonusD25':'unit02bd25',
+            'unit02BonusD50':'unit02bd50',
+            'unit02BonusD100':'unit02bd100',
+            'unit02BonusD150':'unit02bd150',
+            'unit02GlobalBonus':'unit02gb',
+            'unit02GlobalDmgBonus':'unit02gdb',
+        })}}";
+
+        //on remplace 0 par l'id de l'auteur choisi
+        url = url.replace('compteBanquaire', compteBanquaire.toFixed(0));
+        //UNIT01
+        url = url.replace('unit01q', Unit01.quantity);
+        url = url.replace('unit01p', Unit01.prix);
+        url = url.replace('unit01b10', Unit01.bonus['10GET']);
+        url = url.replace('unit01b25', Unit01.bonus['25GET']);
+        url = url.replace('unit01b50', Unit01.bonus['50GET']);
+        url = url.replace('unit01b100', Unit01.bonus['100GET']);
+        url = url.replace('unit01b150', Unit01.bonus['150GET']);
+        url = url.replace('unit01bd10', Unit01.bonusD['10GET']);
+        url = url.replace('unit01bd25', Unit01.bonusD['25GET']);
+        url = url.replace('unit01bd50', Unit01.bonusD['50GET']);
+        url = url.replace('unit01bd100', Unit01.bonusD['100GET']);
+        url = url.replace('unit01bd150', Unit01.bonusD['150GET']);
+        url = url.replace('unit01gb', Unit01.globalBonus);
+        url = url.replace('unit01gdb', Unit01.globalDmgBonus);
+        //UNIT02
+        url = url.replace('unit02q', Unit02.quantity);
+        url = url.replace('unit02p', Unit02.prix);
+        url = url.replace('unit02b10', Unit02.bonus['10GET']);
+        url = url.replace('unit02b25', Unit02.bonus['25GET']);
+        url = url.replace('unit02b50', Unit02.bonus['50GET']);
+        url = url.replace('unit02b100', Unit02.bonus['100GET']);
+        url = url.replace('unit02b150', Unit02.bonus['150GET']);
+        url = url.replace('unit02bd10', Unit02.bonusD['10GET']);
+        url = url.replace('unit02bd25', Unit02.bonusD['25GET']);
+        url = url.replace('unit02bd50', Unit02.bonusD['50GET']);
+        url = url.replace('unit02bd100', Unit02.bonusD['100GET']);
+        url = url.replace('unit02bd150', Unit02.bonusD['150GET']);
+        url = url.replace('unit02gb', Unit02.globalBonus);
+        url = url.replace('unit02gdb', Unit02.globalDmgBonus);
+        console.log(url);
+        $.ajax({
+            type: 'get',
+            url: url,
+            timeout: 3000,
+            dataType: 'html',
+            success: function (data) {
+                $('#result').html(data);
+            },
+            error: function (error) {
+                console.log(error.responseText);
+            }
+        })
+    })
+</script>
+
 <script src="{{ asset('script/varGame.js.twig') }}"></script>
 <script src="{{ asset('script/main.js.twig') }}"></script>
 <script src="{{ asset('script/upgradeUnit.js.twig') }}"></script>
