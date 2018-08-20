@@ -155,6 +155,146 @@ class dataUser
     /**
      * @var integer
      */
+    private $unit03Quantity;
+
+    /**
+     * @var integer
+     */
+    private $unit03Price;
+
+    /**
+     * @var string
+     */
+    private $unit03Bonus10;
+
+    /**
+     * @var string
+     */
+    private $unit03Bonus25;
+
+    /**
+     * @var string
+     */
+    private $unit03Bonus50;
+
+    /**
+     * @var string
+     */
+    private $unit03Bonus100;
+
+    /**
+     * @var string
+     */
+    private $unit03Bonus150;
+
+    /**
+     * @var string
+     */
+    private $unit03BonusD10;
+
+    /**
+     * @var string
+     */
+    private $unit03BonusD25;
+
+    /**
+     * @var string
+     */
+    private $unit03BonusD50;
+
+    /**
+     * @var string
+     */
+    private $unit03BonusD100;
+
+    /**
+     * @var string
+     */
+    private $unit03BonusD150;
+
+    /**
+     * @var integer
+     */
+    private $unit03GlobalBonus;
+
+    /**
+     * @var integer
+     */
+    private $unit03GlobalDmgBonus;
+
+    /**
+     * @var integer
+     */
+    private $unit04Quantity;
+
+    /**
+     * @var integer
+     */
+    private $unit04Price;
+
+    /**
+     * @var string
+     */
+    private $unit04Bonus10;
+
+    /**
+     * @var string
+     */
+    private $unit04Bonus25;
+
+    /**
+     * @var string
+     */
+    private $unit04Bonus50;
+
+    /**
+     * @var string
+     */
+    private $unit04Bonus100;
+
+    /**
+     * @var string
+     */
+    private $unit04Bonus150;
+
+    /**
+     * @var string
+     */
+    private $unit04BonusD10;
+
+    /**
+     * @var string
+     */
+    private $unit04BonusD25;
+
+    /**
+     * @var string
+     */
+    private $unit04BonusD50;
+
+    /**
+     * @var string
+     */
+    private $unit04BonusD100;
+
+    /**
+     * @var string
+     */
+    private $unit04BonusD150;
+
+    /**
+     * @var integer
+     */
+    private $unit04GlobalBonus;
+
+    /**
+     * @var integer
+     */
+    private $unit04GlobalDmgBonus;
+
+    /**
+     * @var integer
+     */
     private $id;
 
     /**
@@ -860,320 +1000,6 @@ class dataUser
     }
 
     /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \IdleGameBundle\Entity\User $user
-     *
-     * @return dataUser
-     */
-    public function setUser(\IdleGameBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \IdleGameBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-    /**
-     * @var integer
-     */
-    private $unit03Quantity;
-
-    /**
-     * @var integer
-     */
-    private $unit03Price;
-
-    /**
-     * @var string
-     */
-    private $unit03Bonus10;
-
-    /**
-     * @var string
-     */
-    private $unit03Bonus25;
-
-    /**
-     * @var string
-     */
-    private $unit03Bonus50;
-
-    /**
-     * @var string
-     */
-    private $unit03Bonus100;
-
-    /**
-     * @var string
-     */
-    private $unit03Bonus150;
-
-    /**
-     * @var string
-     */
-    private $unit03BonusD10;
-
-    /**
-     * @var string
-     */
-    private $unit03BonusD25;
-
-    /**
-     * @var string
-     */
-    private $unit03BonusD50;
-
-    /**
-     * @var string
-     */
-    private $unit03BonusD100;
-
-    /**
-     * @var string
-     */
-    private $unit03BonusD150;
-
-    /**
-     * @var integer
-     */
-    private $unit03GlobalBonus;
-
-    /**
-     * @var integer
-     */
-    private $unit03GlobalDmgBonus;
-
-    /**
-     * @var integer
-     */
-    private $unit04Quantity;
-
-    /**
-     * @var integer
-     */
-    private $unit04Price;
-
-    /**
-     * @var string
-     */
-    private $unit04Bonus10;
-
-    /**
-     * @var string
-     */
-    private $unit04Bonus25;
-
-    /**
-     * @var string
-     */
-    private $unit04Bonus50;
-
-    /**
-     * @var string
-     */
-    private $unit04Bonus100;
-
-    /**
-     * @var string
-     */
-    private $unit04Bonus150;
-
-    /**
-     * @var string
-     */
-    private $unit04BonusD10;
-
-    /**
-     * @var string
-     */
-    private $unit04BonusD25;
-
-    /**
-     * @var string
-     */
-    private $unit04BonusD50;
-
-    /**
-     * @var string
-     */
-    private $unit04BonusD100;
-
-    /**
-     * @var string
-     */
-    private $unit04BonusD150;
-
-    /**
-     * @var integer
-     */
-    private $unit04GlobalBonus;
-
-    /**
-     * @var integer
-     */
-    private $unit04GlobalDmgBonus;
-
-    /**
-     * @var integer
-     */
-    private $unit05Quantity;
-
-    /**
-     * @var integer
-     */
-    private $unit05Price;
-
-    /**
-     * @var string
-     */
-    private $unit05Bonus10;
-
-    /**
-     * @var string
-     */
-    private $unit05Bonus25;
-
-    /**
-     * @var string
-     */
-    private $unit05Bonus50;
-
-    /**
-     * @var string
-     */
-    private $unit05Bonus100;
-
-    /**
-     * @var string
-     */
-    private $unit05Bonus150;
-
-    /**
-     * @var string
-     */
-    private $unit05BonusD10;
-
-    /**
-     * @var string
-     */
-    private $unit05BonusD25;
-
-    /**
-     * @var string
-     */
-    private $unit05BonusD50;
-
-    /**
-     * @var string
-     */
-    private $unit05BonusD100;
-
-    /**
-     * @var string
-     */
-    private $unit05BonusD150;
-
-    /**
-     * @var integer
-     */
-    private $unit05GlobalBonus;
-
-    /**
-     * @var integer
-     */
-    private $unit05GlobalDmgBonus;
-
-    /**
-     * @var integer
-     */
-    private $unit06Quantity;
-
-    /**
-     * @var integer
-     */
-    private $unit06Price;
-
-    /**
-     * @var string
-     */
-    private $unit06Bonus10;
-
-    /**
-     * @var string
-     */
-    private $unit06Bonus25;
-
-    /**
-     * @var string
-     */
-    private $unit06Bonus50;
-
-    /**
-     * @var string
-     */
-    private $unit06Bonus100;
-
-    /**
-     * @var string
-     */
-    private $unit06Bonus150;
-
-    /**
-     * @var string
-     */
-    private $unit06BonusD10;
-
-    /**
-     * @var string
-     */
-    private $unit06BonusD25;
-
-    /**
-     * @var string
-     */
-    private $unit06BonusD50;
-
-    /**
-     * @var string
-     */
-    private $unit06BonusD100;
-
-    /**
-     * @var string
-     */
-    private $unit06BonusD150;
-
-    /**
-     * @var integer
-     */
-    private $unit06GlobalBonus;
-
-    /**
-     * @var integer
-     */
-    private $unit06GlobalDmgBonus;
-
-
-    /**
      * Set unit03Quantity
      *
      * @param integer $unit03Quantity
@@ -1846,6 +1672,110 @@ class dataUser
     }
 
     /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \IdleGameBundle\Entity\User $user
+     *
+     * @return dataUser
+     */
+    public function setUser(\IdleGameBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \IdleGameBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    /**
+     * @var integer
+     */
+    private $unit05Quantity;
+
+    /**
+     * @var integer
+     */
+    private $unit05Price;
+
+    /**
+     * @var string
+     */
+    private $unit05Bonus10;
+
+    /**
+     * @var string
+     */
+    private $unit05Bonus25;
+
+    /**
+     * @var string
+     */
+    private $unit05Bonus50;
+
+    /**
+     * @var string
+     */
+    private $unit05Bonus100;
+
+    /**
+     * @var string
+     */
+    private $unit05Bonus150;
+
+    /**
+     * @var string
+     */
+    private $unit05BonusD10;
+
+    /**
+     * @var string
+     */
+    private $unit05BonusD25;
+
+    /**
+     * @var string
+     */
+    private $unit05BonusD50;
+
+    /**
+     * @var string
+     */
+    private $unit05BonusD100;
+
+    /**
+     * @var string
+     */
+    private $unit05BonusD150;
+
+    /**
+     * @var integer
+     */
+    private $unit05GlobalBonus;
+
+    /**
+     * @var integer
+     */
+    private $unit05GlobalDmgBonus;
+
+
+    /**
      * Set unit05Quantity
      *
      * @param integer $unit05Quantity
@@ -2180,6 +2110,76 @@ class dataUser
     {
         return $this->unit05GlobalDmgBonus;
     }
+    /**
+     * @var integer
+     */
+    private $unit06Quantity;
+
+    /**
+     * @var integer
+     */
+    private $unit06Price;
+
+    /**
+     * @var string
+     */
+    private $unit06Bonus10;
+
+    /**
+     * @var string
+     */
+    private $unit06Bonus25;
+
+    /**
+     * @var string
+     */
+    private $unit06Bonus50;
+
+    /**
+     * @var string
+     */
+    private $unit06Bonus100;
+
+    /**
+     * @var string
+     */
+    private $unit06Bonus150;
+
+    /**
+     * @var string
+     */
+    private $unit06BonusD10;
+
+    /**
+     * @var string
+     */
+    private $unit06BonusD25;
+
+    /**
+     * @var string
+     */
+    private $unit06BonusD50;
+
+    /**
+     * @var string
+     */
+    private $unit06BonusD100;
+
+    /**
+     * @var string
+     */
+    private $unit06BonusD150;
+
+    /**
+     * @var integer
+     */
+    private $unit06GlobalBonus;
+
+    /**
+     * @var integer
+     */
+    private $unit06GlobalDmgBonus;
+
 
     /**
      * Set unit06Quantity

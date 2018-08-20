@@ -6,6 +6,9 @@
       <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Entity/dataUser.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/script/main.js.twig" beforeDir="false" afterPath="$PROJECT_DIR$/web/script/main.js.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,8 +39,17 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="210" column="50" lean-forward="true" selection-start-line="210" selection-start-column="50" selection-end-line="210" selection-end-column="50" />
+            <state relative-caret-position="284">
+              <caret line="284" column="4" lean-forward="true" selection-start-line="284" selection-start-column="4" selection-end-line="284" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="varGame.js.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/script/varGame.js.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1956">
+              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -45,8 +57,8 @@
       <file leaf-file-name="main.js.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/script/main.js.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="208" column="58" selection-start-line="208" selection-start-column="45" selection-end-line="208" selection-end-column="58" />
+            <state relative-caret-position="178">
+              <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -68,8 +80,8 @@
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="18" column="71" lean-forward="true" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+            <state relative-caret-position="-878">
+              <caret line="271" column="34" selection-start-line="271" selection-start-column="34" selection-end-line="271" selection-end-column="34" />
               <folding>
                 <element signature="e#45#90#0#PHP" expanded="true" />
               </folding>
@@ -89,8 +101,8 @@
       <file leaf-file-name="dataUser.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Entity/dataUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-286">
-              <caret line="545" column="5" selection-start-line="545" selection-end-line="546" />
+            <state relative-caret-position="19682">
+              <caret line="2519" selection-start-line="2519" selection-end-line="2519" />
             </state>
           </provider>
         </entry>
@@ -99,16 +111,7 @@
         <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="523" lean-forward="true" selection-start-line="5" selection-start-column="523" selection-end-line="5" selection-end-column="523" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dataUser.orm.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -135,7 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>resetSa</find>
       <find>Dmg</find>
       <find>DmgUnit01</find>
       <find>middl</find>
@@ -165,6 +167,7 @@
       <find>unit01.de</find>
       <find>unit01.income</find>
       <find>unit01.global</find>
+      <find>lectureMoney</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -209,14 +212,14 @@
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/User.orm.xml" />
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/save.html.twig" />
-        <option value="$PROJECT_DIR$/web/script/main.js.twig" />
         <option value="$PROJECT_DIR$/web/script/buyUnit.js.twig" />
         <option value="$PROJECT_DIR$/web/script/upgradeUnit.js.twig" />
         <option value="$PROJECT_DIR$/web/script/varGame.js.twig" />
+        <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Entity/dataUser.php" />
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml" />
+        <option value="$PROJECT_DIR$/web/script/main.js.twig" />
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig" />
       </list>
     </option>
@@ -346,61 +349,6 @@
             <path>
               <item name="idle_game" type="b2602c69:ProjectViewProjectNode" />
               <item name="idle_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IdleGameBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="idle_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="idle_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IdleGameBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="idle_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="idle_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IdleGameBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="idle_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="idle_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IdleGameBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="idle_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="idle_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IdleGameBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="doctrine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="idle_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="idle_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IdleGameBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="idle_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="idle_game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IdleGameBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Default" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="idle_game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="idle_game" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -477,12 +425,12 @@
       <workItem from="1532355887558" duration="4588000" />
       <workItem from="1532595359774" duration="721000" />
       <workItem from="1532954894577" duration="36471000" />
-      <workItem from="1534237875007" duration="40356000" />
+      <workItem from="1534237875007" duration="63456000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270544000" />
+    <option name="totallyTimeSpent" value="293644000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="32" y="23" width="1408" height="877" extended-state="0" />
@@ -493,8 +441,8 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32971507" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32100397" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20644216" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32100397" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20644216" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.016837481" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32893" />
@@ -763,41 +711,6 @@
     <entry file="file://$PROJECT_DIR$/web/script/upgradeUnit.js.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/script/varGame.js.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-69">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/User.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/script/main.js.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="208" column="58" selection-start-line="208" selection-start-column="45" selection-end-line="208" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Entity/dataUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-286">
-          <caret line="545" column="5" selection-start-line="545" selection-end-line="546" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -808,6 +721,27 @@
     <entry file="file://$PROJECT_DIR$/app/config/services.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/User.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/doctrine/dataUser.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="78" column="63" selection-start-line="78" selection-start-column="63" selection-end-line="78" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -815,27 +749,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Entity/dataUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19682">
+          <caret line="2519" selection-start-line="2519" selection-end-line="2519" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/script/main.js.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/script/varGame.js.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1956">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="18" column="71" lean-forward="true" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+        <state relative-caret-position="-878">
+          <caret line="271" column="34" selection-start-line="271" selection-start-column="34" selection-end-line="271" selection-end-column="34" />
           <folding>
             <element signature="e#45#90#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="523" lean-forward="true" selection-start-line="5" selection-start-column="523" selection-end-line="5" selection-end-column="523" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/IdleGameBundle/Resources/views/Default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="210" column="50" lean-forward="true" selection-start-line="210" selection-start-column="50" selection-end-line="210" selection-end-column="50" />
+        <state relative-caret-position="284">
+          <caret line="284" column="4" lean-forward="true" selection-start-line="284" selection-start-column="4" selection-end-line="284" selection-end-column="4" />
         </state>
       </provider>
     </entry>

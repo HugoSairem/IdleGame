@@ -3,5 +3,5 @@ game_idle_game:
     defaults: { _controller: IdleGameBundle:Default:index }
 
 game_idle_save:
-    path:     /save/{compteBanquaire}/{unit01Quantity}/{unit01Price}/{unit01Bonus10}/{unit01Bonus25}/{unit01Bonus50}/{unit01Bonus100}/{unit01Bonus150}/{unit01BonusD10}/{unit01BonusD25}/{unit01BonusD50}/{unit01BonusD100}/{unit01BonusD150}/{unit01GlobalBonus}/{unit01GlobalDmgBonus}/{unit02Quantity}/{unit02Price}/{unit02Bonus10}/{unit02Bonus25}/{unit02Bonus50}/{unit02Bonus100}/{unit02Bonus150}/{unit02BonusD10}/{unit02BonusD25}/{unit02BonusD50}/{unit02BonusD100}/{unit02BonusD150}/{unit02GlobalBonus}/{unit02GlobalDmgBonus}
+    path:     /save
     defaults: { _controller: IdleGameBundle:Default:save }

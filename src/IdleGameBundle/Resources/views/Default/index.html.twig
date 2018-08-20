@@ -152,81 +152,109 @@
 <div id="result"></div>
 
 <script>
-    $('#saveButton').on('click', function () {
+
+    $('#saveButton').on('click', function save() {
 
         //donc je met en paramètre de ma route 0 en dur
 
-        var url = "{{ path('game_idle_save',{
-            'compteBanquaire': 'compteBanquaire',
-            'unit01Quantity': 'unit01q',
-            'unit01Price': 'unit01p',
-            'unit01Bonus10':'unit01b10',
-            'unit01Bonus25':'unit01b25',
-            'unit01Bonus50':'unit01b50',
-            'unit01Bonus100':'unit01b100',
-            'unit01Bonus150':'unit01b150',
-            'unit01BonusD10':'unit01bd10',
-            'unit01BonusD25':'unit01bd25',
-            'unit01BonusD50':'unit01bd50',
-            'unit01BonusD100':'unit01bd100',
-            'unit01BonusD150':'unit01bd150',
-            'unit01GlobalBonus':'unit01gb',
-            'unit01GlobalDmgBonus':'unit01gdb',
+        var url = "{{ path('game_idle_save')}}";
 
-            'unit02Quantity': 'unit02q',
-            'unit02Price': 'unit02p',
-            'unit02Bonus10':'unit02b10',
-            'unit02Bonus25':'unit02b25',
-            'unit02Bonus50':'unit02b50',
-            'unit02Bonus100':'unit02b100',
-            'unit02Bonus150':'unit02b150',
-            'unit02BonusD10':'unit02bd10',
-            'unit02BonusD25':'unit02bd25',
-            'unit02BonusD50':'unit02bd50',
-            'unit02BonusD100':'unit02bd100',
-            'unit02BonusD150':'unit02bd150',
-            'unit02GlobalBonus':'unit02gb',
-            'unit02GlobalDmgBonus':'unit02gdb',
-        })}}";
-
-        //on remplace 0 par l'id de l'auteur choisi
-        url = url.replace('compteBanquaire', compteBanquaire.toFixed(0));
-        //UNIT01
-        url = url.replace('unit01q', Unit01.quantity);
-        url = url.replace('unit01p', Unit01.prix);
-        url = url.replace('unit01b10', Unit01.bonus['10GET']);
-        url = url.replace('unit01b25', Unit01.bonus['25GET']);
-        url = url.replace('unit01b50', Unit01.bonus['50GET']);
-        url = url.replace('unit01b100', Unit01.bonus['100GET']);
-        url = url.replace('unit01b150', Unit01.bonus['150GET']);
-        url = url.replace('unit01bd10', Unit01.bonusD['10GET']);
-        url = url.replace('unit01bd25', Unit01.bonusD['25GET']);
-        url = url.replace('unit01bd50', Unit01.bonusD['50GET']);
-        url = url.replace('unit01bd100', Unit01.bonusD['100GET']);
-        url = url.replace('unit01bd150', Unit01.bonusD['150GET']);
-        url = url.replace('unit01gb', Unit01.globalBonus);
-        url = url.replace('unit01gdb', Unit01.globalDmgBonus);
-        //UNIT02
-        url = url.replace('unit02q', Unit02.quantity);
-        url = url.replace('unit02p', Unit02.prix);
-        url = url.replace('unit02b10', Unit02.bonus['10GET']);
-        url = url.replace('unit02b25', Unit02.bonus['25GET']);
-        url = url.replace('unit02b50', Unit02.bonus['50GET']);
-        url = url.replace('unit02b100', Unit02.bonus['100GET']);
-        url = url.replace('unit02b150', Unit02.bonus['150GET']);
-        url = url.replace('unit02bd10', Unit02.bonusD['10GET']);
-        url = url.replace('unit02bd25', Unit02.bonusD['25GET']);
-        url = url.replace('unit02bd50', Unit02.bonusD['50GET']);
-        url = url.replace('unit02bd100', Unit02.bonusD['100GET']);
-        url = url.replace('unit02bd150', Unit02.bonusD['150GET']);
-        url = url.replace('unit02gb', Unit02.globalBonus);
-        url = url.replace('unit02gdb', Unit02.globalDmgBonus);
-        console.log(url);
         $.ajax({
-            type: 'get',
+            type: 'POST',
             url: url,
             timeout: 3000,
             dataType: 'html',
+            data:   'compteBanquaire=' + compteBanquaire +
+                    //UNIT01
+                    '&unit01Quantity=' + Unit01.quantity+
+                    '&unit01Price=' + Unit01.prix +
+                    '&unit01Bonus10='+ Unit01.bonus['10GET']+
+                    '&unit01Bonus25='+ Unit01.bonus['25GET']+
+                    '&unit01Bonus50='+ Unit01.bonus['50GET']+
+                    '&unit01Bonus100='+ Unit01.bonus['100GET']+
+                    '&unit01Bonus150='+ Unit01.bonus['150GET']+
+                    '&unit01BonusD10=' + Unit01.bonusD['10GET']+
+                    '&unit01BonusD25=' + Unit01.bonusD['25GET']+
+                    '&unit01BonusD50=' + Unit01.bonusD['50GET']+
+                    '&unit01BonusD100=' + Unit01.bonusD['100GET']+
+                    '&unit01BonusD150=' + Unit01.bonusD['150GET']+
+                    '&unit01GlobalBonus='+Unit01.globalBonus+
+                    '&unit01GlobalDmgBonus='+Unit01.globalDmgBonus+
+                    //UNIT02
+                    '&unit02Quantity=' + Unit02.quantity+
+                    '&unit02Price=' + Unit02.prix +
+                    '&unit02Bonus10='+ Unit02.bonus['10GET']+
+                    '&unit02Bonus25='+ Unit02.bonus['25GET']+
+                    '&unit02Bonus50='+ Unit02.bonus['50GET']+
+                    '&unit02Bonus100='+ Unit02.bonus['100GET']+
+                    '&unit02Bonus150='+ Unit02.bonus['150GET']+
+                    '&unit02BonusD10=' + Unit02.bonusD['10GET']+
+                    '&unit02BonusD25=' + Unit02.bonusD['25GET']+
+                    '&unit02BonusD50=' + Unit02.bonusD['50GET']+
+                    '&unit02BonusD100=' + Unit02.bonusD['100GET']+
+                    '&unit02BonusD150=' + Unit02.bonusD['150GET']+
+                    '&unit02GlobalBonus='+Unit02.globalBonus+
+                    '&unit02GlobalDmgBonus='+Unit02.globalDmgBonus+
+                    //UNIT03
+                    '&unit03Quantity=' + Unit03.quantity+
+                    '&unit03Price=' + Unit03.prix +
+                    '&unit03Bonus10='+ Unit03.bonus['10GET']+
+                    '&unit03Bonus25='+ Unit03.bonus['25GET']+
+                    '&unit03Bonus50='+ Unit03.bonus['50GET']+
+                    '&unit03Bonus100='+ Unit03.bonus['100GET']+
+                    '&unit03Bonus150='+ Unit03.bonus['150GET']+
+                    '&unit03BonusD10=' + Unit03.bonusD['10GET']+
+                    '&unit03BonusD25=' + Unit03.bonusD['25GET']+
+                    '&unit03BonusD50=' + Unit03.bonusD['50GET']+
+                    '&unit03BonusD100=' + Unit03.bonusD['100GET']+
+                    '&unit03BonusD150=' + Unit03.bonusD['150GET']+
+                    '&unit03GlobalBonus='+Unit03.globalBonus+
+                    '&unit03GlobalDmgBonus='+Unit03.globalDmgBonus+
+                    //UNIT04
+                    '&unit04Quantity=' + Unit04.quantity+
+                    '&unit04Price=' + Unit04.prix +
+                    '&unit04Bonus10='+ Unit04.bonus['10GET']+
+                    '&unit04Bonus25='+ Unit04.bonus['25GET']+
+                    '&unit04Bonus50='+ Unit04.bonus['50GET']+
+                    '&unit04Bonus100='+ Unit04.bonus['100GET']+
+                    '&unit04Bonus150='+ Unit04.bonus['150GET']+
+                    '&unit04BonusD10=' + Unit04.bonusD['10GET']+
+                    '&unit04BonusD25=' + Unit04.bonusD['25GET']+
+                    '&unit04BonusD50=' + Unit04.bonusD['50GET']+
+                    '&unit04BonusD100=' + Unit04.bonusD['100GET']+
+                    '&unit04BonusD150=' + Unit04.bonusD['150GET']+
+                    '&unit04GlobalBonus='+Unit04.globalBonus+
+                    '&unit04GlobalDmgBonus='+Unit04.globalDmgBonus+
+                    //UNIT05
+                    '&unit05Quantity=' + Unit05.quantity+
+                    '&unit05Price=' + Unit05.prix +
+                    '&unit05Bonus10='+ Unit05.bonus['10GET']+
+                    '&unit05Bonus25='+ Unit05.bonus['25GET']+
+                    '&unit05Bonus50='+ Unit05.bonus['50GET']+
+                    '&unit05Bonus100='+ Unit05.bonus['100GET']+
+                    '&unit05Bonus150='+ Unit05.bonus['150GET']+
+                    '&unit05BonusD10=' + Unit05.bonusD['10GET']+
+                    '&unit05BonusD25=' + Unit05.bonusD['25GET']+
+                    '&unit05BonusD50=' + Unit05.bonusD['50GET']+
+                    '&unit05BonusD100=' + Unit05.bonusD['100GET']+
+                    '&unit05BonusD150=' + Unit05.bonusD['150GET']+
+                    '&unit05GlobalBonus='+Unit05.globalBonus+
+                    '&unit05GlobalDmgBonus='+Unit05.globalDmgBonus+
+                    //UNIT06
+                    '&unit06Quantity=' + Unit06.quantity+
+                    '&unit06Price=' + Unit06.prix +
+                    '&unit06Bonus10='+ Unit06.bonus['10GET']+
+                    '&unit06Bonus25='+ Unit06.bonus['25GET']+
+                    '&unit06Bonus50='+ Unit06.bonus['50GET']+
+                    '&unit06Bonus100='+ Unit06.bonus['100GET']+
+                    '&unit06Bonus150='+ Unit06.bonus['150GET']+
+                    '&unit06BonusD10=' + Unit06.bonusD['10GET']+
+                    '&unit06BonusD25=' + Unit06.bonusD['25GET']+
+                    '&unit06BonusD50=' + Unit06.bonusD['50GET']+
+                    '&unit06BonusD100=' + Unit06.bonusD['100GET']+
+                    '&unit06BonusD150=' + Unit06.bonusD['150GET']+
+                    '&unit06GlobalBonus='+Unit06.globalBonus+
+                    '&unit06GlobalDmgBonus='+Unit06.globalDmgBonus,
             success: function (data) {
                 $('#result').html(data);
             },
@@ -238,6 +266,72 @@
 </script>
 
 <script src="{{ asset('script/varGame.js.twig') }}"></script>
+<script>
+    compteBanquaire = {{ compteBanquaire }};
+    Unit01.quantity ={{ unit01Quantity }};
+    Unit01.prix = {{ unit01Price }};
+    stringify = String('{{ unit01Bonus10 }}');
+
+    Unit01Array = [[String('{{ unit01Bonus10 }}')],[String('{{ unit01Bonus25 }}')],[String('{{ unit01Bonus50 }}')],[String('{{ unit01Bonus100 }}')],[String('{{ unit01Bonus150 }}')]];
+    Unit01DArray = [[String('{{ unit01BonusD10 }}')],[String('{{ unit01BonusD25 }}')],[String('{{ unit01BonusD50 }}')],[String('{{ unit01BonusD100 }}')],[String('{{ unit01BonusD150 }}')]];
+
+    Unit02Array = [[String('{{ unit02Bonus10 }}')],[String('{{ unit02Bonus25 }}')],[String('{{ unit02Bonus50 }}')],[String('{{ unit02Bonus100 }}')],[String('{{ unit02Bonus150 }}')]];
+    Unit02DArray = [[String('{{ unit02BonusD10 }}')],[String('{{ unit02BonusD25 }}')],[String('{{ unit02BonusD50 }}')],[String('{{ unit02BonusD100 }}')],[String('{{ unit02BonusD150 }}')]];
+
+    Unit03Array = [[String('{{ unit03Bonus10 }}')],[String('{{ unit03Bonus25 }}')],[String('{{ unit03Bonus50 }}')],[String('{{ unit03Bonus100 }}')],[String('{{ unit03Bonus150 }}')]];
+    Unit03DArray = [[String('{{ unit03BonusD10 }}')],[String('{{ unit03BonusD25 }}')],[String('{{ unit03BonusD50 }}')],[String('{{ unit03BonusD100 }}')],[String('{{ unit03BonusD150 }}')]];
+
+    Unit04Array = [[String('{{ unit04Bonus10 }}')],[String('{{ unit04Bonus25 }}')],[String('{{ unit04Bonus50 }}')],[String('{{ unit04Bonus100 }}')],[String('{{ unit04Bonus150 }}')]];
+    Unit04DArray = [[String('{{ unit04BonusD10 }}')],[String('{{ unit04BonusD25 }}')],[String('{{ unit04BonusD50 }}')],[String('{{ unit04BonusD100 }}')],[String('{{ unit04BonusD150 }}')]];
+
+    Unit05Array = [[String('{{ unit05Bonus10 }}')],[String('{{ unit05Bonus25 }}')],[String('{{ unit05Bonus50 }}')],[String('{{ unit05Bonus100 }}')],[String('{{ unit05Bonus150 }}')]];
+    Unit05DArray = [[String('{{ unit05BonusD10 }}')],[String('{{ unit05BonusD25 }}')],[String('{{ unit05BonusD50 }}')],[String('{{ unit05BonusD100 }}')],[String('{{ unit05BonusD150 }}')]];
+
+    Unit06Array = [[String('{{ unit06Bonus10 }}')],[String('{{ unit06Bonus25 }}')],[String('{{ unit06Bonus50 }}')],[String('{{ unit06Bonus100 }}')],[String('{{ unit06Bonus150 }}')]];
+    Unit06DArray = [[String('{{ unit06BonusD10 }}')],[String('{{ unit06BonusD25 }}')],[String('{{ unit06BonusD50 }}')],[String('{{ unit06BonusD100 }}')],[String('{{ unit06BonusD150 }}')]];
+
+
+
+    //AllUnitArray = [{Unit01Array,Unit01DArray},{Unit02Array,Unit02DArray},[Unit03Array],[Unit04Array],[Unit05Array],[Unit06Array]]
+    //AllUnitArray[0][0] =  [Unit01Array];
+
+    AllUnitArray = [
+        [[Unit01Array],[Unit01DArray]],
+        [[Unit02Array],[Unit02DArray]],
+        [[Unit03Array],[Unit03DArray]],
+        [[Unit04Array],[Unit04DArray]],
+        [[Unit05Array],[Unit05DArray]],
+        [[Unit06Array],[Unit06DArray]],
+
+    ]
+
+    console.log(AllUnitArray)
+
+    for(key in AllUnitArray){
+        currentArray = AllUnitArray[key];
+        for (key2 in currentArray){
+            AllUnitArray[key][key2] = getArrayBonus(currentArray[key2][0][0]);
+        }
+    }
+
+    getSaveUnit();
+
+    function getSaveUnit(){
+        for (key in arrayUnit){
+            arrayUnit[key].bonus=AllUnitArray[key][0];
+            arrayUnit[key].bonus=AllUnitArray[key][1];
+        }
+    }
+
+    function getArrayBonus(stringto){
+        exploded = stringto.split(',');
+        exploded[0] =Boolean(exploded[0],10);
+        exploded[1] = parseInt(exploded[1]);
+        exploded[3] = parseInt(exploded[3]);
+        return exploded;
+    }
+
+</script>
 <script src="{{ asset('script/main.js.twig') }}"></script>
 <script src="{{ asset('script/upgradeUnit.js.twig') }}"></script>
     </body>

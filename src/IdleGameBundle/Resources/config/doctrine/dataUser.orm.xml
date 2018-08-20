@@ -39,6 +39,66 @@
         <field name="unit02BonusD150" type="text" nullable="true" column="unit02BonusD150" />
         <field name="unit02GlobalBonus" type="bigint" nullable="true" column="unit02GlobalBonus" />
         <field name="unit02GlobalDmgBonus" type="bigint" nullable="true" column="unit02GlobalDmgBonus" />
+        <!-- UNIT02 -->
+        <field name="unit03Quantity" type="bigint" nullable="true" column="unit03Quantity" />
+        <field name="unit03Price" type="bigint" nullable="true" column="unit03Price" />
+        <field name="unit03Bonus10" type="text" nullable="true" column="unit03Bonus10" />
+        <field name="unit03Bonus25" type="text" nullable="true" column="unit03Bonus25" />
+        <field name="unit03Bonus50" type="text" nullable="true" column="unit03Bonus50" />
+        <field name="unit03Bonus100" type="text" nullable="true" column="unit03Bonus100" />
+        <field name="unit03Bonus150" type="text" nullable="true" column="unit03Bonus150" />
+        <field name="unit03BonusD10" type="text" nullable="true" column="unit03BonusD10" />
+        <field name="unit03BonusD25" type="text" nullable="true" column="unit03BonusD25" />
+        <field name="unit03BonusD50" type="text" nullable="true" column="unit03BonusD50" />
+        <field name="unit03BonusD100" type="text" nullable="true" column="unit03BonusD100" />
+        <field name="unit03BonusD150" type="text" nullable="true" column="unit03BonusD150" />
+        <field name="unit03GlobalBonus" type="bigint" nullable="true" column="unit03GlobalBonus" />
+        <field name="unit03GlobalDmgBonus" type="bigint" nullable="true" column="unit03GlobalDmgBonus" />
+        <!-- UNIT04 -->
+        <field name="unit04Quantity" type="bigint" nullable="true" column="unit04Quantity" />
+        <field name="unit04Price" type="bigint" nullable="true" column="unit04Price" />
+        <field name="unit04Bonus10" type="text" nullable="true" column="unit04Bonus10" />
+        <field name="unit04Bonus25" type="text" nullable="true" column="unit04Bonus25" />
+        <field name="unit04Bonus50" type="text" nullable="true" column="unit04Bonus50" />
+        <field name="unit04Bonus100" type="text" nullable="true" column="unit04Bonus100" />
+        <field name="unit04Bonus150" type="text" nullable="true" column="unit04Bonus150" />
+        <field name="unit04BonusD10" type="text" nullable="true" column="unit04BonusD10" />
+        <field name="unit04BonusD25" type="text" nullable="true" column="unit04BonusD25" />
+        <field name="unit04BonusD50" type="text" nullable="true" column="unit04BonusD50" />
+        <field name="unit04BonusD100" type="text" nullable="true" column="unit04BonusD100" />
+        <field name="unit04BonusD150" type="text" nullable="true" column="unit04BonusD150" />
+        <field name="unit04GlobalBonus" type="bigint" nullable="true" column="unit04GlobalBonus" />
+        <field name="unit04GlobalDmgBonus" type="bigint" nullable="true" column="unit04GlobalDmgBonus" />
+        <!-- UNIT05 -->
+        <field name="unit05Quantity" type="bigint" nullable="true" column="unit05Quantity" />
+        <field name="unit05Price" type="bigint" nullable="true" column="unit05Price" />
+        <field name="unit05Bonus10" type="text" nullable="true" column="unit05Bonus10" />
+        <field name="unit05Bonus25" type="text" nullable="true" column="unit05Bonus25" />
+        <field name="unit05Bonus50" type="text" nullable="true" column="unit05Bonus50" />
+        <field name="unit05Bonus100" type="text" nullable="true" column="unit05Bonus100" />
+        <field name="unit05Bonus150" type="text" nullable="true" column="unit05Bonus150" />
+        <field name="unit05BonusD10" type="text" nullable="true" column="unit05BonusD10" />
+        <field name="unit05BonusD25" type="text" nullable="true" column="unit05BonusD25" />
+        <field name="unit05BonusD50" type="text" nullable="true" column="unit05BonusD50" />
+        <field name="unit05BonusD100" type="text" nullable="true" column="unit05BonusD100" />
+        <field name="unit05BonusD150" type="text" nullable="true" column="unit05BonusD150" />
+        <field name="unit05GlobalBonus" type="bigint" nullable="true" column="unit05GlobalBonus" />
+        <field name="unit05GlobalDmgBonus" type="bigint" nullable="true" column="unit05GlobalDmgBonus" />
+        <!-- UNIT06 -->
+        <field name="unit06Quantity" type="bigint" nullable="true" column="unit06Quantity" />
+        <field name="unit06Price" type="bigint" nullable="true" column="unit06Price" />
+        <field name="unit06Bonus10" type="text" nullable="true" column="unit06Bonus10" />
+        <field name="unit06Bonus25" type="text" nullable="true" column="unit06Bonus25" />
+        <field name="unit06Bonus50" type="text" nullable="true" column="unit06Bonus50" />
+        <field name="unit06Bonus100" type="text" nullable="true" column="unit06Bonus100" />
+        <field name="unit06Bonus150" type="text" nullable="true" column="unit06Bonus150" />
+        <field name="unit06BonusD10" type="text" nullable="true" column="unit06BonusD10" />
+        <field name="unit06BonusD25" type="text" nullable="true" column="unit06BonusD25" />
+        <field name="unit06BonusD50" type="text" nullable="true" column="unit06BonusD50" />
+        <field name="unit06BonusD100" type="text" nullable="true" column="unit06BonusD100" />
+        <field name="unit06BonusD150" type="text" nullable="true" column="unit06BonusD150" />
+        <field name="unit06GlobalBonus" type="bigint" nullable="true" column="unit06GlobalBonus" />
+        <field name="unit06GlobalDmgBonus" type="bigint" nullable="true" column="unit06GlobalDmgBonus" />
         <one-to-one
                 field="user"
                 target-entity="IdleGameBundle\Entity\User">
