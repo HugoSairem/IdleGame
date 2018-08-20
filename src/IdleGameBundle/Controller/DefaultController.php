@@ -247,7 +247,6 @@ class DefaultController extends Controller
         } else {
             $comteBanquaire=$current_data->getAmountMoney();
 
-
             $unit01Quantity=$current_data->getUnit01Quantity();
             $unit01Price=$current_data->getUnit01Price();
             $unit01Bonus10 = $current_data->getUnit01Bonus10();
@@ -281,6 +280,11 @@ class DefaultController extends Controller
             $unit03Bonus50 = $current_data->getUnit03Bonus50();
             $unit03Bonus100 = $current_data->getUnit03Bonus100();
             $unit03Bonus150 = $current_data->getUnit03Bonus150();
+            $unit03BonusD10 = $current_data->getUnit03BonusD10();
+            $unit03BonusD25 = $current_data->getUnit03BonusD25();
+            $unit03BonusD50 = $current_data->getUnit03BonusD50();
+            $unit03BonusD100 = $current_data->getUnit03BonusD100();
+            $unit03BonusD150 = $current_data->getUnit03BonusD150();
 
             $unit04Quantity=$current_data->getUnit04Quantity();
             $unit04Price=$current_data->getUnit04Price();
@@ -289,6 +293,11 @@ class DefaultController extends Controller
             $unit04Bonus50 = $current_data->getUnit04Bonus50();
             $unit04Bonus100 = $current_data->getUnit04Bonus100();
             $unit04Bonus150 = $current_data->getUnit04Bonus150();
+            $unit04BonusD10 = $current_data->getUnit04BonusD10();
+            $unit04BonusD25 = $current_data->getUnit04BonusD25();
+            $unit04BonusD50 = $current_data->getUnit04BonusD50();
+            $unit04BonusD100 = $current_data->getUnit04BonusD100();
+            $unit04BonusD150 = $current_data->getUnit04BonusD150();
 
             $unit05Quantity=$current_data->getUnit05Quantity();
             $unit05Price=$current_data->getUnit05Price();
@@ -297,6 +306,11 @@ class DefaultController extends Controller
             $unit05Bonus50 = $current_data->getUnit05Bonus50();
             $unit05Bonus100 = $current_data->getUnit05Bonus100();
             $unit05Bonus150 = $current_data->getUnit02Bonus150();
+            $unit05BonusD10 = $current_data->getUnit05BonusD10();
+            $unit05BonusD25 = $current_data->getUnit05BonusD25();
+            $unit05BonusD50 = $current_data->getUnit05BonusD50();
+            $unit05BonusD100 = $current_data->getUnit05BonusD100();
+            $unit05BonusD150 = $current_data->getUnit02BonusD150();
 
             $unit06Quantity=$current_data->getUnit06Quantity();
             $unit06Price=$current_data->getUnit06Price();
@@ -305,6 +319,11 @@ class DefaultController extends Controller
             $unit06Bonus50 = $current_data->getUnit06Bonus50();
             $unit06Bonus100 = $current_data->getUnit06Bonus100();
             $unit06Bonus150 = $current_data->getUnit06Bonus150();
+            $unit06BonusD10 = $current_data->getUnit06BonusD10();
+            $unit06BonusD25 = $current_data->getUnit06BonusD25();
+            $unit06BonusD50 = $current_data->getUnit06BonusD50();
+            $unit06BonusD100 = $current_data->getUnit06BonusD100();
+            $unit06BonusD150 = $current_data->getUnit06BonusD150();
 
 
             return $this->render('@IdleGame/Default/index.html.twig',array(
@@ -344,6 +363,12 @@ class DefaultController extends Controller
                 'unit03Bonus50' => $unit03Bonus50,
                 'unit03Bonus100' => $unit03Bonus100,
                 'unit03Bonus150' => $unit03Bonus150,
+                'unit03BonusD10' => $unit03BonusD10,
+                'unit03BonusD25' => $unit03BonusD25,
+                'unit03BonusD50' => $unit03BonusD50,
+                'unit03BonusD100' => $unit03BonusD100,
+                'unit03BonusD150' => $unit03BonusD150,
+
                 //UNIT04
                 'unit04Quantity'=> $unit04Quantity,
                 'unit04Price'=> $unit04Price,
@@ -352,6 +377,11 @@ class DefaultController extends Controller
                 'unit04Bonus50' => $unit04Bonus50,
                 'unit04Bonus100' => $unit04Bonus100,
                 'unit04Bonus150' => $unit04Bonus150,
+                'unit04BonusD10' => $unit04BonusD10,
+                'unit04BonusD25' => $unit04BonusD25,
+                'unit04BonusD50' => $unit04BonusD50,
+                'unit04BonusD100' => $unit04BonusD100,
+                'unit04BonusD150' => $unit04BonusD150,
                 //UNIT05
                 'unit05Quantity'=> $unit05Quantity,
                 'unit05Price'=> $unit05Price,
@@ -360,7 +390,12 @@ class DefaultController extends Controller
                 'unit05Bonus50' => $unit05Bonus50,
                 'unit05Bonus100' => $unit05Bonus100,
                 'unit05Bonus150' => $unit05Bonus150,
-                //UNIT04
+                'unit05BonusD10' => $unit05BonusD10,
+                'unit05BonusD25' => $unit05BonusD25,
+                'unit05BonusD50' => $unit05BonusD50,
+                'unit05BonusD100' => $unit05BonusD100,
+                'unit05BonusD150' => $unit05BonusD150,
+                //UNIT06
                 'unit06Quantity'=> $unit06Quantity,
                 'unit06Price'=> $unit06Price,
                 'unit06Bonus10' => $unit06Bonus10,
@@ -368,13 +403,15 @@ class DefaultController extends Controller
                 'unit06Bonus50' => $unit06Bonus50,
                 'unit06Bonus100' => $unit06Bonus100,
                 'unit06Bonus150' => $unit06Bonus150,
+                'unit06BonusD10' => $unit06BonusD10,
+                'unit06BonusD25' => $unit06BonusD25,
+                'unit06BonusD50' => $unit06BonusD50,
+                'unit06BonusD100' => $unit06BonusD100,
+                'unit06BonusD150' => $unit06BonusD150,
 
             ));
 
         }
-
-
-
 
         return $this->render('@IdleGame/Default/index.html.twig');
     }

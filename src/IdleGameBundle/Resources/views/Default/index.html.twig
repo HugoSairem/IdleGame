@@ -302,15 +302,15 @@
         [[Unit04Array],[Unit04DArray]],
         [[Unit05Array],[Unit05DArray]],
         [[Unit06Array],[Unit06DArray]],
-
-    ]
-
-    console.log(AllUnitArray)
+    ];
 
     for(key in AllUnitArray){
         currentArray = AllUnitArray[key];
         for (key2 in currentArray){
-            AllUnitArray[key][key2] = getArrayBonus(currentArray[key2][0][0]);
+            current = currentArray[key2][0];
+            for (key3 in current){
+                AllUnitArray[key][key2][0][key3][0] = getArrayBonus(current[key3][0]);
+            }
         }
     }
 
@@ -319,7 +319,7 @@
     function getSaveUnit(){
         for (key in arrayUnit){
             arrayUnit[key].bonus=AllUnitArray[key][0];
-            arrayUnit[key].bonus=AllUnitArray[key][1];
+            arrayUnit[key].bonusD=AllUnitArray[key][1];
         }
     }
 
