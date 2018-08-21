@@ -1,0 +1,497 @@
+*,body{
+  margin :0;
+  padding:0;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.content{
+  width:100%;
+}
+
+#compteBanq{
+  width:100%;
+}
+
+.leftBlock{
+  position:fixed;
+  float:left;
+  width:25%;
+  height:100vh;
+  background-color: #868686;
+  float: left;
+}
+
+.middleBlock{
+  width:35%;
+  height:100vh;
+  background-color: #8959A8;
+  background-image: url("../images/metal01.jpg");
+  background-size: 400px 400px;
+  position:absolute;
+  z-index: -1;
+  left:25%;
+}
+
+.backgroundBoss{
+  width:100%;
+  height:200px;
+  background-image: url("https://media.giphy.com/media/HdAvCZTDcKYdW/giphy.gif");
+}
+
+.rightBlock{
+  width:40%;
+  float:right;
+  height:100vh;
+}
+
+.buyButton{
+  width:100%;
+  height:100px;
+  color: white;
+  cursor:pointer;
+}
+
+.Button{
+  width:100%;
+  height:50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor:pointer;
+  transition: all 0.3s;
+}
+
+.Button:hover{
+  background-color: white;
+  color:black;
+}
+
+.addMoneyButton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+}
+
+.DisabledButton{
+  background-color: grey;
+}
+
+.DisabledButton:hover{
+  background-color: grey;
+}
+
+.resetSave{
+  background-color: red;
+}
+
+.pushSave{
+  background-color: green;
+}
+
+.buyButton{
+  position:relative;
+  background-color: #66dd66;
+  border-bottom: #222222 solid;
+}
+
+.buyButton img{
+  position:absolute;
+  height:80px;
+  bottom:50%;
+  left:60%;
+  transform: translateY(50%);
+}
+
+#BlockMoney{
+  background-color: #6c6159;
+  width:100%;
+  height:250px;
+  text-align: center;
+}
+
+#BlockMoney h2{
+
+}
+
+.subBlockMoney{
+  width:100%;
+}
+
+.subBlockMoney div{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subBlockMoney h1{
+  display: inline-block;
+}
+
+.subBlockMoney img{
+  display: inline-block;
+  width:40px;
+
+}
+
+.subBlockMoney h2{
+  display: inline-block;
+}
+
+
+
+
+.unitCount{
+  width:15%;
+  height:100%;
+  float:left;
+  background-color: #222222;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:35px;
+}
+
+.recrutement{
+  display: block;
+  height:50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prixBlock{
+  display: block;
+  height:50px;
+  font-size:15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.middleBuyButton{
+  width:50%;
+  display: inline-block;
+}
+
+.prix{
+  margin-left:5px;
+  margin-right:5px;
+}
+
+.lifebarContent{
+  position:relative;
+  width:100%;
+  height:15px;
+  background-color: #222222;
+}
+
+.life{
+  max-width:100%;
+  height:15px;
+  background-color: darkred;
+  transition: all 1s;
+  transition-timing-function: linear;
+}
+
+#bossLifePoint{
+  color:white;
+  position:absolute;
+  display:flex;
+  right:50%;
+  transform: translateX(50%);
+}
+
+.middleBlock h1{
+  text-align: center;
+}
+
+.imgBoss{
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.3);
+  justify-content: center;
+}
+
+.imgBoss img{
+  height:200px;
+}
+
+.upgradeButton{
+  justify-content: center;
+  align-items: center;
+  width:50px;
+  height:50px;
+  color:white;
+  font-weight: bold;
+  margin-top:5px;
+  margin-bottom:5px;
+  margin-left:5px;
+  border:solid #222222 1px;
+
+}
+
+.upgradeButton p{
+  display: inline-block;
+  font-size:18px;
+}
+
+.upgradeButton img{
+  display: inline-block;
+  width:25px;
+}
+
+.upgradeButton div{
+  height:100%;
+  align-self: center;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upgUnit01{
+  background-image: url("../images/soldat02.gif");
+  background-size: cover;
+}
+
+.upgUnit02{
+  background-image: url("../images/soldat07.gif");
+  background-size: cover;
+}
+
+.upgUnit03{
+  background-image: url("../images/soldat09.gif");
+  background-size: cover;
+}
+
+.upgUnit04{
+  background-image: url("../images/tank01.gif");
+  background-size: cover;
+  background-position:center center;
+
+}
+
+.upgUnit05{
+  background-image: url("../images/mecha04.gif");
+  background-size: cover;
+}
+
+.upgUnit06{
+  background-image: url("../images/mecha01.gif");
+  background-size: cover;
+}
+
+
+.upg10{
+  background-color: #0088CC;
+}
+
+.upg25{
+  background-color: #00ccb0;
+}
+
+.upg50{
+  background-color: #01cc6a;
+}
+
+.upg100{
+  background-color: #00cc0f;
+}
+
+.upg150{
+  background-color: #80cc00;
+}
+
+.upg200{
+  background-color: #b7cc00;
+}
+
+.upg300{
+  background-color: #cc8600;
+}
+
+.upg400{
+  background-color: #cc4500;
+}
+
+.upg500{
+  background-color: #cc001b;
+}
+
+.heroBlock{
+  position:relative;
+  width:100%;
+  height:200px;
+}
+
+
+.statHero{
+  display: flex;
+}
+
+.statHero span{
+  width:50%;
+  display: flex;
+}
+
+.imgHero{
+  z-index: 1;
+  left:36%;
+  top:30%;
+  width:100px;
+  transition: left 1s,top 1s,width 0s;
+}
+
+.imgHeroBlock{
+  float: left;
+  width:100px;
+  height:108px;
+  border-radius: 25px;
+  background-image: url("https://i.pinimg.com/originals/48/cf/59/48cf590ac6c6698625988938b33d964f.gif");
+  background-position: bottom;
+  background-size: cover;
+}
+
+
+
+
+.heroSlot{
+  margin:5px;
+  width:50px;
+  height:50px;
+  float:left;
+  background-color: #222222;
+}
+
+.heroMiddle{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.upgHeroMenu{
+  left:-500px;
+  width:100%;
+  height:100%;
+  position:absolute;
+  z-index: 3;
+  background-color: black;
+  transition: all 0.5s;
+}
+
+.upgHero{
+  float:left;
+  margin:10px;
+  width:50px;
+  height:50px;
+  background-color: red;
+
+}
+
+.crossContent{
+  width:100%;
+  height:25px;
+}
+
+.closeCross{
+  width:15px;
+  height:15px;
+  float:right;
+  margin:5px;
+  background-color: red;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeCross{
+  cursor:pointer;
+}
+
+.timerMission{
+  text-align: center;
+}
+
+.loginBox{
+  text-align: center;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  height:100vh;
+  margin:0 auto;
+  background-color: #1c1b1d;
+  background-image: url("https://images7.alphacoders.com/717/717360.jpg");
+  background-size: cover;
+  background-position:50% 50%;
+  color:white;
+}
+
+.labelLogin{
+  font-size:30px;
+}
+
+form{
+  border-top:solid white 1px;
+}
+
+input[type=button], input[type=submit] {
+  background-color: #e4e4e4;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition:all 0.3s;
+  font-size:20px;
+}
+
+input[type=reset]{
+  background-color: #c5181f;
+  color:white;
+}
+
+input[type=submit]:hover{
+  color: white;
+  background-color: #e4563d;
+  padding-left:36px;
+  padding-right:28px;
+  box-shadow: inset 5px 5px 0px 0px #6a2a1e;
+}
+
+.userInput{
+  border:none;
+  font-size:25px;
+  border-radius: 5px;
+  height:40px;
+  width:400px;
+  text-align: center;
+}
+
+.subLoginBox{
+  margin:25px;
+}
+
+.abortForm{
+  font-family: Arial;
+  background-color: #e4e4e4;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition:all 0.3s;
+  font-size:20px;
+}
+
+.abortForm:hover{
+  color: white;
+  background-color: #e4563d;
+  padding-left:36px;
+  padding-right:28px;
+  box-shadow: inset 5px 5px 0px 0px #6a2a1e;
+}

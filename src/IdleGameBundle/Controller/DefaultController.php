@@ -14,7 +14,9 @@ class DefaultController extends Controller
         $entitymanager = $this->getDoctrine()->getManager();
         $iduser = $this->getUser()->getId();
         $current_data = $entitymanager->getRepository(dataUser::class)->findBy(['user' => $iduser]);
+
         $current_data = $current_data[0];
+
         $compteBanquaire = $request->request->get('compteBanquaire');
         $ennemyDoorLife = $request->request->get('ennemyDoorLife');
         $ennemyDoorBLife = $request->request->get('ennemyDoorBLife');
@@ -254,8 +256,11 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $this->denyAccessUnlessGranted("ROLE_USER");
+
         $entitymanager = $this->getDoctrine()->getManager();
+
         $iduser = $this->getUser()->getId();
+
         $current_user = $entitymanager->getRepository(User::class)->find($iduser);
         $current_data = $entitymanager->getRepository(dataUser::class)->findBy(['user' => $iduser]);
         $current_data=$current_data[0];

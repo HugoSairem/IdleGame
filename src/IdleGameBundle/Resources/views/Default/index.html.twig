@@ -9,7 +9,7 @@
     <script src="{{ asset('script/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('script/jquery.min.js') }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset("css/main.css") }}"> <!-- asset s'occupe de trouver le chemin à partir du dossier web -->
+    <link rel="stylesheet" href="{{ asset("css/style.css") }}"> <!-- asset s'occupe de trouver le chemin à partir du dossier web -->
 </head>
 <body>
 <div class="content">
@@ -152,8 +152,7 @@
 <div id="result"></div>
 
 <script>
-
-    $('#saveButton').on('click', function save() {
+    $('#saveButton').on('click', function() {
 
         //donc je met en paramètre de ma route 0 en dur
 
@@ -310,8 +309,8 @@
     Unit05.quantity ={{ unit05Quantity }};
     Unit05.prix = {{ unit05Price }};
 
-    Unit01.quantity ={{ unit01Quantity }};
-    Unit01.prix = {{ unit01Price }};
+    Unit06.quantity ={{ unit06Quantity }};
+    Unit06.prix = {{ unit06Price }};
 
 
     Unit01Array = [[String('{{ unit01Bonus10 }}')],[String('{{ unit01Bonus25 }}')],[String('{{ unit01Bonus50 }}')],[String('{{ unit01Bonus100 }}')],[String('{{ unit01Bonus150 }}')]];
