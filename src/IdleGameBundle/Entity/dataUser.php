@@ -2516,4 +2516,410 @@ class dataUser
     {
         return $this->unit06GlobalDmgBonus;
     }
+    /**
+     * @var integer
+     */
+    private $ennemyDoor;
+
+    /**
+     * @var integer
+     */
+    private $ennemyTroops;
+
+    /**
+     * @var integer
+     */
+    private $ennemyBoss;
+
+    /**
+     * @var string
+     */
+    private $currentStage;
+
+
+    /**
+     * Set ennemyDoor
+     *
+     * @param integer $ennemyDoor
+     *
+     * @return dataUser
+     */
+    public function setEnnemyDoor($ennemyDoor)
+    {
+        $this->ennemyDoor = $ennemyDoor;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyDoor
+     *
+     * @return integer
+     */
+    public function getEnnemyDoor()
+    {
+        return $this->ennemyDoor;
+    }
+
+    /**
+     * Set ennemyTroops
+     *
+     * @param integer $ennemyTroops
+     *
+     * @return dataUser
+     */
+    public function setEnnemyTroops($ennemyTroops)
+    {
+        $this->ennemyTroops = $ennemyTroops;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyTroops
+     *
+     * @return integer
+     */
+    public function getEnnemyTroops()
+    {
+        return $this->ennemyTroops;
+    }
+
+    /**
+     * Set ennemyBoss
+     *
+     * @param integer $ennemyBoss
+     *
+     * @return dataUser
+     */
+    public function setEnnemyBoss($ennemyBoss)
+    {
+        $this->ennemyBoss = $ennemyBoss;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyBoss
+     *
+     * @return integer
+     */
+    public function getEnnemyBoss()
+    {
+        return $this->ennemyBoss;
+    }
+
+    /**
+     * Set currentStage
+     *
+     * @param string $currentStage
+     *
+     * @return dataUser
+     */
+    public function setCurrentStage($currentStage)
+    {
+        $this->currentStage = $currentStage;
+
+        return $this;
+    }
+
+    /**
+     * Get currentStage
+     *
+     * @return string
+     */
+    public function getCurrentStage()
+    {
+        return $this->currentStage;
+    }
+    /**
+     * @var integer
+     */
+    private $ennemyDoorLife;
+
+    /**
+     * @var integer
+     */
+    private $ennemyDoorBLife;
+
+    /**
+     * @var integer
+     */
+    private $ennemyDoorLevel;
+
+    /**
+     * @var integer
+     */
+    private $ennemyTroopsLife;
+
+    /**
+     * @var integer
+     */
+    private $ennemyTroopsBLife;
+
+    /**
+     * @var integer
+     */
+    private $ennemyTroopsLevel;
+
+    /**
+     * @var integer
+     */
+    private $ennemyBossLife;
+
+    /**
+     * @var integer
+     */
+    private $ennemyBossBLife;
+
+    /**
+     * @var integer
+     */
+    private $ennemyBossLevel;
+
+
+    /**
+     * Set ennemyDoorLife
+     *
+     * @param integer $ennemyDoorLife
+     *
+     * @return dataUser
+     */
+    public function setEnnemyDoorLife($ennemyDoorLife)
+    {
+        $this->ennemyDoorLife = $ennemyDoorLife;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyDoorLife
+     *
+     * @return integer
+     */
+    public function getEnnemyDoorLife()
+    {
+        return $this->ennemyDoorLife;
+    }
+
+    /**
+     * Set ennemyDoorBLife
+     *
+     * @param integer $ennemyDoorBLife
+     *
+     * @return dataUser
+     */
+    public function setEnnemyDoorBLife($ennemyDoorBLife)
+    {
+        $this->ennemyDoorBLife = $ennemyDoorBLife;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyDoorBLife
+     *
+     * @return integer
+     */
+    public function getEnnemyDoorBLife()
+    {
+        return $this->ennemyDoorBLife;
+    }
+
+    /**
+     * Set ennemyDoorLevel
+     *
+     * @param integer $ennemyDoorLevel
+     *
+     * @return dataUser
+     */
+    public function setEnnemyDoorLevel($ennemyDoorLevel)
+    {
+        $this->ennemyDoorLevel = $ennemyDoorLevel;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyDoorLevel
+     *
+     * @return integer
+     */
+    public function getEnnemyDoorLevel()
+    {
+        return $this->ennemyDoorLevel;
+    }
+
+    /**
+     * Set ennemyTroopsLife
+     *
+     * @param integer $ennemyTroopsLife
+     *
+     * @return dataUser
+     */
+    public function setEnnemyTroopsLife($ennemyTroopsLife)
+    {
+        $this->ennemyTroopsLife = $ennemyTroopsLife;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyTroopsLife
+     *
+     * @return integer
+     */
+    public function getEnnemyTroopsLife()
+    {
+        return $this->ennemyTroopsLife;
+    }
+
+    /**
+     * Set ennemyTroopsBLife
+     *
+     * @param integer $ennemyTroopsBLife
+     *
+     * @return dataUser
+     */
+    public function setEnnemyTroopsBLife($ennemyTroopsBLife)
+    {
+        $this->ennemyTroopsBLife = $ennemyTroopsBLife;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyTroopsBLife
+     *
+     * @return integer
+     */
+    public function getEnnemyTroopsBLife()
+    {
+        return $this->ennemyTroopsBLife;
+    }
+
+    /**
+     * Set ennemyTroopsLevel
+     *
+     * @param integer $ennemyTroopsLevel
+     *
+     * @return dataUser
+     */
+    public function setEnnemyTroopsLevel($ennemyTroopsLevel)
+    {
+        $this->ennemyTroopsLevel = $ennemyTroopsLevel;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyTroopsLevel
+     *
+     * @return integer
+     */
+    public function getEnnemyTroopsLevel()
+    {
+        return $this->ennemyTroopsLevel;
+    }
+
+    /**
+     * Set ennemyBossLife
+     *
+     * @param integer $ennemyBossLife
+     *
+     * @return dataUser
+     */
+    public function setEnnemyBossLife($ennemyBossLife)
+    {
+        $this->ennemyBossLife = $ennemyBossLife;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyBossLife
+     *
+     * @return integer
+     */
+    public function getEnnemyBossLife()
+    {
+        return $this->ennemyBossLife;
+    }
+
+    /**
+     * Set ennemyBossBLife
+     *
+     * @param integer $ennemyBossBLife
+     *
+     * @return dataUser
+     */
+    public function setEnnemyBossBLife($ennemyBossBLife)
+    {
+        $this->ennemyBossBLife = $ennemyBossBLife;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyBossBLife
+     *
+     * @return integer
+     */
+    public function getEnnemyBossBLife()
+    {
+        return $this->ennemyBossBLife;
+    }
+
+    /**
+     * Set ennemyBossLevel
+     *
+     * @param integer $ennemyBossLevel
+     *
+     * @return dataUser
+     */
+    public function setEnnemyBossLevel($ennemyBossLevel)
+    {
+        $this->ennemyBossLevel = $ennemyBossLevel;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyBossLevel
+     *
+     * @return integer
+     */
+    public function getEnnemyBossLevel()
+    {
+        return $this->ennemyBossLevel;
+    }
+    /**
+     * @var integer
+     */
+    private $ennemyBossBonusKill;
+
+
+    /**
+     * Set ennemyBossBonusKill
+     *
+     * @param integer $ennemyBossBonusKill
+     *
+     * @return dataUser
+     */
+    public function setEnnemyBossBonusKill($ennemyBossBonusKill)
+    {
+        $this->ennemyBossBonusKill = $ennemyBossBonusKill;
+
+        return $this;
+    }
+
+    /**
+     * Get ennemyBossBonusKill
+     *
+     * @return integer
+     */
+    public function getEnnemyBossBonusKill()
+    {
+        return $this->ennemyBossBonusKill;
+    }
 }

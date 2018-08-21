@@ -1,11 +1,6 @@
-// Vérification de l'existence d'une sauvegarde
-try{
-    lectureMoney();// Charger la sauvegarde si elle existe
-} catch {
-    saveMoney();
-    resetSave();
-    lectureMoney();
-}
+
+
+showimgBoss();
 
 // Fonction de transformation des nombres trop grand
 // 1000 =1K, 1.000.000 = 1M etc...
@@ -78,12 +73,6 @@ function saveMoney(){
 // fonction de lecture de la sauvegarde
 function lectureMoney(){
     var sauvegarde = JSON.parse(localStorage.getItem('coord'));
-    Unit01 = sauvegarde.Unit01;
-    Unit02 = sauvegarde.Unit02;
-    Unit03 = sauvegarde.Unit03;
-    Unit04 = sauvegarde.Unit04;
-    Unit05 = sauvegarde.Unit05;
-    Unit06 = sauvegarde.Unit06;
     ennemyDoor = sauvegarde.ennemyDoor;
     ennemyTroops = sauvegarde.ennemyTroops;
     ennemyBoss = sauvegarde.ennemyBoss;
@@ -265,12 +254,141 @@ function calcIncomeUnit06(){
 function resetSave(){
     if (confirm("Êtes-vous sur de vouloir supprimer votre sauvegarde ?")==true) {
         compteBanquaire=0;
-        Unit01=basearrayUnit[0];
-        Unit02=basearrayUnit[1];
-        Unit03=basearrayUnit[2];
-        Unit04=basearrayUnit[3];
-        Unit05=basearrayUnit[4];
-        Unit06=basearrayUnit[5];
+        Unit01.quantity = 0;
+        Unit01.prix = 25;
+        Unit01.degats = 0.1;
+        Unit01.income = 0;
+        Unit01.bonus = {
+            '10GET': [false,250,"upgUnit01_10",10],
+            '25GET': [false,1500,'upgUnit01_25',25],
+            '50GET': [false,15000,'upgUnit01_50',50],
+            '100GET': [false,165000,'upgUnit01_100',100],
+            '150GET':[false,1980000,'upgUnit01_150',150]
+        };
+        Unit01.bonusD={
+            '10GET': [false,250,'upgDMGUnit01_10',10],
+            '25GET': [false,1500,'upgDMGUnit01_25',25],
+            '50GET': [false,15000,'upgDMGUnit01_50',50],
+            '100GET': [false,165000,'upgDMGUnit01_100',100],
+            '150GET':[false,1980000,'upgDMGUnit01_150',150]
+        }
+        Unit01.globalBonus = 0;
+        Unit01.globalDmgBonus = 0;
+
+        console.log(Unit01);
+
+// - unit02 -
+        Unit02.quantity = 0;
+        Unit02.prix = 100;
+        Unit02.degats = 1;
+        Unit02.income = 0;
+        Unit02.bonus = {
+            '10GET': [false,1500,'upgUnit02_10',10],
+            '25GET': [false,15000,'upgUnit02_25',25],
+            '50GET': [false,165000,'upgUnit02_50',50],
+            '100GET': [false,1980000,'upgUnit02_100',100],
+            '150GET': [false,12270000,'upgUnit02_150',150]
+        };
+        Unit02.bonusD = {
+            '10GET': [false,1500,'upgDMGUnit02_10',10],
+            '25GET': [false,15000,'upgDMGUnit02_25',25],
+            '50GET': [false,165000,'upgDMGUnit02_50',50],
+            '100GET': [false,1980000,'upgDMGUnit02_100',100],
+            '150GET': [false,12270000,'upgDMGUnit02_150',150]
+        };
+        Unit02.globalBonus = 0;
+        Unit02.globalDmgBonus = 0;
+
+
+// - unit03 -
+        Unit03.quantity = 0;
+        Unit03.prix = 1100;
+        Unit03.degats = 8;
+        Unit03.income = 0;
+        Unit03.bonus = {
+            '10GET': [false,165000,'upgUnit03_10',10],
+            '25GET': [false,1980000,'upgUnit03_25',25],
+            '50GET': [false,12270000,'upgUnit03_50',50],
+            '100GET': [false,76111200,'upgUnit03_100',100],
+            '150GET': [false,471889440,'upgUnit03_150',150]
+        };
+        Unit03.bonusD = {
+            '10GET': [false,165000,'upgDMGUnit03_10',10],
+            '25GET': [false,1980000,'upgDMGUnit03_25',25],
+            '50GET': [false,12270000,'upgDMGUnit03_50',50],
+            '100GET': [false,76111200,'upgDMGUnit03_100',100],
+            '150GET': [false,471889440,'upgDMGUnit03_150',150]
+        };
+        Unit03.globalBonus = 0;
+        Unit03.globalDmgBonus = 0;
+
+
+// - unit04 -
+        Unit04.quantity = 0;
+        Unit04.prix = 12000;
+        Unit04.degats = 47;
+        Unit04.income = 0;
+        Unit04.bonus = {
+            '10GET': [false,1980000,'upgUnit04_10',10],
+            '25GET': [false,12270000,'upgUnit04_25',25],
+            '50GET': [false,76111200,'upgUnit04_50',50],
+            '100GET': [false,471889440,'upgUnit04_100',100],
+            '150GET': [false,2925714528,'upgUnit04_150',150]
+        };
+        Unit04.bonusD = {
+            '10GET': [false,1980000,'upgDMGUnit04_10',10],
+            '25GET': [false,12270000,'upgDMGUnit04_25',25],
+            '50GET': [false,76111200,'upgDMGUnit04_50',50],
+            '100GET': [false,471889440,'upgDMGUnit04_100',100],
+            '150GET': [false,2925714528,'upgDMGUnit04_150',150]
+        };
+        Unit04.globalBonus = 0;
+        Unit04.globalDmgBonus = 0;
+
+// - unit05 -
+        Unit05.quantity = 0;
+        Unit05.prix = 130000;
+        Unit05.degats = 260;
+        Unit05.income = 0;
+        Unit05.bonus = {
+            '10GET': [false,12270000,'upgUnit05_10',10],
+            '25GET': [false,76111200,'upgUnit05_25',25],
+            '50GET': [false,471889440,'upgUnit05_50',50],
+            '100GET': [false,2925714528,'upgUnit05_100',100],
+            '150GET': [false,18139430073,'upgUnit05_150',150]
+        };
+        Unit05.bonusD = {
+            '10GET': [false,12270000,'upgDMGUnit05_10',10],
+            '25GET': [false,76111200,'upgDMGUnit05_25',25],
+            '50GET': [false,471889440,'upgDMGUnit05_50',50],
+            '100GET': [false,2925714528,'upgDMGUnit05_100',100],
+            '150GET': [false,18139430073,'upgDMGUnit05_150',150]
+        };
+        Unit05.globalBonus = 0;
+        Unit05.globalDmgBonus = 0;
+
+
+// - unit06 -
+        Unit06.quantity = 0;
+        Unit06.prix = 1400000;
+        Unit06.degats = 1400;
+        Unit06.income = 0;
+        Unit06.bonus = {
+            '10GET': [false,76111200,'upgUnit06_10',10],
+            '25GET': [false,471889440,'upgUnit06_25',25],
+            '50GET': [false,2925714528,'upgUnit06_50',50],
+            '100GET': [false,18139430073,'upgUnit06_100',100],
+            '150GET': [false,112464466456,'upgUnit06_150',150]
+        };
+        Unit06.bonusD = {
+            '10GET': [false,76111200,'upgDMGUnit06_10',10],
+            '25GET': [false,471889440,'upgDMGUnit06_25',25],
+            '50GET': [false,2925714528,'upgDMGUnit06_50',50],
+            '100GET': [false,18139430073,'upgDMGUnit06_100',100],
+            '150GET': [false,112464466456,'upgDMGUnit06_150',150]
+        };
+        Unit06.globalBonus = 0;
+        Unit06.globalDmgBonus = 0;
         ennemyBoss.baseLife=1000000000;
         ennemyBoss.life=1000000000;
         ennemyBoss.level=1;
@@ -289,6 +407,7 @@ function resetSave(){
         showUnit05();
         showUnit06();
         showBossLevel();
+
         alert('VOILA YA PLUS RIEN')
     } else {
         alert('Reset annulé')
@@ -453,35 +572,31 @@ function showBossLevel() {
 
 // ----------- SHOW UPGRADE UNIT -----------
 function showUpgrade(){
-    var arrayLength = arrayUnit.length;
-    for (var i = 0; i < arrayLength; i++) {
+        for (key in arrayUnit){
 
-        var name = arrayUnit[i];
-        var keyGet = Object.keys(name.bonus);
-        var keyGetD = Object.keys(name.bonusD);
-        var arrayKey = keyGet.length;
+            var name = arrayUnit[key];
 
-        for (var j = 0; j < arrayKey; j++) {
-            var key = keyGet[j];
-            var keyD = keyGetD[j];
-            if (name.quantity >= name.bonus[key][3] && name.bonus[key][0]===false){
-                var div = document.getElementById(name.bonus[key][2]);
-                div.style.display = 'inline-block';
-            } else {
-                var div = document.getElementById(name.bonus[key][2]);
-                div.style.display = 'none';
+            for (key2 in name.bonus){
+                if (name.quantity >= name.bonus[key2][3] && name.bonus[key2][0]===false){
+                    var div = document.getElementById(name.bonus[key2][2]);
+                    div.style.display = 'inline-block';
+                } else {
+                    var div = document.getElementById(name.bonus[key2][2]);
+                    div.style.display = 'none';
+                }}
+
+            for (key2 in name.bonusD){
+                if (name.quantity >= name.bonusD[key2][3] && name.bonusD[key2][0]===false){
+                    var div = document.getElementById(name.bonusD[key2][2]);
+                    div.style.display = 'inline-block';
+
+                } else {
+                    var div = document.getElementById(name.bonusD[key2][2]);
+                    div.style.display = 'none';
+                }
             }
 
-            if (name.quantity >= name.bonusD[keyD][3] && name.bonusD[keyD][0]===false){
-                var div = document.getElementById(name.bonusD[keyD][2]);
-                div.style.display = 'inline-block';
-
-            } else {
-                var div = document.getElementById(name.bonusD[keyD][2]);
-                div.style.display = 'none';
-            }
         }
-    }
 }
 // ------- CHECK UPGRADE ALREADY BOUGHT ---------
 // vérifie si des upgrades n'ont pas déja étées achetées aprés la lecture de la sauvegarde

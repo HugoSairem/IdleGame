@@ -165,6 +165,17 @@
             timeout: 3000,
             dataType: 'html',
             data:   'compteBanquaire=' + compteBanquaire +
+                    '&ennemyDoorLife=' + ennemyDoor.life +
+                    '&ennemyDoorBLife=' + ennemyDoor.baseLife +
+                    '&ennemyDoorLevel=' + ennemyDoor.level +
+                    '&ennemyTroopsLife=' + ennemyTroops.life +
+                    '&ennemyTroopsBLife=' + ennemyTroops.baseLife +
+                    '&ennemyTroopsLevel=' + ennemyTroops.level +
+                    '&ennemyBossLife=' + ennemyBoss.life +
+                    '&ennemyBossBLife=' + ennemyBoss.baseLife +
+                    '&ennemyBossLevel=' + ennemyBoss.level +
+                    '&ennemyBossBonusKill=' + ennemyBoss.bonusKill +
+                    '&currentStage=' + currentStage +
                     //UNIT01
                     '&unit01Quantity=' + Unit01.quantity+
                     '&unit01Price=' + Unit01.prix +
@@ -267,10 +278,41 @@
 
 <script src="{{ asset('script/varGame.js.twig') }}"></script>
 <script>
-    compteBanquaire = {{ compteBanquaire }};
+
+    compteBanquaire = {{ compteBanquaire }} ;
+    ennemyDoor.life  = {{ ennemyDoorLife }} ;
+    ennemyDoor.baseLife  = {{ ennemyDoorBLife }};
+    ennemyDoor.level  = {{ ennemyDoorLevel }};
+
+    ennemyTroops.life  = {{ ennemyTroopsLife }};
+    ennemyTroops.baseLife  = {{ ennemyTroopsBLife }};
+    ennemyTroops.level  = {{ ennemyTroopsLevel }};
+
+    ennemyBoss.life  = {{ ennemyBossLife }};
+    ennemyBoss.baseLife  = {{ ennemyBossBLife }};
+    ennemyBoss.level  = {{ ennemyBossLevel }};
+    ennemyBoss.bonusKill  = {{ ennemyBossBonusKill }};
+    currentStage = '{{ currentStage }}';
+
+
     Unit01.quantity ={{ unit01Quantity }};
     Unit01.prix = {{ unit01Price }};
-    stringify = String('{{ unit01Bonus10 }}');
+
+    Unit02.quantity ={{ unit02Quantity }};
+    Unit02.prix = {{ unit02Price }};
+
+    Unit03.quantity ={{ unit03Quantity }};
+    Unit03.prix = {{ unit03Price }};
+
+    Unit04.quantity ={{ unit04Quantity }};
+    Unit04.prix = {{ unit04Price }};
+
+    Unit05.quantity ={{ unit05Quantity }};
+    Unit05.prix = {{ unit05Price }};
+
+    Unit01.quantity ={{ unit01Quantity }};
+    Unit01.prix = {{ unit01Price }};
+
 
     Unit01Array = [[String('{{ unit01Bonus10 }}')],[String('{{ unit01Bonus25 }}')],[String('{{ unit01Bonus50 }}')],[String('{{ unit01Bonus100 }}')],[String('{{ unit01Bonus150 }}')]];
     Unit01DArray = [[String('{{ unit01BonusD10 }}')],[String('{{ unit01BonusD25 }}')],[String('{{ unit01BonusD50 }}')],[String('{{ unit01BonusD100 }}')],[String('{{ unit01BonusD150 }}')]];
@@ -290,42 +332,56 @@
     Unit06Array = [[String('{{ unit06Bonus10 }}')],[String('{{ unit06Bonus25 }}')],[String('{{ unit06Bonus50 }}')],[String('{{ unit06Bonus100 }}')],[String('{{ unit06Bonus150 }}')]];
     Unit06DArray = [[String('{{ unit06BonusD10 }}')],[String('{{ unit06BonusD25 }}')],[String('{{ unit06BonusD50 }}')],[String('{{ unit06BonusD100 }}')],[String('{{ unit06BonusD150 }}')]];
 
+    AllUnitArray =[
+        [Unit01Array,Unit01DArray],
+        [Unit02Array,Unit02DArray],
+        [Unit03Array,Unit03DArray],
+        [Unit04Array,Unit04DArray],
+        [Unit05Array,Unit05DArray],
+        [Unit06Array,Unit06DArray]];
 
-
-    //AllUnitArray = [{Unit01Array,Unit01DArray},{Unit02Array,Unit02DArray},[Unit03Array],[Unit04Array],[Unit05Array],[Unit06Array]]
-    //AllUnitArray[0][0] =  [Unit01Array];
-
-    AllUnitArray = [
-        [[Unit01Array],[Unit01DArray]],
-        [[Unit02Array],[Unit02DArray]],
-        [[Unit03Array],[Unit03DArray]],
-        [[Unit04Array],[Unit04DArray]],
-        [[Unit05Array],[Unit05DArray]],
-        [[Unit06Array],[Unit06DArray]],
-    ];
 
     for(key in AllUnitArray){
         currentArray = AllUnitArray[key];
         for (key2 in currentArray){
-            current = currentArray[key2][0];
+            current = currentArray[key2];
             for (key3 in current){
-                AllUnitArray[key][key2][0][key3][0] = getArrayBonus(current[key3][0]);
+                AllUnitArray[key][key2][key3] = getArrayBonus(current[key3][0]);
             }
         }
     }
 
     getSaveUnit();
 
+
     function getSaveUnit(){
         for (key in arrayUnit){
-            arrayUnit[key].bonus=AllUnitArray[key][0];
-            arrayUnit[key].bonusD=AllUnitArray[key][1];
+            arrayUnit[key].bonus= {
+                '10GET':AllUnitArray[key][0][0],
+                '25GET':AllUnitArray[key][0][1],
+                '50GET':AllUnitArray[key][0][2],
+                '100GET':AllUnitArray[key][0][3],
+                '150GET':AllUnitArray[key][0][4]
+            };
+            arrayUnit[key].bonusD= {
+                '10GET':AllUnitArray[key][1][0],
+                '25GET':AllUnitArray[key][1][1],
+                '50GET':AllUnitArray[key][1][2],
+                '100GET':AllUnitArray[key][1][3],
+                '150GET':AllUnitArray[key][1][4]
+            };
         }
+
+        arrayUnit =[Unit01,Unit02,Unit03,Unit04,Unit05,Unit06];
     }
 
     function getArrayBonus(stringto){
         exploded = stringto.split(',');
-        exploded[0] =Boolean(exploded[0],10);
+        if (exploded[0] === 'false'){
+            exploded[0] = false
+        } else {
+            exploded[0] = true
+        }
         exploded[1] = parseInt(exploded[1]);
         exploded[3] = parseInt(exploded[3]);
         return exploded;

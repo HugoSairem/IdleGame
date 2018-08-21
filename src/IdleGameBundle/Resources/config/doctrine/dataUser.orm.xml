@@ -9,6 +9,17 @@
             <generator strategy="AUTO" />
         </id>
         <field name="amountMoney" type="bigint" column="amountMoney" />
+        <field name="ennemyDoorLife" type="bigint" nullable="true" column="ennemyDoorLife" />
+        <field name="ennemyDoorBLife" type="bigint" nullable="true" column="ennemyDoorBLife" />
+        <field name="ennemyDoorLevel" type="bigint" nullable="true" column="ennemyDoorLevel" />
+        <field name="ennemyTroopsLife" type="bigint" nullable="true" column="ennemyTroopsLife" />
+        <field name="ennemyTroopsBLife" type="bigint" nullable="true" column="ennemyTroopsBLife" />
+        <field name="ennemyTroopsLevel" type="bigint" nullable="true" column="ennemyTroopsLevel" />
+        <field name="ennemyBossLife" type="bigint" nullable="true" column="ennemyBossLife" />
+        <field name="ennemyBossBLife" type="bigint" nullable="true" column="ennemyBossBLife" />
+        <field name="ennemyBossLevel" type="bigint" nullable="true" column="ennemyBossLevel" />
+        <field name="ennemyBossBonusKill" type="bigint" nullable="true" column="ennemyBossBonusKill" />
+        <field name="currentStage" type="text" nullable="true" column="currentStage" />
         <!-- UNIT01 -->
         <field name="unit01Quantity" type="bigint" nullable="true" column="unit01Quantity" />
         <field name="unit01Price" type="bigint" nullable="true" column="unit01Price" />

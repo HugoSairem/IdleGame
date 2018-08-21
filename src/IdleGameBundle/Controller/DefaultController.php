@@ -16,6 +16,18 @@ class DefaultController extends Controller
         $current_data = $entitymanager->getRepository(dataUser::class)->findBy(['user' => $iduser]);
         $current_data = $current_data[0];
         $compteBanquaire = $request->request->get('compteBanquaire');
+        $ennemyDoorLife = $request->request->get('ennemyDoorLife');
+        $ennemyDoorBLife = $request->request->get('ennemyDoorBLife');
+        $ennemyDoorLevel = $request->request->get('ennemyDoorLevel');
+        $ennemyTroopsLife = $request->request->get('ennemyTroopsLife');
+        $ennemyTroopsBLife = $request->request->get('ennemyTroopsBLife');
+        $ennemyTroopsLevel = $request->request->get('ennemyTroopsLevel');
+        $ennemyBossLife = $request->request->get('ennemyBossLife');
+        $ennemyBossBLife = $request->request->get('ennemyBossBLife');
+        $ennemyBossLevel = $request->request->get('ennemyBossLevel');
+        $ennemyBossBonusKill = $request->request->get('ennemyBossBonusKill');
+        $currentStage = $request->request->get('currentStage');
+
         // UNIT01
         $unit01Quantity = $request->request->get('unit01Quantity');
         $unit01Price = $request->request->get('unit01Price');
@@ -111,6 +123,17 @@ class DefaultController extends Controller
 
 
         $current_data->setAmountMoney($compteBanquaire);
+        $current_data->setEnnemyDoorLife($ennemyDoorLife);
+        $current_data->setEnnemyDoorBLife($ennemyDoorBLife);
+        $current_data->setEnnemyDoorLevel($ennemyDoorLevel);
+        $current_data->setEnnemyTroopsLife($ennemyTroopsLife);
+        $current_data->setEnnemyTroopsBLife($ennemyTroopsBLife);
+        $current_data->setEnnemyTroopsLevel($ennemyTroopsLevel);
+        $current_data->setEnnemyBossLife($ennemyBossLife);
+        $current_data->setEnnemyBossBLife($ennemyBossBLife);
+        $current_data->setEnnemyBossLevel($ennemyBossLevel);
+        $current_data->setEnnemyBossBonusKill($ennemyBossBonusKill);
+        $current_data->setCurrentStage($currentStage);
         //------- UNIT01
         $current_data->setUnit01Quantity($unit01Quantity);
         $current_data->setUnit01Price($unit01Price);
@@ -242,10 +265,24 @@ class DefaultController extends Controller
             $dataUser = new dataUser();// Création d'une sauvegarde si inexistante
             $dataUser->setUser($current_user);
             $dataUser->setAmountMoney(0);
+
             $entitymanager->persist($dataUser);
             $entitymanager->flush();
-        } else {
+        }
+
             $comteBanquaire=$current_data->getAmountMoney();
+
+            $ennemyDoorLife=$current_data->getEnnemyDoorLife();
+            $ennemyDoorBLife=$current_data->getEnnemyDoorBLife();
+            $ennemyDoorLevel=$current_data->getEnnemyDoorLevel();
+            $ennemyTroopsLife=$current_data->getEnnemyTroopsLife();
+            $ennemyTroopsBLife=$current_data->getEnnemyTroopsBLife();
+            $ennemyTroopsLevel=$current_data->getEnnemyTroopsLevel();
+            $ennemyBossLife=$current_data->getEnnemyBossLife();
+            $ennemyBossBLife=$current_data->getEnnemyBossBLife();
+            $ennemyBossLevel=$current_data->getEnnemyBossLevel();
+            $ennemyBossBonusKill=$current_data->getEnnemyBossBonusKill();
+            $currentStage=$current_data->getCurrentStage();
 
             $unit01Quantity=$current_data->getUnit01Quantity();
             $unit01Price=$current_data->getUnit01Price();
@@ -254,11 +291,13 @@ class DefaultController extends Controller
             $unit01Bonus50 = $current_data->getUnit01Bonus50();
             $unit01Bonus100 = $current_data->getUnit01Bonus100();
             $unit01Bonus150 = $current_data->getUnit01Bonus150();
-            $unit01BonusD10 = $current_data->getUnit01Bonus10();
-            $unit01BonusD25 = $current_data->getUnit01Bonus25();
-            $unit01BonusD50 = $current_data->getUnit01Bonus50();
-            $unit01BonusD100 = $current_data->getUnit01Bonus100();
-            $unit01BonusD150 = $current_data->getUnit01Bonus150();
+            $unit01BonusD10 = $current_data->getUnit01BonusD10();
+            $unit01BonusD25 = $current_data->getUnit01BonusD25();
+            $unit01BonusD50 = $current_data->getUnit01BonusD50();
+            $unit01BonusD100 = $current_data->getUnit01BonusD100();
+            $unit01BonusD150 = $current_data->getUnit01BonusD150();
+            $unit01GlobalBonus = $current_data->getUnit01GlobalBonus();
+            $unit01GlobalDmgBonus = $current_data->getUnit01GlobalDmgBonus();
 
             $unit02Quantity=$current_data->getUnit02Quantity();
             $unit02Price=$current_data->getUnit02Price();
@@ -272,6 +311,8 @@ class DefaultController extends Controller
             $unit02BonusD50 = $current_data->getUnit02BonusD50();
             $unit02BonusD100 = $current_data->getUnit02BonusD100();
             $unit02BonusD150 = $current_data->getUnit02BonusD150();
+            $unit02GlobalBonus = $current_data->getUnit02GlobalBonus();
+            $unit02GlobalDmgBonus = $current_data->getUnit02GlobalDmgBonus();
 
             $unit03Quantity=$current_data->getUnit03Quantity();
             $unit03Price=$current_data->getUnit03Price();
@@ -285,6 +326,8 @@ class DefaultController extends Controller
             $unit03BonusD50 = $current_data->getUnit03BonusD50();
             $unit03BonusD100 = $current_data->getUnit03BonusD100();
             $unit03BonusD150 = $current_data->getUnit03BonusD150();
+            $unit03GlobalBonus = $current_data->getUnit03GlobalBonus();
+            $unit03GlobalDmgBonus = $current_data->getUnit03GlobalDmgBonus();
 
             $unit04Quantity=$current_data->getUnit04Quantity();
             $unit04Price=$current_data->getUnit04Price();
@@ -298,6 +341,8 @@ class DefaultController extends Controller
             $unit04BonusD50 = $current_data->getUnit04BonusD50();
             $unit04BonusD100 = $current_data->getUnit04BonusD100();
             $unit04BonusD150 = $current_data->getUnit04BonusD150();
+            $unit04GlobalBonus = $current_data->getUnit04GlobalBonus();
+            $unit04GlobalDmgBonus = $current_data->getUnit04GlobalDmgBonus();
 
             $unit05Quantity=$current_data->getUnit05Quantity();
             $unit05Price=$current_data->getUnit05Price();
@@ -305,12 +350,14 @@ class DefaultController extends Controller
             $unit05Bonus25 = $current_data->getUnit05Bonus25();
             $unit05Bonus50 = $current_data->getUnit05Bonus50();
             $unit05Bonus100 = $current_data->getUnit05Bonus100();
-            $unit05Bonus150 = $current_data->getUnit02Bonus150();
+            $unit05Bonus150 = $current_data->getUnit05Bonus150();
             $unit05BonusD10 = $current_data->getUnit05BonusD10();
             $unit05BonusD25 = $current_data->getUnit05BonusD25();
             $unit05BonusD50 = $current_data->getUnit05BonusD50();
             $unit05BonusD100 = $current_data->getUnit05BonusD100();
-            $unit05BonusD150 = $current_data->getUnit02BonusD150();
+            $unit05BonusD150 = $current_data->getUnit05BonusD150();
+            $unit05GlobalBonus = $current_data->getUnit05GlobalBonus();
+            $unit05GlobalDmgBonus = $current_data->getUnit05GlobalDmgBonus();
 
             $unit06Quantity=$current_data->getUnit06Quantity();
             $unit06Price=$current_data->getUnit06Price();
@@ -324,10 +371,24 @@ class DefaultController extends Controller
             $unit06BonusD50 = $current_data->getUnit06BonusD50();
             $unit06BonusD100 = $current_data->getUnit06BonusD100();
             $unit06BonusD150 = $current_data->getUnit06BonusD150();
+            $unit06GlobalBonus = $current_data->getUnit06GlobalBonus();
+            $unit06GlobalDmgBonus = $current_data->getUnit06GlobalDmgBonus();
 
 
             return $this->render('@IdleGame/Default/index.html.twig',array(
                 'compteBanquaire'=> $comteBanquaire,
+                'ennemyDoorLife'=> $ennemyDoorLife,
+                'ennemyDoorBLife'=> $ennemyDoorBLife,
+                'ennemyDoorLevel'=> $ennemyDoorLevel,
+                'ennemyTroopsLife'=> $ennemyTroopsLife,
+                'ennemyTroopsBLife'=> $ennemyTroopsBLife,
+                'ennemyTroopsLevel'=> $ennemyTroopsLevel,
+                'ennemyBossLife'=> $ennemyBossLife,
+                'ennemyBossBLife'=> $ennemyBossBLife,
+                'ennemyBossLevel'=> $ennemyBossLevel,
+                'ennemyBossBonusKill'=> $ennemyBossBonusKill,
+                'currentStage' => $currentStage,
+
                 //UNIT01
                 'unit01Quantity'=> $unit01Quantity,
                 'unit01Price'=> $unit01Price,
@@ -341,6 +402,8 @@ class DefaultController extends Controller
                 'unit01BonusD50' => $unit01BonusD50,
                 'unit01BonusD100' => $unit01BonusD100,
                 'unit01BonusD150' => $unit01BonusD150,
+                'unit01GlobalBonus' => $unit01GlobalBonus,
+                'unit01GlobalDmgBonus' => $unit01GlobalDmgBonus,
 
                 //UNIT02
                 'unit02Quantity'=> $unit02Quantity,
@@ -355,6 +418,9 @@ class DefaultController extends Controller
                 'unit02BonusD50' => $unit02BonusD50,
                 'unit02BonusD100' => $unit02BonusD100,
                 'unit02BonusD150' => $unit02BonusD150,
+                'unit02GlobalBonus' => $unit02GlobalBonus,
+                'unit02GlobalDmgBonus' => $unit02GlobalDmgBonus,
+
                 //UNIT03
                 'unit03Quantity'=> $unit03Quantity,
                 'unit03Price'=> $unit03Price,
@@ -368,6 +434,8 @@ class DefaultController extends Controller
                 'unit03BonusD50' => $unit03BonusD50,
                 'unit03BonusD100' => $unit03BonusD100,
                 'unit03BonusD150' => $unit03BonusD150,
+                'unit03GlobalBonus' => $unit03GlobalBonus,
+                'unit03GlobalDmgBonus' => $unit03GlobalDmgBonus,
 
                 //UNIT04
                 'unit04Quantity'=> $unit04Quantity,
@@ -382,6 +450,9 @@ class DefaultController extends Controller
                 'unit04BonusD50' => $unit04BonusD50,
                 'unit04BonusD100' => $unit04BonusD100,
                 'unit04BonusD150' => $unit04BonusD150,
+                'unit04GlobalBonus' => $unit04GlobalBonus,
+                'unit04GlobalDmgBonus' => $unit04GlobalDmgBonus,
+
                 //UNIT05
                 'unit05Quantity'=> $unit05Quantity,
                 'unit05Price'=> $unit05Price,
@@ -395,6 +466,9 @@ class DefaultController extends Controller
                 'unit05BonusD50' => $unit05BonusD50,
                 'unit05BonusD100' => $unit05BonusD100,
                 'unit05BonusD150' => $unit05BonusD150,
+                'unit05GlobalBonus' => $unit05GlobalBonus,
+                'unit05GlobalDmgBonus' => $unit05GlobalDmgBonus,
+
                 //UNIT06
                 'unit06Quantity'=> $unit06Quantity,
                 'unit06Price'=> $unit06Price,
@@ -408,12 +482,10 @@ class DefaultController extends Controller
                 'unit06BonusD50' => $unit06BonusD50,
                 'unit06BonusD100' => $unit06BonusD100,
                 'unit06BonusD150' => $unit06BonusD150,
+                'unit06GlobalBonus' => $unit06GlobalBonus,
+                'unit06GlobalDmgBonus' => $unit06GlobalDmgBonus,
 
             ));
-
-        }
-
-        return $this->render('@IdleGame/Default/index.html.twig');
     }
 
     public function upgradeControlAction()
