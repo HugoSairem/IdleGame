@@ -1,0 +1,33 @@
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 346 234">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #b93300;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        opacity: 0.8;
+      }
+
+      .cls-2 {
+        fill: #0019ff;
+      }
+
+      .cls-3 {
+        fill: #b70000;
+      }
+
+      .cls-4 {
+        font-size: 48px;
+        fill: #fffdfd;
+        font-family: OCRAStd, OCR A Std;
+      }
+    </style>
+  </defs>
+  <title>logo</title>
+  <polygon class="cls-1" points="173.44 60.84 125.42 144.02 221.47 144.02 173.44 60.84"/>
+  <polygon class="cls-2" points="233.47 0 150.32 144.02 316.62 144.02 233.47 0"/>
+  <polygon class="cls-1" points="77.4 60.84 29.38 144.02 125.42 144.02 77.4 60.84"/>
+  <polygon class="cls-3" points="130.32 26.2 62.3 144.02 198.34 144.02 130.32 26.2"/>
+  <text class="cls-4" transform="translate(34.76 186.66)">idle.war</text>
+</svg>

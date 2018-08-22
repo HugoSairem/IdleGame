@@ -1,5 +1,5 @@
 {% block content %}
-    <link rel="stylesheet" href="{{ asset("css/main.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/style.css") }}">
 <div class="loginBox">
 {% if app.request.hasPreviousSession %}
     {% for type, messages in app.session.flashbag.all() %}

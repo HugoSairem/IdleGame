@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Idle War Game</title>
+    <script src="{{ asset('script/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('script/jquery.min.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset("css/style.css") }}"> <!-- asset s'occupe de trouver le chemin à partir du dossier web -->
+</head>
+<body>
+<div class="content">
+    <div class="leftBlock">
+        <div id="BlockMoney">
+            <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+            <h2>Compte en banque</h2>
+            <div class ="subBlockMoney" id="subBlockMoney">
+                <div>
+                    <h1><span id="compteBanq"></span></h1><img src="{{ asset("images/billet.png") }}" alt="">
+                </div>
+            </div>
+            <h1>Income</h1>
+            <div class ="subBlockMoney" id="subBlockMoney">
+                <div>
+                    <br><h2><span id="incomePSecond"></span></h2><img src="{{ asset("images/billet.png") }}" alt=""><h2>/s</h2>
+                </div>
+            </div>
+            <h1>Dégats par seconde</h1>
+            <div class ="subBlockMoney" id="subBlockMoney">
+                <div>
+                    <br><h2><span id="DPSecond"></span></h2><img src="{{ asset("images/fist.png") }}" alt=""><h2>/s</h2>
+                </div>
+            </div>
+
+        </div>
+        <div class="heroBlock">
+            <div class="upgHeroMenu" id="WeaponMenu" >
+                <div class="crossContent">
+                    <div class="closeCross" onclick="hideWeaponMenu()">X</div>
+                </div>
+                    <div class="upgHero" id="upgWeaponHero01" onclick="buyUpgWeaponHero01()"></div>
+                    <div class="upgHero" id="upgWeaponHero02" onclick="buyUpgWeaponHero02()"></div>
+                    <div class="upgHero" id="upgWeaponHero03" onclick="buyUpgWeaponHero03()"></div>
+                    <div class="upgHero" id="upgWeaponHero04" onclick="buyUpgWeaponHero04()"></div>
+                    <div class="upgHero" id="upgWeaponHero05" onclick="buyUpgWeaponHero05()"></div>
+                    <div class="upgHero" id="upgWeaponHero06" onclick="buyUpgWeaponHero06()"></div>
+                    <div class="upgHero" id="upgWeaponHero07" onclick="buyUpgWeaponHero07()"></div>
+                    <div class="upgHero" id="upgWeaponHero08" onclick="buyUpgWeaponHero08()"></div>
+            </div>
+            <div class="statHero">
+                <span>
+                Degats :<div id="degatHero"></div>
+                </span>
+                <span>
+                Income :<div id="incomeHero"></div>
+                </span>
+            </div>
+            <div id="heroNameBlock"><h1 class="heroName" id="heroName">{{ app.user.username }}</h1></div>
+            <div class="heroMiddle">
+                <div class="heroSlot" id="heroGear"></div>
+                <div class="heroSlot" id="heroWeapon" onclick="showWeaponMenu()"></div>
+                <div class="imgHeroBlock">
+                    <img class="imgHero" id="imgHeros" src="{{ asset('images/hero01.gif') }}" alt="">
+                </div>
+                <div class="heroSlot" id="heroSideWeapon"></div>
+                <div class="heroSlot" id="heroCompanion"></div>
+            </div>
+        </div>
+        <div class="timerMission">
+            <h2>Temps avant fin de mission</h2>
+            <h3 id="timerMission"></h3>
+        </div>
+        <div class="addMoneyButton Button" id="enabledMissionButton" onclick="timerMissionHero()">Envoyer en mission</div>
+        <div class="addMoneyButton Button DisabledButton" id="disabledMissionButton">Envoyer en mission</div>
+        {{ render(controller('IdleGameBundle:Default:upgradeControl')) }}
+        <div id="saveButton" class="pushSave Button" onclick="saveMoney()">Save</div>
+        <div class="resetSave Button" onclick="resetSave()">Reset Save</div>
+    </div>
+    <div class="middleBlock">
+        <h1 id="currentStage"></h1>
+        <h2>Level</h2><span id="levelBoss"></span>
+        <div id="lifebarContent" class="lifebarContent"><div id="bossLifePoint"></div>
+            <div id="life" class="life"></div>
+        </div>
+        <div class="backgroundBoss">
+        <span class="imgBoss" >
+            <img src="" id="imgBoss" alt="">
+        </span>
+        </div>
+
+    </div>
+
+    <div class="rightBlock">
+        <div class="acheterSoldat buyButton" onclick="buyUnit(Unit01,showUnit01)">
+            <span id="nbrUnit01" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Recruter 1 soldat</span>
+                <span class="prixBlock">Prix <span id="prixUnit01" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/soldat02.gif') }}" alt="">
+        </div>
+        <div class="acheterSoldat2 buyButton" onclick="buyUnit(Unit02,showUnit02)">
+            <span id="nbrUnit02" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Former 1 commando</span>
+                <span class="prixBlock">Prix <span id="prixUnit02" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/soldat07.gif') }}" alt="">
+        </div>
+        <div class="acheterSoldat3 buyButton" onclick="buyUnit(Unit03,showUnit03)">
+            <span id="nbrUnit03" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Créer 1 cyber-soldat</span>
+                <span class="prixBlock">Prix <span id="prixUnit03" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/soldat09.gif') }}" alt="">
+        </div>
+
+        <div class="acheterTank01 buyButton" onclick="buyUnit(Unit04,showUnit04)">
+            <span id="nbrUnit04" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Construire 1 tank</span>
+                <span class="prixBlock">Prix <span id="prixUnit04" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/tank01.gif') }}" alt="">
+        </div>
+
+        <div class="acheterMecha buyButton" onclick="buyUnit(Unit05,showUnit05)">
+            <span id="nbrUnit05" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Construire 1 mecha</span>
+                <span class="prixBlock">Prix <span id="prixUnit05" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/mecha04.gif') }}" alt="">
+        </div>
+
+        <div class="acheterMecha02 buyButton" onclick="buyUnit(Unit06,showUnit06)">
+            <span id="nbrUnit06" class="unitCount"></span>
+            <span class="middleBuyButton">
+                <span class="recrutement">Construire 1 mecha</span>
+                <span class="prixBlock">Prix <span id="prixUnit06" class="prix"></span>$</span>
+            </span>
+            <img src="{{ asset('images/mecha01.gif') }}" alt="">
+        </div>
+
+
+    </div>
+</div>
+<div id="result"></div>
+
+<script>
+    $('#saveButton').on('click', function() {
+
+        //donc je met en paramètre de ma route 0 en dur
+
+        var url = "{{ path('game_idle_save')}}";
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            timeout: 3000,
+            dataType: 'html',
+            data:   'compteBanquaire=' + compteBanquaire +
+                    '&ennemyDoorLife=' + ennemyDoor.life +
+                    '&ennemyDoorBLife=' + ennemyDoor.baseLife +
+                    '&ennemyDoorLevel=' + ennemyDoor.level +
+                    '&ennemyTroopsLife=' + ennemyTroops.life +
+                    '&ennemyTroopsBLife=' + ennemyTroops.baseLife +
+                    '&ennemyTroopsLevel=' + ennemyTroops.level +
+                    '&ennemyBossLife=' + ennemyBoss.life +
+                    '&ennemyBossBLife=' + ennemyBoss.baseLife +
+                    '&ennemyBossLevel=' + ennemyBoss.level +
+                    '&ennemyBossBonusKill=' + ennemyBoss.bonusKill +
+                    '&currentStage=' + currentStage +
+                    //UNIT01
+                    '&unit01Quantity=' + Unit01.quantity+
+                    '&unit01Price=' + Unit01.prix +
+                    '&unit01Bonus10='+ Unit01.bonus['10GET']+
+                    '&unit01Bonus25='+ Unit01.bonus['25GET']+
+                    '&unit01Bonus50='+ Unit01.bonus['50GET']+
+                    '&unit01Bonus100='+ Unit01.bonus['100GET']+
+                    '&unit01Bonus150='+ Unit01.bonus['150GET']+
+                    '&unit01BonusD10=' + Unit01.bonusD['10GET']+
+                    '&unit01BonusD25=' + Unit01.bonusD['25GET']+
+                    '&unit01BonusD50=' + Unit01.bonusD['50GET']+
+                    '&unit01BonusD100=' + Unit01.bonusD['100GET']+
+                    '&unit01BonusD150=' + Unit01.bonusD['150GET']+
+                    '&unit01GlobalBonus='+Unit01.globalBonus+
+                    '&unit01GlobalDmgBonus='+Unit01.globalDmgBonus+
+                    //UNIT02
+                    '&unit02Quantity=' + Unit02.quantity+
+                    '&unit02Price=' + Unit02.prix +
+                    '&unit02Bonus10='+ Unit02.bonus['10GET']+
+                    '&unit02Bonus25='+ Unit02.bonus['25GET']+
+                    '&unit02Bonus50='+ Unit02.bonus['50GET']+
+                    '&unit02Bonus100='+ Unit02.bonus['100GET']+
+                    '&unit02Bonus150='+ Unit02.bonus['150GET']+
+                    '&unit02BonusD10=' + Unit02.bonusD['10GET']+
+                    '&unit02BonusD25=' + Unit02.bonusD['25GET']+
+                    '&unit02BonusD50=' + Unit02.bonusD['50GET']+
+                    '&unit02BonusD100=' + Unit02.bonusD['100GET']+
+                    '&unit02BonusD150=' + Unit02.bonusD['150GET']+
+                    '&unit02GlobalBonus='+Unit02.globalBonus+
+                    '&unit02GlobalDmgBonus='+Unit02.globalDmgBonus+
+                    //UNIT03
+                    '&unit03Quantity=' + Unit03.quantity+
+                    '&unit03Price=' + Unit03.prix +
+                    '&unit03Bonus10='+ Unit03.bonus['10GET']+
+                    '&unit03Bonus25='+ Unit03.bonus['25GET']+
+                    '&unit03Bonus50='+ Unit03.bonus['50GET']+
+                    '&unit03Bonus100='+ Unit03.bonus['100GET']+
+                    '&unit03Bonus150='+ Unit03.bonus['150GET']+
+                    '&unit03BonusD10=' + Unit03.bonusD['10GET']+
+                    '&unit03BonusD25=' + Unit03.bonusD['25GET']+
+                    '&unit03BonusD50=' + Unit03.bonusD['50GET']+
+                    '&unit03BonusD100=' + Unit03.bonusD['100GET']+
+                    '&unit03BonusD150=' + Unit03.bonusD['150GET']+
+                    '&unit03GlobalBonus='+Unit03.globalBonus+
+                    '&unit03GlobalDmgBonus='+Unit03.globalDmgBonus+
+                    //UNIT04
+                    '&unit04Quantity=' + Unit04.quantity+
+                    '&unit04Price=' + Unit04.prix +
+                    '&unit04Bonus10='+ Unit04.bonus['10GET']+
+                    '&unit04Bonus25='+ Unit04.bonus['25GET']+
+                    '&unit04Bonus50='+ Unit04.bonus['50GET']+
+                    '&unit04Bonus100='+ Unit04.bonus['100GET']+
+                    '&unit04Bonus150='+ Unit04.bonus['150GET']+
+                    '&unit04BonusD10=' + Unit04.bonusD['10GET']+
+                    '&unit04BonusD25=' + Unit04.bonusD['25GET']+
+                    '&unit04BonusD50=' + Unit04.bonusD['50GET']+
+                    '&unit04BonusD100=' + Unit04.bonusD['100GET']+
+                    '&unit04BonusD150=' + Unit04.bonusD['150GET']+
+                    '&unit04GlobalBonus='+Unit04.globalBonus+
+                    '&unit04GlobalDmgBonus='+Unit04.globalDmgBonus+
+                    //UNIT05
+                    '&unit05Quantity=' + Unit05.quantity+
+                    '&unit05Price=' + Unit05.prix +
+                    '&unit05Bonus10='+ Unit05.bonus['10GET']+
+                    '&unit05Bonus25='+ Unit05.bonus['25GET']+
+                    '&unit05Bonus50='+ Unit05.bonus['50GET']+
+                    '&unit05Bonus100='+ Unit05.bonus['100GET']+
+                    '&unit05Bonus150='+ Unit05.bonus['150GET']+
+                    '&unit05BonusD10=' + Unit05.bonusD['10GET']+
+                    '&unit05BonusD25=' + Unit05.bonusD['25GET']+
+                    '&unit05BonusD50=' + Unit05.bonusD['50GET']+
+                    '&unit05BonusD100=' + Unit05.bonusD['100GET']+
+                    '&unit05BonusD150=' + Unit05.bonusD['150GET']+
+                    '&unit05GlobalBonus='+Unit05.globalBonus+
+                    '&unit05GlobalDmgBonus='+Unit05.globalDmgBonus+
+                    //UNIT06
+                    '&unit06Quantity=' + Unit06.quantity+
+                    '&unit06Price=' + Unit06.prix +
+                    '&unit06Bonus10='+ Unit06.bonus['10GET']+
+                    '&unit06Bonus25='+ Unit06.bonus['25GET']+
+                    '&unit06Bonus50='+ Unit06.bonus['50GET']+
+                    '&unit06Bonus100='+ Unit06.bonus['100GET']+
+                    '&unit06Bonus150='+ Unit06.bonus['150GET']+
+                    '&unit06BonusD10=' + Unit06.bonusD['10GET']+
+                    '&unit06BonusD25=' + Unit06.bonusD['25GET']+
+                    '&unit06BonusD50=' + Unit06.bonusD['50GET']+
+                    '&unit06BonusD100=' + Unit06.bonusD['100GET']+
+                    '&unit06BonusD150=' + Unit06.bonusD['150GET']+
+                    '&unit06GlobalBonus='+Unit06.globalBonus+
+                    '&unit06GlobalDmgBonus='+Unit06.globalDmgBonus,
+            success: function (data) {
+                $('#result').html(data);
+            },
+            error: function (error) {
+                console.log(error.responseText);
+            }
+        })
+    })
+</script>
+
+<script src="{{ asset('script/varGame.js.twig') }}"></script>
+<script>
+
+    compteBanquaire = {{ compteBanquaire }} ;
+    ennemyDoor.life  = {{ ennemyDoorLife }} ;
+    ennemyDoor.baseLife  = {{ ennemyDoorBLife }};
+    ennemyDoor.level  = {{ ennemyDoorLevel }};
+
+    ennemyTroops.life  = {{ ennemyTroopsLife }};
+    ennemyTroops.baseLife  = {{ ennemyTroopsBLife }};
+    ennemyTroops.level  = {{ ennemyTroopsLevel }};
+
+    ennemyBoss.life  = {{ ennemyBossLife }};
+    ennemyBoss.baseLife  = {{ ennemyBossBLife }};
+    ennemyBoss.level  = {{ ennemyBossLevel }};
+    ennemyBoss.bonusKill  = {{ ennemyBossBonusKill }};
+    currentStage = '{{ currentStage }}';
+
+
+    Unit01.quantity ={{ unit01Quantity }};
+    Unit01.prix = {{ unit01Price }};
+
+    Unit02.quantity ={{ unit02Quantity }};
+    Unit02.prix = {{ unit02Price }};
+
+    Unit03.quantity ={{ unit03Quantity }};
+    Unit03.prix = {{ unit03Price }};
+
+    Unit04.quantity ={{ unit04Quantity }};
+    Unit04.prix = {{ unit04Price }};
+
+    Unit05.quantity ={{ unit05Quantity }};
+    Unit05.prix = {{ unit05Price }};
+
+    Unit06.quantity ={{ unit06Quantity }};
+    Unit06.prix = {{ unit06Price }};
+
+
+    Unit01Array = [[String('{{ unit01Bonus10 }}')],[String('{{ unit01Bonus25 }}')],[String('{{ unit01Bonus50 }}')],[String('{{ unit01Bonus100 }}')],[String('{{ unit01Bonus150 }}')]];
+    Unit01DArray = [[String('{{ unit01BonusD10 }}')],[String('{{ unit01BonusD25 }}')],[String('{{ unit01BonusD50 }}')],[String('{{ unit01BonusD100 }}')],[String('{{ unit01BonusD150 }}')]];
+
+    Unit02Array = [[String('{{ unit02Bonus10 }}')],[String('{{ unit02Bonus25 }}')],[String('{{ unit02Bonus50 }}')],[String('{{ unit02Bonus100 }}')],[String('{{ unit02Bonus150 }}')]];
+    Unit02DArray = [[String('{{ unit02BonusD10 }}')],[String('{{ unit02BonusD25 }}')],[String('{{ unit02BonusD50 }}')],[String('{{ unit02BonusD100 }}')],[String('{{ unit02BonusD150 }}')]];
+
+    Unit03Array = [[String('{{ unit03Bonus10 }}')],[String('{{ unit03Bonus25 }}')],[String('{{ unit03Bonus50 }}')],[String('{{ unit03Bonus100 }}')],[String('{{ unit03Bonus150 }}')]];
+    Unit03DArray = [[String('{{ unit03BonusD10 }}')],[String('{{ unit03BonusD25 }}')],[String('{{ unit03BonusD50 }}')],[String('{{ unit03BonusD100 }}')],[String('{{ unit03BonusD150 }}')]];
+
+    Unit04Array = [[String('{{ unit04Bonus10 }}')],[String('{{ unit04Bonus25 }}')],[String('{{ unit04Bonus50 }}')],[String('{{ unit04Bonus100 }}')],[String('{{ unit04Bonus150 }}')]];
+    Unit04DArray = [[String('{{ unit04BonusD10 }}')],[String('{{ unit04BonusD25 }}')],[String('{{ unit04BonusD50 }}')],[String('{{ unit04BonusD100 }}')],[String('{{ unit04BonusD150 }}')]];
+
+    Unit05Array = [[String('{{ unit05Bonus10 }}')],[String('{{ unit05Bonus25 }}')],[String('{{ unit05Bonus50 }}')],[String('{{ unit05Bonus100 }}')],[String('{{ unit05Bonus150 }}')]];
+    Unit05DArray = [[String('{{ unit05BonusD10 }}')],[String('{{ unit05BonusD25 }}')],[String('{{ unit05BonusD50 }}')],[String('{{ unit05BonusD100 }}')],[String('{{ unit05BonusD150 }}')]];
+
+    Unit06Array = [[String('{{ unit06Bonus10 }}')],[String('{{ unit06Bonus25 }}')],[String('{{ unit06Bonus50 }}')],[String('{{ unit06Bonus100 }}')],[String('{{ unit06Bonus150 }}')]];
+    Unit06DArray = [[String('{{ unit06BonusD10 }}')],[String('{{ unit06BonusD25 }}')],[String('{{ unit06BonusD50 }}')],[String('{{ unit06BonusD100 }}')],[String('{{ unit06BonusD150 }}')]];
+
+    AllUnitArray =[
+        [Unit01Array,Unit01DArray],
+        [Unit02Array,Unit02DArray],
+        [Unit03Array,Unit03DArray],
+        [Unit04Array,Unit04DArray],
+        [Unit05Array,Unit05DArray],
+        [Unit06Array,Unit06DArray]];
+
+
+    for(key in AllUnitArray){
+        currentArray = AllUnitArray[key];
+        for (key2 in currentArray){
+            current = currentArray[key2];
+            for (key3 in current){
+                AllUnitArray[key][key2][key3] = getArrayBonus(current[key3][0]);
+            }
+        }
+    }
+
+    getSaveUnit();
+
+
+    function getSaveUnit(){
+        for (key in arrayUnit){
+            arrayUnit[key].bonus= {
+                '10GET':AllUnitArray[key][0][0],
+                '25GET':AllUnitArray[key][0][1],
+                '50GET':AllUnitArray[key][0][2],
+                '100GET':AllUnitArray[key][0][3],
+                '150GET':AllUnitArray[key][0][4]
+            };
+            arrayUnit[key].bonusD= {
+                '10GET':AllUnitArray[key][1][0],
+                '25GET':AllUnitArray[key][1][1],
+                '50GET':AllUnitArray[key][1][2],
+                '100GET':AllUnitArray[key][1][3],
+                '150GET':AllUnitArray[key][1][4]
+            };
+        }
+
+        arrayUnit =[Unit01,Unit02,Unit03,Unit04,Unit05,Unit06];
+    }
+
+    function getArrayBonus(stringto){
+        exploded = stringto.split(',');
+        if (exploded[0] === 'false'){
+            exploded[0] = false
+        } else {
+            exploded[0] = true
+        }
+        exploded[1] = parseInt(exploded[1]);
+        exploded[3] = parseInt(exploded[3]);
+        return exploded;
+    }
+
+</script>
+<script src="{{ asset('script/main.js.twig') }}"></script>
+<script src="{{ asset('script/upgradeUnit.js.twig') }}"></script>
+    </body>
+    </html>
+
+

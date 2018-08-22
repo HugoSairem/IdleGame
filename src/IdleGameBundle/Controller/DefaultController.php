@@ -498,6 +498,26 @@ class DefaultController extends Controller
         return $this->render('@IdleGame/Default/upgrade.html.twig');
     }
 
+    public function achatUnitAction()
+    {
+        return $this->render('@IdleGame/Default/achatUnit.html.twig');
+    }
+
+    public function ennemyBlockAction()
+    {
+        return $this->render('@IdleGame/Default/ennemyBlock.html.twig');
+    }
+
+    public function forumAction()
+    {
+        return $this->render('@IdleGame/Default/forum.html.twig');
+    }
+
+    public function highscoreAction()
+    {
+        return $this->render('@IdleGame/Default/highscore.html.twig');
+    }
+
     public function userDataSave()
     {
         $idUser = $this->getUser()->getId();

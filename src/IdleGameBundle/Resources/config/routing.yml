@@ -5,3 +5,11 @@ game_idle_game:
 game_idle_save:
     path:     /save
     defaults: { _controller: IdleGameBundle:Default:save }
+
+game_idle_forum:
+    path:     /forum
+    defaults: { _controller: IdleGameBundle:Default:forum }
+
+game_idle_highscore:
+    path:     /highscore
+    defaults: { _controller: IdleGameBundle:Default:highscore }

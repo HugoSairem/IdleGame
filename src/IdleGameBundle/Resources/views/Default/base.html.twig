@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Idle War Game</title>
+    <script src="{{ asset('script/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('script/jquery.min.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+    <!-- asset s'occupe de trouver le chemin à partir du dossier web -->
+</head>
+<body>
+
+    <header>
+        <div class="navContent">
+            <a href="{{ path('fos_user_profile_show') }}">Profil</a>
+            <a href="{{ path('game_idle_highscore') }}">Highscore</a>
+            <img src="{{ asset('images/logo.svg') }}" alt="">
+            <a href="{{ path('game_idle_forum') }}">Forum</a>
+            <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+        </div>
+    </header>
+    <div class="content">
+    {% block content %}
+    {% endblock %}
+
+</div>
+</body>
+</html>
