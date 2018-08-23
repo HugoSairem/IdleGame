@@ -1,7 +1,8 @@
 {% extends '@IdleGame/Default/base.html.twig' %}
 {% block content %}
+
     <div class="leftContent">
-        <h1>L'armée de {{ app.user.username }}</h1>
+        <h2>L'armée de {{ app.user.username }}</h2>
         <div class="playerStats">
             <div>
                 <h2>Butin</h2>
@@ -15,8 +16,6 @@
                 <h2>Dégats par seconde</h2>
                 <span id="DPSecond"></span>
             </div>
-            <div id="saveButton" class="pushSave Button" onclick="saveMoney()">Save</div>
-            <div class="resetSave Button" onclick="resetSave()">Reset Save</div>
         </div>
 
         <div class="heroContent">
@@ -33,6 +32,8 @@
             <div class="addMoneyButton Button DisabledButton" id="disabledMissionButton">Envoyer en mission</div>
         </div>
         {{ render(controller('IdleGameBundle:Default:upgradeControl')) }}
+        <div id="saveButton" class="pushSave buttonAction save"><h3>Sauvegarder</h3><span class="iconButton green"><i class="fas fa-save fa-lg"></i></span></div>
+        <div class="resetSave buttonAction" onclick="resetSave()"><h3>Recommencer la partie</h3><span class="iconButton red"><i class="fas fa-undo-alt fa-lg"></i></span></div>
     </div>
 
     <div class="middleContent">
@@ -47,7 +48,7 @@
 <div id="result"></div>
 
 <script>
-    $('#saveButton').on('click', function () {
+    $('.save').on('click', function () {
 
         //donc je met en paramètre de ma route 0 en dur
 

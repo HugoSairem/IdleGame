@@ -10,17 +10,23 @@
     <script src="{{ asset('script/jquery.min.js') }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
     <!-- asset s'occupe de trouver le chemin à partir du dossier web -->
 </head>
 <body>
 
     <header>
         <div class="navContent">
-            <a href="{{ path('fos_user_profile_show') }}">Profil</a>
-            <a href="{{ path('game_idle_highscore') }}">Highscore</a>
+            <a class="save" href="{{ path('game_idle_game') }}">Le Jeu</a>
+            <a class="save" href="{{ path('fos_user_profile_show') }}">Profil</a>
+            <a class="save" href="{{ path('game_idle_highscore') }}">Highscore</a>
             <img src="{{ asset('images/logo.svg') }}" alt="">
-            <a href="{{ path('game_idle_forum') }}">Forum</a>
-            <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+            <a class="save" href="{{ path('game_idle_forum') }}">Forum</a>
+            <a class="save" href="#">Contact</a>
+            <a class="save" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+
         </div>
     </header>
     <div class="content">
