@@ -2,34 +2,38 @@
 {% block content %}
 
     <div class="leftContent">
-        <h2>L'armée de {{ app.user.username }}</h2>
+        <h2 class="userTitle">{{ app.user.username }}</h2>
         <div class="playerStats">
             <div>
-                <h2>Butin</h2>
+                <img src="https://png.icons8.com/metro/50/000000/money-bag.png">
+                <h3>Butin:</h3>
                 <span id="compteBanq"></span>
             </div>
             <div>
-                <h2>Income</h2>
+                <img src="https://png.icons8.com/metro/50/000000/refund-2.png">
+                <h3>Income:</h3>
                 <span id="incomePSecond"></span>
             </div>
             <div>
-                <h2>Dégats par seconde</h2>
+                <img src="https://png.icons8.com/metro/50/000000/action.png">
+                <h3>Dégats par seconde:</h3>
                 <span id="DPSecond"></span>
             </div>
         </div>
 
         <div class="heroContent">
-            Degats :
+            <img src="https://png.icons8.com/metro/50/000000/assault-rifle.png">Degats :
             <div id="degatHero"></div>
-            Income :
+            <img src="https://png.icons8.com/metro/50/000000/money-box.png">Income :
             <div id="incomeHero"></div>
             Temps avant fin de mission
-            <span id="timerMission"></span>
+            <span class="timerMission" id="timerMission"></span>
 
-            <div class="addMoneyButton Button" id="enabledMissionButton" onclick="timerMissionHero()">Envoyer en
-                mission
+            <div id="imgHeros"></div>
+
+            <div class="missionButton enabledMissionButton" id="enabledMissionButton" onclick="timerMissionHero()"><h1>Envoyer en mission</h1>
             </div>
-            <div class="addMoneyButton Button DisabledButton" id="disabledMissionButton">Envoyer en mission</div>
+            <div class="missionButton disabledMissionButton" id="disabledMissionButton"><h1>Mission en cours</h1></div>
         </div>
         {{ render(controller('IdleGameBundle:Default:upgradeControl')) }}
         <div id="saveButton" class="pushSave buttonAction save"><h3>Sauvegarder</h3><span class="iconButton green"><i class="fas fa-save fa-lg"></i></span></div>

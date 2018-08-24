@@ -5,6 +5,7 @@ namespace IdleGameBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use IdleGameBundle\Entity\User;
 use IdleGameBundle\Entity\dataUser;
+use IdleGameBundle\Entity\topic;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
