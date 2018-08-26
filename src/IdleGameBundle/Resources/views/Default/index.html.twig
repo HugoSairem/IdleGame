@@ -2,39 +2,45 @@
 {% block content %}
 
     <div class="leftContent">
-        <h2 class="userTitle">{{ app.user.username }}</h2>
+        <h2 class="userTitle">Armée de {{ app.user.username }}</h2>
         <div class="playerStats">
             <div>
-                <img src="https://png.icons8.com/metro/50/000000/money-bag.png">
-                <h3>Butin:</h3>
+                <img src="https://png.icons8.com/metro/50/ffffff/money-bag.png">
+                <h3>Butin :&nbsp</h3>
                 <span id="compteBanq"></span>
             </div>
             <div>
-                <img src="https://png.icons8.com/metro/50/000000/refund-2.png">
-                <h3>Income:</h3>
+                <img src="https://png.icons8.com/metro/50/ffffff/refund-2.png">
+                <h3>Income :&nbsp</h3>
                 <span id="incomePSecond"></span>
             </div>
             <div>
-                <img src="https://png.icons8.com/metro/50/000000/action.png">
-                <h3>Dégats par seconde:</h3>
+                <img src="https://png.icons8.com/metro/50/ffffff/action.png">
+                <h3>Dégats par seconde :&nbsp</h3>
                 <span id="DPSecond"></span>
             </div>
         </div>
 
         <div class="heroContent">
-            <img src="https://png.icons8.com/metro/50/000000/assault-rifle.png">Degats :
-            <div id="degatHero"></div>
-            <img src="https://png.icons8.com/metro/50/000000/money-box.png">Income :
-            <div id="incomeHero"></div>
+            <div>
+                <img src="https://png.icons8.com/metro/50/ffffff/assault-rifle.png"><h3>Degats :</h3>
+                <span id="degatHero"></span>&nbsp/ s
+            </div>
+            <div>
+                <img src="https://png.icons8.com/metro/50/ffffff/money-box.png"><h3>Income :</h3>
+                <span id="incomeHero"></span>&nbsp/ s
+            </div>
+            <div id="imgHeros"></div>
+        </div>
+        <div>
             Temps avant fin de mission
             <span class="timerMission" id="timerMission"></span>
-
-            <div id="imgHeros"></div>
-
-            <div class="missionButton enabledMissionButton" id="enabledMissionButton" onclick="timerMissionHero()"><h1>Envoyer en mission</h1>
-            </div>
-            <div class="missionButton disabledMissionButton" id="disabledMissionButton"><h1>Mission en cours</h1></div>
         </div>
+
+        <div class="missionButton enabledMissionButton" id="enabledMissionButton" onclick="timerMissionHero()"><h2>Envoyer en mission</h2>
+        </div>
+        <div class="missionButton disabledMissionButton" id="disabledMissionButton"><h2>Mission en cours</h2></div>
+
         {{ render(controller('IdleGameBundle:Default:upgradeControl')) }}
         <div id="saveButton" class="pushSave buttonAction save"><h3>Sauvegarder</h3><span class="iconButton green"><i class="fas fa-save fa-lg"></i></span></div>
         <div class="resetSave buttonAction" onclick="resetSave()"><h3>Recommencer la partie</h3><span class="iconButton red"><i class="fas fa-undo-alt fa-lg"></i></span></div>

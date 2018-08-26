@@ -4,23 +4,23 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
         http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="IdleGameBundle\Entity\topic" repository-class="IdleGameBundle\Repository\topic" table="topic">
+    <entity name="IdleGameBundle\Entity\post" repository-class="IdleGameBundle\Repository\post" table="post">
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <field name="titreTopic" type="text" column="titreTopic" />
-        <field name="firstContentTopic" type="text" column="firstContentTopic" />
+        <field name="postContent" type="text" column="postContent" />
         <field name="postedAtDate" type="date" column="postedAtDate" />
         <field name="postedAtTime" type="time" column="postedAtTime" />
+
         <many-to-one
                 field="user"
                 target-entity="IdleGameBundle\Entity\User">
             <join-column name="user_id" referenced-column-name="id"/>
         </many-to-one>
         <many-to-one
-                field="categ"
-                target-entity="IdleGameBundle\Entity\categoriesForum">
-            <join-column name="categ_id" referenced-column-name="id"/>
+                field="topic"
+                target-entity="IdleGameBundle\Entity\topic">
+            <join-column name="topic_id" referenced-column-name="id"/>
         </many-to-one>
     </entity>
 </doctrine-mapping>

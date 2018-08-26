@@ -1,0 +1,6 @@
+{% extends '@IdleGame/Default/baseback.html.twig' %}
+{% block backcontent %}
+    {% for player in allUsers %}
+        <a href={{ path('game_idle_backoffice_player',{'id': player.id}) }}><div>{{ player }}</div></a>
+    {% endfor %}
+{% endblock %}

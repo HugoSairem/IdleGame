@@ -1,0 +1,37 @@
+{% extends '@IdleGame/Default/base.html.twig' %}
+{% block content %}
+    <div class="forumContent">
+        <div class="navForum">
+            <a class="forumButton" href={{ path('game_idle_topic',{'id': idCateg}) }}>Retour</a>
+            <a class="forumButton" href={{ path('game_idle_newpost',{'id': topic.id,'idCateg': idCateg}) }}>Nouveau Message</a>
+        </div>
+        <h2>{{ topic.titreTopic }}</h2>
+        <div class="post">
+            <div class="userSection">
+                {{ topic.user }}
+            </div>
+            <div class="postContent">
+                {{ topic.firstContentTopic }}
+            </div>
+            <span class="dateSection dateSectionPost">
+                <span>{{ topic.postedAtDate.date|date("d/m/Y") }}</span>
+                <span>{{ topic.postedAtTime.date|date("H:i") }}</span>
+            </span>
+        </div>
+        {% for post in posts %}
+            <div class="post">
+                <div class="userSection">
+                    {{ post.user }}
+                </div>
+                <div class="postContent">
+                    {{ post.postContent }}
+                </div>
+                <span class="dateSection dateSectionPost">
+                    <span>{{ post.postedAtDate.date|date("d/m/Y") }}</span>
+                    <span>{{ post.postedAtTime.date|date("H:i") }}</span>
+                </span>
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

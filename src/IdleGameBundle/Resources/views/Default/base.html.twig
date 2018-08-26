@@ -18,14 +18,22 @@
 
     <header>
         <div class="navContent">
-            <a class="save" href="{{ path('game_idle_game') }}">Le Jeu</a>
-            <a class="save" href="{{ path('fos_user_profile_show') }}">Profil</a>
-            <a class="save" href="{{ path('game_idle_highscore') }}">Highscore</a>
+            <a class="save navButton" href="{{ path('game_idle_game') }}">Le Jeu</a>
+            {%  if app.user %}
+                <a class="save navButton" href="{{ path('fos_user_profile_show') }}">Profil</a>
+                <a class="save navButton" href="{{ path('game_idle_highscore') }}">Highscore</a>
+            {% endif %}
             <img src="{{ asset('images/logo.svg') }}" alt="">
-            <a class="save" href="{{ path('game_idle_forum') }}">Forum</a>
-            <a class="save" href="#">Contact</a>
-            <a class="save" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-
+            {%  if app.user %}
+                <a class="save navButton" href="{{ path('game_idle_forum') }}">Forum</a>
+            {% endif %}
+            <a class="save navButton" href="#">Contact</a>
+            {%  if app.user %}
+                <a class="save navButton" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+            {% endif %}
+            {% if is_granted('ROLE_SUPER_ADMIN') -%}
+                <a class="save backOfficeButton" href="{{ path('game_idle_backoffice_index') }}"><i class="fas fa-toolbox"></i></a>
+            {% endif %}
         </div>
     </header>
     <div class="content">

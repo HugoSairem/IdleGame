@@ -1,0 +1,12 @@
+{% extends '@IdleGame/Default/baseback.html.twig' %}
+{% block backcontent %}
+
+    <div class="">
+        <div>
+            <div>Nombre de joueurs inscrits: {{ allUsers|length }}</div>
+            <div>Nombre de sujets dans le forum: {{ allTopics|length }}</div>
+            <div>Nombre de messages dans le forum: {{ allPosts|length }}</div>
+
+        </div>
+    </div>
+{% endblock %}

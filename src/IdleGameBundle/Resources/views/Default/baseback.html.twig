@@ -1,0 +1,11 @@
+{% extends '@IdleGame/Default/base.html.twig' %}
+{% block content %}
+    <div class="leftContent">
+        <a href={{ path('game_idle_backoffice_players') }}>
+            <div class="buttonAction"><h3>Joueurs</h3><span class="iconButton green"></span></div>
+        </a>
+        <div class="buttonAction"><h3>Categories Forum</h3><span class="iconButton green"></span></div>
+    </div>
+    {% block backcontent %}
+    {% endblock %}
+{% endblock %}

@@ -8,8 +8,9 @@
 .content {
   position: relative;
   width: 100%;
-  height: 90vh;
-  background-image: url("https://images7.alphacoders.com/717/717360.jpg");
+  min-height:90vh;
+  background-color: #2f3843;
+  //background-image: url("https://images7.alphacoders.com/717/717360.jpg");
   background-size: cover;
   background-position: 50% 50%;
   display: flex;
@@ -30,7 +31,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  a {
+  .navButton {
     width: 100px;
     text-decoration: none;
     margin: 10px;
@@ -38,6 +39,17 @@ header {
     text-align: center;
     color: white;
   }
+}
+
+.backOfficeButton{
+  position:absolute;
+  color:$primaryColor;
+  font-size:30px;
+  right:20px;
+  :hover{
+    color:white;
+  }
+
 }
 
 .leftContent {
@@ -51,7 +63,7 @@ header {
     display:flex;
     align-items: center;
     justify-content: center;
-    height:100px;
+    height:50px;
     background-color:white;
     text-transform: uppercase;
     font-size: 20px;
@@ -102,15 +114,20 @@ header {
 }
 
 .playerStats{
+  color:white;
   margin-top:20px;
-  margin-left:20px;
+  padding-left:20px;
   text-align: left;
-  height:150px;
+  height:110px;
+  border-bottom: 1px solid $secondaryColor;
   div{
+    display: flex;
+    align-items: center;
     margin-top:10px;
   }
   img{
     width:25px;
+    margin-right:10px;
   }
   h3{
     display:inline-block;
@@ -118,8 +135,22 @@ header {
 }
 
 .heroContent{
+  margin-bottom:20px;
+  color:white;
+  text-align: left;
+  margin-left:20px;
+  h3{
+    display: inline-block;
+    margin-right:10px;
+  }
   img{
     width:25px;
+    margin-right:10px;
+  }
+  div{
+    display: flex;
+    align-items: center;
+    margin-top:10px;
   }
 }
 
@@ -237,7 +268,10 @@ header {
 }
 
 .timerMission{
-  display:block;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:50px;
   font-family: Orbitron;
 }
 
@@ -251,6 +285,10 @@ header {
   height:100px;
   background-color: $secondaryColor;
   color:white;
+}
+
+.middleBlock{
+  padding:10px;
 }
 
 .lifebarContent {

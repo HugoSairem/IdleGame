@@ -274,9 +274,6 @@ function resetSave(){
         }
         Unit01.globalBonus = 0;
         Unit01.globalDmgBonus = 0;
-
-        console.log(Unit01);
-
 // - unit02 -
         Unit02.quantity = 0;
         Unit02.prix = 100;
@@ -533,7 +530,6 @@ function tickLoop(){
         }
     } else {}
     showTimerMission();
-    saveMoney();
     setTimeout("tickLoop()",1000);
 }
 
@@ -676,12 +672,34 @@ function downTimerMission(){
 function formateTimer(timeToTranslate){
     var formatedTime;
     if (timeToTranslate<60000){
-        formatedTime=timeToTranslate.toFixed(2);
+        formatedTime=timeToTranslate.toFixed(0);
         formatedTime=formatedTime/1000;
-        formatedTime=formatedTime+" sec"
+        if (String(formatedTime).length<2){
+            formatedTime=("00:00:0"+formatedTime)
+        } else {
+            formatedTime=("00:00:"+formatedTime);
+        }
+        //formatedTime=formatedTime+" sec"
     } else if (timeToTranslate>=60000 && timeToTranslate<3600000){
-        formatedTime = timeToTranslate/60000;
-        formatedTime=formatedTime+"min";
+        formatedTime = (timeToTranslate/60000).toFixed(1);
+        formatedTime=String(formatedTime);
+        var resteFormatedTime = timeToTranslate%60000;
+        var formatedTimeSecond = resteFormatedTime.toFixed(0);
+        formatedTimeSecond=formatedTimeSecond/1000;
+        if (String(formatedTimeSecond).length<2){
+            if (formatedTime.length<4) {
+                formatedTime = ("00:0"+formatedTime[0]+":0" + formatedTimeSecond)
+            } else {
+                formatedTime = ("00:"+formatedTime[0]+formatedTime[1]+":0" + formatedTimeSecond)
+            }
+        } else {
+            if (formatedTime.length<4) {
+                formatedTime = ("00:0"+formatedTime[0]+":" + formatedTimeSecond)
+            } else {
+                formatedTime = ("00:"+formatedTime[0]+formatedTime[1]+":" + formatedTimeSecond)
+            }
+        }
+        //formatedTime=formatedTime+"min";
     } else if (timeToTranslate>=3600000){
         formatedTime = timeToTranslate/3600000;
         formatedTime=formatedTime+"h";

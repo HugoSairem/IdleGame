@@ -2,11 +2,17 @@
 
 namespace IdleGameBundle\Controller;
 
+use IdleGameBundle\Entity\categoriesForum;
+use IdleGameBundle\Form\topicType;
+use IdleGameBundle\Form\postType;
 use Symfony\Component\HttpFoundation\Request;
 use IdleGameBundle\Entity\User;
 use IdleGameBundle\Entity\dataUser;
 use IdleGameBundle\Entity\topic;
+use IdleGameBundle\Entity\post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+
 
 class DefaultController extends Controller
 {
@@ -264,7 +270,7 @@ class DefaultController extends Controller
 
         $current_user = $entitymanager->getRepository(User::class)->find($iduser);
         $current_data = $entitymanager->getRepository(dataUser::class)->findBy(['user' => $iduser]);
-        $current_data=$current_data[0];
+        $current_data = $current_data[0];
 
         // Vérification de l'existence d'une sauvegarde liée au joueur
         if (!$current_data) {
@@ -276,222 +282,222 @@ class DefaultController extends Controller
             $entitymanager->flush();
         }
 
-            $comteBanquaire=$current_data->getAmountMoney();
+        $comteBanquaire = $current_data->getAmountMoney();
 
-            $ennemyDoorLife=$current_data->getEnnemyDoorLife();
-            $ennemyDoorBLife=$current_data->getEnnemyDoorBLife();
-            $ennemyDoorLevel=$current_data->getEnnemyDoorLevel();
-            $ennemyTroopsLife=$current_data->getEnnemyTroopsLife();
-            $ennemyTroopsBLife=$current_data->getEnnemyTroopsBLife();
-            $ennemyTroopsLevel=$current_data->getEnnemyTroopsLevel();
-            $ennemyBossLife=$current_data->getEnnemyBossLife();
-            $ennemyBossBLife=$current_data->getEnnemyBossBLife();
-            $ennemyBossLevel=$current_data->getEnnemyBossLevel();
-            $ennemyBossBonusKill=$current_data->getEnnemyBossBonusKill();
-            $currentStage=$current_data->getCurrentStage();
+        $ennemyDoorLife = $current_data->getEnnemyDoorLife();
+        $ennemyDoorBLife = $current_data->getEnnemyDoorBLife();
+        $ennemyDoorLevel = $current_data->getEnnemyDoorLevel();
+        $ennemyTroopsLife = $current_data->getEnnemyTroopsLife();
+        $ennemyTroopsBLife = $current_data->getEnnemyTroopsBLife();
+        $ennemyTroopsLevel = $current_data->getEnnemyTroopsLevel();
+        $ennemyBossLife = $current_data->getEnnemyBossLife();
+        $ennemyBossBLife = $current_data->getEnnemyBossBLife();
+        $ennemyBossLevel = $current_data->getEnnemyBossLevel();
+        $ennemyBossBonusKill = $current_data->getEnnemyBossBonusKill();
+        $currentStage = $current_data->getCurrentStage();
 
-            $unit01Quantity=$current_data->getUnit01Quantity();
-            $unit01Price=$current_data->getUnit01Price();
-            $unit01Bonus10 = $current_data->getUnit01Bonus10();
-            $unit01Bonus25 = $current_data->getUnit01Bonus25();
-            $unit01Bonus50 = $current_data->getUnit01Bonus50();
-            $unit01Bonus100 = $current_data->getUnit01Bonus100();
-            $unit01Bonus150 = $current_data->getUnit01Bonus150();
-            $unit01BonusD10 = $current_data->getUnit01BonusD10();
-            $unit01BonusD25 = $current_data->getUnit01BonusD25();
-            $unit01BonusD50 = $current_data->getUnit01BonusD50();
-            $unit01BonusD100 = $current_data->getUnit01BonusD100();
-            $unit01BonusD150 = $current_data->getUnit01BonusD150();
-            $unit01GlobalBonus = $current_data->getUnit01GlobalBonus();
-            $unit01GlobalDmgBonus = $current_data->getUnit01GlobalDmgBonus();
+        $unit01Quantity = $current_data->getUnit01Quantity();
+        $unit01Price = $current_data->getUnit01Price();
+        $unit01Bonus10 = $current_data->getUnit01Bonus10();
+        $unit01Bonus25 = $current_data->getUnit01Bonus25();
+        $unit01Bonus50 = $current_data->getUnit01Bonus50();
+        $unit01Bonus100 = $current_data->getUnit01Bonus100();
+        $unit01Bonus150 = $current_data->getUnit01Bonus150();
+        $unit01BonusD10 = $current_data->getUnit01BonusD10();
+        $unit01BonusD25 = $current_data->getUnit01BonusD25();
+        $unit01BonusD50 = $current_data->getUnit01BonusD50();
+        $unit01BonusD100 = $current_data->getUnit01BonusD100();
+        $unit01BonusD150 = $current_data->getUnit01BonusD150();
+        $unit01GlobalBonus = $current_data->getUnit01GlobalBonus();
+        $unit01GlobalDmgBonus = $current_data->getUnit01GlobalDmgBonus();
 
-            $unit02Quantity=$current_data->getUnit02Quantity();
-            $unit02Price=$current_data->getUnit02Price();
-            $unit02Bonus10 = $current_data->getUnit02Bonus10();
-            $unit02Bonus25 = $current_data->getUnit02Bonus25();
-            $unit02Bonus50 = $current_data->getUnit02Bonus50();
-            $unit02Bonus100 = $current_data->getUnit02Bonus100();
-            $unit02Bonus150 = $current_data->getUnit02Bonus150();
-            $unit02BonusD10 = $current_data->getUnit02BonusD10();
-            $unit02BonusD25 = $current_data->getUnit02BonusD25();
-            $unit02BonusD50 = $current_data->getUnit02BonusD50();
-            $unit02BonusD100 = $current_data->getUnit02BonusD100();
-            $unit02BonusD150 = $current_data->getUnit02BonusD150();
-            $unit02GlobalBonus = $current_data->getUnit02GlobalBonus();
-            $unit02GlobalDmgBonus = $current_data->getUnit02GlobalDmgBonus();
+        $unit02Quantity = $current_data->getUnit02Quantity();
+        $unit02Price = $current_data->getUnit02Price();
+        $unit02Bonus10 = $current_data->getUnit02Bonus10();
+        $unit02Bonus25 = $current_data->getUnit02Bonus25();
+        $unit02Bonus50 = $current_data->getUnit02Bonus50();
+        $unit02Bonus100 = $current_data->getUnit02Bonus100();
+        $unit02Bonus150 = $current_data->getUnit02Bonus150();
+        $unit02BonusD10 = $current_data->getUnit02BonusD10();
+        $unit02BonusD25 = $current_data->getUnit02BonusD25();
+        $unit02BonusD50 = $current_data->getUnit02BonusD50();
+        $unit02BonusD100 = $current_data->getUnit02BonusD100();
+        $unit02BonusD150 = $current_data->getUnit02BonusD150();
+        $unit02GlobalBonus = $current_data->getUnit02GlobalBonus();
+        $unit02GlobalDmgBonus = $current_data->getUnit02GlobalDmgBonus();
 
-            $unit03Quantity=$current_data->getUnit03Quantity();
-            $unit03Price=$current_data->getUnit03Price();
-            $unit03Bonus10 = $current_data->getUnit03Bonus10();
-            $unit03Bonus25 = $current_data->getUnit03Bonus25();
-            $unit03Bonus50 = $current_data->getUnit03Bonus50();
-            $unit03Bonus100 = $current_data->getUnit03Bonus100();
-            $unit03Bonus150 = $current_data->getUnit03Bonus150();
-            $unit03BonusD10 = $current_data->getUnit03BonusD10();
-            $unit03BonusD25 = $current_data->getUnit03BonusD25();
-            $unit03BonusD50 = $current_data->getUnit03BonusD50();
-            $unit03BonusD100 = $current_data->getUnit03BonusD100();
-            $unit03BonusD150 = $current_data->getUnit03BonusD150();
-            $unit03GlobalBonus = $current_data->getUnit03GlobalBonus();
-            $unit03GlobalDmgBonus = $current_data->getUnit03GlobalDmgBonus();
+        $unit03Quantity = $current_data->getUnit03Quantity();
+        $unit03Price = $current_data->getUnit03Price();
+        $unit03Bonus10 = $current_data->getUnit03Bonus10();
+        $unit03Bonus25 = $current_data->getUnit03Bonus25();
+        $unit03Bonus50 = $current_data->getUnit03Bonus50();
+        $unit03Bonus100 = $current_data->getUnit03Bonus100();
+        $unit03Bonus150 = $current_data->getUnit03Bonus150();
+        $unit03BonusD10 = $current_data->getUnit03BonusD10();
+        $unit03BonusD25 = $current_data->getUnit03BonusD25();
+        $unit03BonusD50 = $current_data->getUnit03BonusD50();
+        $unit03BonusD100 = $current_data->getUnit03BonusD100();
+        $unit03BonusD150 = $current_data->getUnit03BonusD150();
+        $unit03GlobalBonus = $current_data->getUnit03GlobalBonus();
+        $unit03GlobalDmgBonus = $current_data->getUnit03GlobalDmgBonus();
 
-            $unit04Quantity=$current_data->getUnit04Quantity();
-            $unit04Price=$current_data->getUnit04Price();
-            $unit04Bonus10 = $current_data->getUnit04Bonus10();
-            $unit04Bonus25 = $current_data->getUnit04Bonus25();
-            $unit04Bonus50 = $current_data->getUnit04Bonus50();
-            $unit04Bonus100 = $current_data->getUnit04Bonus100();
-            $unit04Bonus150 = $current_data->getUnit04Bonus150();
-            $unit04BonusD10 = $current_data->getUnit04BonusD10();
-            $unit04BonusD25 = $current_data->getUnit04BonusD25();
-            $unit04BonusD50 = $current_data->getUnit04BonusD50();
-            $unit04BonusD100 = $current_data->getUnit04BonusD100();
-            $unit04BonusD150 = $current_data->getUnit04BonusD150();
-            $unit04GlobalBonus = $current_data->getUnit04GlobalBonus();
-            $unit04GlobalDmgBonus = $current_data->getUnit04GlobalDmgBonus();
+        $unit04Quantity = $current_data->getUnit04Quantity();
+        $unit04Price = $current_data->getUnit04Price();
+        $unit04Bonus10 = $current_data->getUnit04Bonus10();
+        $unit04Bonus25 = $current_data->getUnit04Bonus25();
+        $unit04Bonus50 = $current_data->getUnit04Bonus50();
+        $unit04Bonus100 = $current_data->getUnit04Bonus100();
+        $unit04Bonus150 = $current_data->getUnit04Bonus150();
+        $unit04BonusD10 = $current_data->getUnit04BonusD10();
+        $unit04BonusD25 = $current_data->getUnit04BonusD25();
+        $unit04BonusD50 = $current_data->getUnit04BonusD50();
+        $unit04BonusD100 = $current_data->getUnit04BonusD100();
+        $unit04BonusD150 = $current_data->getUnit04BonusD150();
+        $unit04GlobalBonus = $current_data->getUnit04GlobalBonus();
+        $unit04GlobalDmgBonus = $current_data->getUnit04GlobalDmgBonus();
 
-            $unit05Quantity=$current_data->getUnit05Quantity();
-            $unit05Price=$current_data->getUnit05Price();
-            $unit05Bonus10 = $current_data->getUnit05Bonus10();
-            $unit05Bonus25 = $current_data->getUnit05Bonus25();
-            $unit05Bonus50 = $current_data->getUnit05Bonus50();
-            $unit05Bonus100 = $current_data->getUnit05Bonus100();
-            $unit05Bonus150 = $current_data->getUnit05Bonus150();
-            $unit05BonusD10 = $current_data->getUnit05BonusD10();
-            $unit05BonusD25 = $current_data->getUnit05BonusD25();
-            $unit05BonusD50 = $current_data->getUnit05BonusD50();
-            $unit05BonusD100 = $current_data->getUnit05BonusD100();
-            $unit05BonusD150 = $current_data->getUnit05BonusD150();
-            $unit05GlobalBonus = $current_data->getUnit05GlobalBonus();
-            $unit05GlobalDmgBonus = $current_data->getUnit05GlobalDmgBonus();
+        $unit05Quantity = $current_data->getUnit05Quantity();
+        $unit05Price = $current_data->getUnit05Price();
+        $unit05Bonus10 = $current_data->getUnit05Bonus10();
+        $unit05Bonus25 = $current_data->getUnit05Bonus25();
+        $unit05Bonus50 = $current_data->getUnit05Bonus50();
+        $unit05Bonus100 = $current_data->getUnit05Bonus100();
+        $unit05Bonus150 = $current_data->getUnit05Bonus150();
+        $unit05BonusD10 = $current_data->getUnit05BonusD10();
+        $unit05BonusD25 = $current_data->getUnit05BonusD25();
+        $unit05BonusD50 = $current_data->getUnit05BonusD50();
+        $unit05BonusD100 = $current_data->getUnit05BonusD100();
+        $unit05BonusD150 = $current_data->getUnit05BonusD150();
+        $unit05GlobalBonus = $current_data->getUnit05GlobalBonus();
+        $unit05GlobalDmgBonus = $current_data->getUnit05GlobalDmgBonus();
 
-            $unit06Quantity=$current_data->getUnit06Quantity();
-            $unit06Price=$current_data->getUnit06Price();
-            $unit06Bonus10 = $current_data->getUnit06Bonus10();
-            $unit06Bonus25 = $current_data->getUnit06Bonus25();
-            $unit06Bonus50 = $current_data->getUnit06Bonus50();
-            $unit06Bonus100 = $current_data->getUnit06Bonus100();
-            $unit06Bonus150 = $current_data->getUnit06Bonus150();
-            $unit06BonusD10 = $current_data->getUnit06BonusD10();
-            $unit06BonusD25 = $current_data->getUnit06BonusD25();
-            $unit06BonusD50 = $current_data->getUnit06BonusD50();
-            $unit06BonusD100 = $current_data->getUnit06BonusD100();
-            $unit06BonusD150 = $current_data->getUnit06BonusD150();
-            $unit06GlobalBonus = $current_data->getUnit06GlobalBonus();
-            $unit06GlobalDmgBonus = $current_data->getUnit06GlobalDmgBonus();
+        $unit06Quantity = $current_data->getUnit06Quantity();
+        $unit06Price = $current_data->getUnit06Price();
+        $unit06Bonus10 = $current_data->getUnit06Bonus10();
+        $unit06Bonus25 = $current_data->getUnit06Bonus25();
+        $unit06Bonus50 = $current_data->getUnit06Bonus50();
+        $unit06Bonus100 = $current_data->getUnit06Bonus100();
+        $unit06Bonus150 = $current_data->getUnit06Bonus150();
+        $unit06BonusD10 = $current_data->getUnit06BonusD10();
+        $unit06BonusD25 = $current_data->getUnit06BonusD25();
+        $unit06BonusD50 = $current_data->getUnit06BonusD50();
+        $unit06BonusD100 = $current_data->getUnit06BonusD100();
+        $unit06BonusD150 = $current_data->getUnit06BonusD150();
+        $unit06GlobalBonus = $current_data->getUnit06GlobalBonus();
+        $unit06GlobalDmgBonus = $current_data->getUnit06GlobalDmgBonus();
 
 
-            return $this->render('@IdleGame/Default/index.html.twig',array(
-                'compteBanquaire'=> $comteBanquaire,
-                'ennemyDoorLife'=> $ennemyDoorLife,
-                'ennemyDoorBLife'=> $ennemyDoorBLife,
-                'ennemyDoorLevel'=> $ennemyDoorLevel,
-                'ennemyTroopsLife'=> $ennemyTroopsLife,
-                'ennemyTroopsBLife'=> $ennemyTroopsBLife,
-                'ennemyTroopsLevel'=> $ennemyTroopsLevel,
-                'ennemyBossLife'=> $ennemyBossLife,
-                'ennemyBossBLife'=> $ennemyBossBLife,
-                'ennemyBossLevel'=> $ennemyBossLevel,
-                'ennemyBossBonusKill'=> $ennemyBossBonusKill,
-                'currentStage' => $currentStage,
+        return $this->render('@IdleGame/Default/index.html.twig', array(
+            'compteBanquaire' => $comteBanquaire,
+            'ennemyDoorLife' => $ennemyDoorLife,
+            'ennemyDoorBLife' => $ennemyDoorBLife,
+            'ennemyDoorLevel' => $ennemyDoorLevel,
+            'ennemyTroopsLife' => $ennemyTroopsLife,
+            'ennemyTroopsBLife' => $ennemyTroopsBLife,
+            'ennemyTroopsLevel' => $ennemyTroopsLevel,
+            'ennemyBossLife' => $ennemyBossLife,
+            'ennemyBossBLife' => $ennemyBossBLife,
+            'ennemyBossLevel' => $ennemyBossLevel,
+            'ennemyBossBonusKill' => $ennemyBossBonusKill,
+            'currentStage' => $currentStage,
 
-                //UNIT01
-                'unit01Quantity'=> $unit01Quantity,
-                'unit01Price'=> $unit01Price,
-                'unit01Bonus10' => $unit01Bonus10,
-                'unit01Bonus25' => $unit01Bonus25,
-                'unit01Bonus50' => $unit01Bonus50,
-                'unit01Bonus100' => $unit01Bonus100,
-                'unit01Bonus150' => $unit01Bonus150,
-                'unit01BonusD10' => $unit01BonusD10,
-                'unit01BonusD25' => $unit01BonusD25,
-                'unit01BonusD50' => $unit01BonusD50,
-                'unit01BonusD100' => $unit01BonusD100,
-                'unit01BonusD150' => $unit01BonusD150,
-                'unit01GlobalBonus' => $unit01GlobalBonus,
-                'unit01GlobalDmgBonus' => $unit01GlobalDmgBonus,
+            //UNIT01
+            'unit01Quantity' => $unit01Quantity,
+            'unit01Price' => $unit01Price,
+            'unit01Bonus10' => $unit01Bonus10,
+            'unit01Bonus25' => $unit01Bonus25,
+            'unit01Bonus50' => $unit01Bonus50,
+            'unit01Bonus100' => $unit01Bonus100,
+            'unit01Bonus150' => $unit01Bonus150,
+            'unit01BonusD10' => $unit01BonusD10,
+            'unit01BonusD25' => $unit01BonusD25,
+            'unit01BonusD50' => $unit01BonusD50,
+            'unit01BonusD100' => $unit01BonusD100,
+            'unit01BonusD150' => $unit01BonusD150,
+            'unit01GlobalBonus' => $unit01GlobalBonus,
+            'unit01GlobalDmgBonus' => $unit01GlobalDmgBonus,
 
-                //UNIT02
-                'unit02Quantity'=> $unit02Quantity,
-                'unit02Price'=> $unit02Price,
-                'unit02Bonus10' => $unit02Bonus10,
-                'unit02Bonus25' => $unit02Bonus25,
-                'unit02Bonus50' => $unit02Bonus50,
-                'unit02Bonus100' => $unit02Bonus100,
-                'unit02Bonus150' => $unit02Bonus150,
-                'unit02BonusD10' => $unit02BonusD10,
-                'unit02BonusD25' => $unit02BonusD25,
-                'unit02BonusD50' => $unit02BonusD50,
-                'unit02BonusD100' => $unit02BonusD100,
-                'unit02BonusD150' => $unit02BonusD150,
-                'unit02GlobalBonus' => $unit02GlobalBonus,
-                'unit02GlobalDmgBonus' => $unit02GlobalDmgBonus,
+            //UNIT02
+            'unit02Quantity' => $unit02Quantity,
+            'unit02Price' => $unit02Price,
+            'unit02Bonus10' => $unit02Bonus10,
+            'unit02Bonus25' => $unit02Bonus25,
+            'unit02Bonus50' => $unit02Bonus50,
+            'unit02Bonus100' => $unit02Bonus100,
+            'unit02Bonus150' => $unit02Bonus150,
+            'unit02BonusD10' => $unit02BonusD10,
+            'unit02BonusD25' => $unit02BonusD25,
+            'unit02BonusD50' => $unit02BonusD50,
+            'unit02BonusD100' => $unit02BonusD100,
+            'unit02BonusD150' => $unit02BonusD150,
+            'unit02GlobalBonus' => $unit02GlobalBonus,
+            'unit02GlobalDmgBonus' => $unit02GlobalDmgBonus,
 
-                //UNIT03
-                'unit03Quantity'=> $unit03Quantity,
-                'unit03Price'=> $unit03Price,
-                'unit03Bonus10' => $unit03Bonus10,
-                'unit03Bonus25' => $unit03Bonus25,
-                'unit03Bonus50' => $unit03Bonus50,
-                'unit03Bonus100' => $unit03Bonus100,
-                'unit03Bonus150' => $unit03Bonus150,
-                'unit03BonusD10' => $unit03BonusD10,
-                'unit03BonusD25' => $unit03BonusD25,
-                'unit03BonusD50' => $unit03BonusD50,
-                'unit03BonusD100' => $unit03BonusD100,
-                'unit03BonusD150' => $unit03BonusD150,
-                'unit03GlobalBonus' => $unit03GlobalBonus,
-                'unit03GlobalDmgBonus' => $unit03GlobalDmgBonus,
+            //UNIT03
+            'unit03Quantity' => $unit03Quantity,
+            'unit03Price' => $unit03Price,
+            'unit03Bonus10' => $unit03Bonus10,
+            'unit03Bonus25' => $unit03Bonus25,
+            'unit03Bonus50' => $unit03Bonus50,
+            'unit03Bonus100' => $unit03Bonus100,
+            'unit03Bonus150' => $unit03Bonus150,
+            'unit03BonusD10' => $unit03BonusD10,
+            'unit03BonusD25' => $unit03BonusD25,
+            'unit03BonusD50' => $unit03BonusD50,
+            'unit03BonusD100' => $unit03BonusD100,
+            'unit03BonusD150' => $unit03BonusD150,
+            'unit03GlobalBonus' => $unit03GlobalBonus,
+            'unit03GlobalDmgBonus' => $unit03GlobalDmgBonus,
 
-                //UNIT04
-                'unit04Quantity'=> $unit04Quantity,
-                'unit04Price'=> $unit04Price,
-                'unit04Bonus10' => $unit04Bonus10,
-                'unit04Bonus25' => $unit04Bonus25,
-                'unit04Bonus50' => $unit04Bonus50,
-                'unit04Bonus100' => $unit04Bonus100,
-                'unit04Bonus150' => $unit04Bonus150,
-                'unit04BonusD10' => $unit04BonusD10,
-                'unit04BonusD25' => $unit04BonusD25,
-                'unit04BonusD50' => $unit04BonusD50,
-                'unit04BonusD100' => $unit04BonusD100,
-                'unit04BonusD150' => $unit04BonusD150,
-                'unit04GlobalBonus' => $unit04GlobalBonus,
-                'unit04GlobalDmgBonus' => $unit04GlobalDmgBonus,
+            //UNIT04
+            'unit04Quantity' => $unit04Quantity,
+            'unit04Price' => $unit04Price,
+            'unit04Bonus10' => $unit04Bonus10,
+            'unit04Bonus25' => $unit04Bonus25,
+            'unit04Bonus50' => $unit04Bonus50,
+            'unit04Bonus100' => $unit04Bonus100,
+            'unit04Bonus150' => $unit04Bonus150,
+            'unit04BonusD10' => $unit04BonusD10,
+            'unit04BonusD25' => $unit04BonusD25,
+            'unit04BonusD50' => $unit04BonusD50,
+            'unit04BonusD100' => $unit04BonusD100,
+            'unit04BonusD150' => $unit04BonusD150,
+            'unit04GlobalBonus' => $unit04GlobalBonus,
+            'unit04GlobalDmgBonus' => $unit04GlobalDmgBonus,
 
-                //UNIT05
-                'unit05Quantity'=> $unit05Quantity,
-                'unit05Price'=> $unit05Price,
-                'unit05Bonus10' => $unit05Bonus10,
-                'unit05Bonus25' => $unit05Bonus25,
-                'unit05Bonus50' => $unit05Bonus50,
-                'unit05Bonus100' => $unit05Bonus100,
-                'unit05Bonus150' => $unit05Bonus150,
-                'unit05BonusD10' => $unit05BonusD10,
-                'unit05BonusD25' => $unit05BonusD25,
-                'unit05BonusD50' => $unit05BonusD50,
-                'unit05BonusD100' => $unit05BonusD100,
-                'unit05BonusD150' => $unit05BonusD150,
-                'unit05GlobalBonus' => $unit05GlobalBonus,
-                'unit05GlobalDmgBonus' => $unit05GlobalDmgBonus,
+            //UNIT05
+            'unit05Quantity' => $unit05Quantity,
+            'unit05Price' => $unit05Price,
+            'unit05Bonus10' => $unit05Bonus10,
+            'unit05Bonus25' => $unit05Bonus25,
+            'unit05Bonus50' => $unit05Bonus50,
+            'unit05Bonus100' => $unit05Bonus100,
+            'unit05Bonus150' => $unit05Bonus150,
+            'unit05BonusD10' => $unit05BonusD10,
+            'unit05BonusD25' => $unit05BonusD25,
+            'unit05BonusD50' => $unit05BonusD50,
+            'unit05BonusD100' => $unit05BonusD100,
+            'unit05BonusD150' => $unit05BonusD150,
+            'unit05GlobalBonus' => $unit05GlobalBonus,
+            'unit05GlobalDmgBonus' => $unit05GlobalDmgBonus,
 
-                //UNIT06
-                'unit06Quantity'=> $unit06Quantity,
-                'unit06Price'=> $unit06Price,
-                'unit06Bonus10' => $unit06Bonus10,
-                'unit06Bonus25' => $unit06Bonus25,
-                'unit06Bonus50' => $unit06Bonus50,
-                'unit06Bonus100' => $unit06Bonus100,
-                'unit06Bonus150' => $unit06Bonus150,
-                'unit06BonusD10' => $unit06BonusD10,
-                'unit06BonusD25' => $unit06BonusD25,
-                'unit06BonusD50' => $unit06BonusD50,
-                'unit06BonusD100' => $unit06BonusD100,
-                'unit06BonusD150' => $unit06BonusD150,
-                'unit06GlobalBonus' => $unit06GlobalBonus,
-                'unit06GlobalDmgBonus' => $unit06GlobalDmgBonus,
+            //UNIT06
+            'unit06Quantity' => $unit06Quantity,
+            'unit06Price' => $unit06Price,
+            'unit06Bonus10' => $unit06Bonus10,
+            'unit06Bonus25' => $unit06Bonus25,
+            'unit06Bonus50' => $unit06Bonus50,
+            'unit06Bonus100' => $unit06Bonus100,
+            'unit06Bonus150' => $unit06Bonus150,
+            'unit06BonusD10' => $unit06BonusD10,
+            'unit06BonusD25' => $unit06BonusD25,
+            'unit06BonusD50' => $unit06BonusD50,
+            'unit06BonusD100' => $unit06BonusD100,
+            'unit06BonusD150' => $unit06BonusD150,
+            'unit06GlobalBonus' => $unit06GlobalBonus,
+            'unit06GlobalDmgBonus' => $unit06GlobalDmgBonus,
 
-            ));
+        ));
     }
 
     public function upgradeControlAction()
@@ -511,18 +517,146 @@ class DefaultController extends Controller
 
     public function forumAction()
     {
-        return $this->render('@IdleGame/Default/forum.html.twig');
+        $categories = $this->getDoctrine()->getRepository(categoriesForum::class)->findAll();
+        return $this->render('@IdleGame/Default/forum.html.twig',array(
+            'categories'=> $categories,
+        ));
+    }
+
+    public function topicAction($id)
+    {
+        $topics = $this->getDoctrine()->getRepository(topic::class)->findBy(['categ'=>$id]);
+        $categorie = $this->getDoctrine()->getRepository(categoriesForum::class)->find($id);
+
+        return $this->render('@IdleGame/Default/topic.html.twig',array(
+            'topics'=>$topics,
+            'categorie'=>$categorie,
+        ));
+    }
+
+    public function postAction($id,$idCateg)
+    {
+        $topic = $this->getDoctrine()->getRepository(topic::class)->find($id);
+        $posts = $this->getDoctrine()->getRepository(post::class)->findBy(['topic'=>$id]);
+
+        return $this->render('@IdleGame/Default/post.html.twig',array(
+            'posts'=>$posts,
+            'topic'=>$topic,
+            'idCateg'=> $idCateg,
+        ));
     }
 
     public function highscoreAction()
     {
-        return $this->render('@IdleGame/Default/highscore.html.twig');
+        $current_data = $this->getDoctrine()->getRepository(dataUser::class)->findBy(array(), array('amountMoney' => 'desc'));
+        $i=0;
+        return $this->render('@IdleGame/Default/highscore.html.twig', array(
+            'datas' => $current_data,
+            'i' => $i,
+        ));
     }
 
-    public function userDataSave()
+    public function newTopicAction(Request $request,$id)
     {
-        $idUser = $this->getUser()->getId();
-        return $this->render('@IdleGame/Default/index.html.twig');
+        $topic = new topic();
+        $iduser = $this->getUser()->getId();
+
+        $entitymanager = $this->getDoctrine()->getManager();
+        $current_user = $entitymanager->getRepository(User::class)->find($iduser);
+        $categories = $this->getDoctrine()->getRepository(categoriesForum::class)->find($id);
+
+        $form = $this->createForm(topicType::class,$topic);
+        $formView = $form->createView();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()&& $form->isValid()){
+            $topic = $form->getData();
+            $topic->setCateg($categories);
+            $topic->setUser($current_user);
+            $topic->setPostedAtDate(new \DateTime("now"));
+            $topic->setPostedAtTime(new \DateTime("now"));
+
+            $entitymanager = $this->getDoctrine()->getManager();
+            $entitymanager->persist($topic);
+            $entitymanager->flush();
+            return $this->redirectToRoute('game_idle_topic',array(
+                'id'=>$id,
+            ));
+        }
+
+        return $this->render('@IdleGame/Default/newtopic.html.twig',array(
+            'formView'=>$formView,
+        ));
+    }
+
+    public function newPostAction(Request $request,$id,$idCateg)
+    {
+        $post = new post();
+        $iduser = $this->getUser()->getId();
+
+        $entitymanager = $this->getDoctrine()->getManager();
+        $current_user = $entitymanager->getRepository(User::class)->find($iduser);
+        $topic = $this->getDoctrine()->getRepository(topic::class)->find($id);
+
+        $form = $this->createForm(postType::class,$post);
+        $formView = $form->createView();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()&& $form->isValid()){
+            $post = $form->getData();
+            $post->setTopic($topic);
+            $post->setUser($current_user);
+            $post->setPostedAtDate(new \DateTime("now"));
+            $post->setPostedAtTime(new \DateTime("now"));
+
+            $entitymanager = $this->getDoctrine()->getManager();
+            $entitymanager->persist($post);
+            $entitymanager->flush();
+            return $this->redirectToRoute('game_idle_post',array(
+                'id'=>$id,
+                'idCateg'=> $idCateg,
+            ));
+        }
+
+        return $this->render('@IdleGame/Default/newpost.html.twig',array(
+            'formView'=>$formView,
+        ));
+    }
+
+    public function backIndexAction()
+    {
+        $entitymanager = $this->getDoctrine()->getManager();
+        $allUsers = $entitymanager->getRepository(User::class)->findAll();
+        $allTopics = $entitymanager->getRepository(topic::class)->findAll();
+        $allPosts = $entitymanager->getRepository(post::class)->findAll();
+
+        return $this->render('@IdleGame/Default/backindex.html.twig',array(
+            'allUsers'=>$allUsers,
+            'allTopics'=>$allTopics,
+            'allPosts'=>$allPosts,
+        ));
+    }
+
+    public function backPlayersAction()
+    {
+        $entitymanager = $this->getDoctrine()->getManager();
+        $allUsers = $entitymanager->getRepository(User::class)->findAll();
+
+        return $this->render('@IdleGame/Default/backplayers.html.twig',array(
+            'allUsers'=>$allUsers,
+        ));
+    }
+
+    public function backPlayerAction($id)
+    {
+        $entitymanager = $this->getDoctrine()->getManager();
+        $player = $entitymanager->getRepository(User::class)->find($id);
+
+        return $this->render('@IdleGame/Default/backplayer.html.twig',array(
+            'player'=>$player,
+        ));
     }
 
 }

@@ -1,0 +1,10 @@
+{% extends '@IdleGame/Default/base.html.twig' %}
+{% block content %}
+<div class="forumContent">
+    {% for categorie in categories %}
+        <a class="sectionForum" href="{{ path('game_idle_topic',{'id': categorie.id})}}">
+            {{ categorie.labelCategorie }}
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,1 +1,36 @@
-TEST
+{% extends '@IdleGame/Default/base.html.twig' %}
+{% block content %}
+<div class="scoreTable">
+    <div class="oneScore">
+        <span class="scorePosition">#</span>
+        <div class="scoreUsername">Joueur</div>
+        <div class="scoreMoney">Butin du joueur</div>
+        <div class="scoreBoss">Niveau du boss</div>
+    </div>
+    {% for data in datas %}
+        <div class="oneScore">
+            <span class="scorePosition">{{ loop.index }}</span>
+            <div class="scoreUsername">{{ data.user }}</div>
+            <div class="scoreMoney">
+                {% if data.amountMoney<1000 %}
+                    {{ data.amountMoney }}
+                {% elseif data.amountMoney>=1000 and data.amountMoney<1000000 %}
+                    {{ data.amountMoney/1000|round }} K
+                {% elseif data.amountMoney>=1000000 and data.amountMoney<1000000000 %}
+                    {{ (data.amountMoney/1000000)|round }} M
+                {% elseif data.amountMoney>=1000000000 and data.amountMoney<1000000000000 %}
+                    {{ (data.amountMoney/1000000000)|round }} B
+                {% elseif data.amountMoney>=1000000000000 and data.amountMoney<1000000000000000 %}
+                    {{ (data.amountMoney/1000000000000)|round }} T
+                {% elseif data.amountMoney>=1000000000000000 and data.amountMoney<1000000000000000000 %}
+                    {{ (data.amountMoney/1000000000000000)|round }} P
+                {% elseif data.amountMoney>=1000000000000000000 and data.amountMoney<1000000000000000000000 %}
+                    {{ (data.amountMoney/1000000000000000000)|round }} E
+                {% endif %}
+                $
+            </div>
+            <div class="scoreBoss">{{ data.ennemyBossLevel }}</div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

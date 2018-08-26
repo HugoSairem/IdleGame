@@ -8,7 +8,7 @@
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <field name="amountMoney" type="bigint" column="amountMoney" />
+        <field name="amountMoney" type="integer" column="amountMoney" />
         <field name="ennemyDoorLife" type="bigint" nullable="true" column="ennemyDoorLife" />
         <field name="ennemyDoorBLife" type="bigint" nullable="true" column="ennemyDoorBLife" />
         <field name="ennemyDoorLevel" type="bigint" nullable="true" column="ennemyDoorLevel" />

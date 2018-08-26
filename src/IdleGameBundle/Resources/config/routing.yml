@@ -10,6 +10,34 @@ game_idle_forum:
     path:     /forum
     defaults: { _controller: IdleGameBundle:Default:forum }
 
+game_idle_topic:
+    path:     /topic/{id}
+    defaults: { _controller: IdleGameBundle:Default:topic }
+
+game_idle_post:
+    path:     /post/{id}/{idCateg}
+    defaults: { _controller: IdleGameBundle:Default:post }
+
+game_idle_newtopic:
+    path:     /newtopic/{id}
+    defaults: { _controller: IdleGameBundle:Default:newTopic }
+
+game_idle_newpost:
+    path:     /newpost/{id}/{idCateg}
+    defaults: { _controller: IdleGameBundle:Default:newPost }
+
 game_idle_highscore:
     path:     /highscore
     defaults: { _controller: IdleGameBundle:Default:highscore }
+
+game_idle_backoffice_index:
+    path:     /admin/backindex
+    defaults: { _controller: IdleGameBundle:Default:backIndex }
+
+game_idle_backoffice_players:
+    path:     /admin/backplayers
+    defaults: { _controller: IdleGameBundle:Default:backPlayers }
+
+game_idle_backoffice_player:
+    path:     /admin/backplayer/{id}
+    defaults: { _controller: IdleGameBundle:Default:backPlayer }
