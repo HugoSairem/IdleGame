@@ -2,4 +2,8 @@
 {% block backcontent %}
     {{ player }}
     {{ player.email }}
+    <h3>Message du joueur</h3>
+    {% for post in playerPosts %}
+        <div>{{ post.postContent }}</div>
+    {% endfor %}
 {% endblock %}

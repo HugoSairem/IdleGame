@@ -625,6 +625,45 @@ class DefaultController extends Controller
         ));
     }
 
+    public function editPostAction(Request $request,$id,$idTopic,$idCateg)
+    {
+
+        $entitymanager = $this->getDoctrine()->getManager();
+        $post = $entitymanager->getRepository(post::class)->find($id);
+
+        $form = $this->createForm(postType::class,$post);
+        $formView = $form->createView();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()&& $form->isValid()){
+            $entitymanager = $this->getDoctrine()->getManager();
+            $entitymanager->flush();
+            return $this->redirectToRoute('game_idle_post',array(
+                'id'=>$idTopic,
+                'idCateg'=>$idCateg,
+            ));
+        }
+
+        return $this->render('@IdleGame/Default/editpost.html.twig',array(
+            'formView'=>$formView,
+        ));
+    }
+
+    public function deletePostAction($id,$idTopic,$idCateg)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository(post::class); // cible le repository de la classe Livre
+        $post = $repository->find($id);//récupération de l'élément selon l'id récupéré
+        $entityManager->remove($post);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('game_idle_post',array(
+            'id'=>$idTopic,
+            'idCateg'=>$idCateg,
+        ));
+    }
+
     public function backIndexAction()
     {
         $entitymanager = $this->getDoctrine()->getManager();
@@ -653,10 +692,14 @@ class DefaultController extends Controller
     {
         $entitymanager = $this->getDoctrine()->getManager();
         $player = $entitymanager->getRepository(User::class)->find($id);
+        $playerPosts = $entitymanager->getRepository(post::class)->findBy(['user'=>$id]);
 
         return $this->render('@IdleGame/Default/backplayer.html.twig',array(
             'player'=>$player,
+            'playerPosts'=>$playerPosts,
         ));
     }
+
+
 
 }

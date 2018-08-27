@@ -27,10 +27,14 @@
                     {{ post.postContent }}
                 </div>
                 <span class="dateSection dateSectionPost">
+
                     <span>{{ post.postedAtDate.date|date("d/m/Y") }}</span>
                     <span>{{ post.postedAtTime.date|date("H:i") }}</span>
+                    {% if post.user==app.user or is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('game_idle_deletepost',{'id': post.id,'idTopic': topic.id,'idCateg': idCateg}) }}" onclick="return confirm('Êtes vous sur de vouloir supprimer ce message ?')">Supprimer</a>
+                        <a href={{ path('game_idle_editpost',{'id': post.id,'idTopic': topic.id,'idCateg': idCateg}) }}>Editer</a>
+                    {% endif %}
                 </span>
-
             </div>
         {% endfor %}
     </div>

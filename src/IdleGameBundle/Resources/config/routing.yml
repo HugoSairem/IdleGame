@@ -26,6 +26,14 @@ game_idle_newpost:
     path:     /newpost/{id}/{idCateg}
     defaults: { _controller: IdleGameBundle:Default:newPost }
 
+game_idle_editpost:
+    path:     /editpost/{id}/{idTopic}/{idCateg}
+    defaults: { _controller: IdleGameBundle:Default:editPost }
+
+game_idle_deletepost:
+    path:     /deletepost/{id}/{idTopic}/{idCateg}
+    defaults: { _controller: IdleGameBundle:Default:deletePost }
+
 game_idle_highscore:
     path:     /highscore
     defaults: { _controller: IdleGameBundle:Default:highscore }

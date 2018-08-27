@@ -177,6 +177,7 @@ header {
   cursor: pointer;
   transition: box-shadow 0.1s;
   box-shadow: inset 0px -5px 0px 0px #bebebe;
+  color:$secondaryColor;
   i {
     display: flex;
     align-items: center;
@@ -216,6 +217,12 @@ header {
     background-color: red;
     box-shadow: inset 0px -5px 0px 0px #950000;
   }
+  .blue{
+    transition: box-shadow 0.1s;
+    transition: width 0.5s;
+    background-color: blue;
+    box-shadow: inset 0px -5px 0px 0px #050095;
+  }
 }
 
 .buttonAction:hover {
@@ -238,8 +245,29 @@ header {
     background-color: red;
     border-bottom: none;
   }
+  .blue{
+    background-color: blue;
+    box-shadow: inset 0px 5px 0px 0px #050095;
+    border-bottom: none;
+  }
   h3{
     margin-left:10px;
+  }
+}
+
+.buttonAction:active{
+
+  .green{
+    transition: all 0.2s;
+    background-color: #005f00;
+  }
+  .red{
+    transition: all 0.2s;
+    background-color: #c10000;
+  }
+  .blue{
+    transition: all 0.2s;
+    background-color: #0002c1;
   }
 }
 

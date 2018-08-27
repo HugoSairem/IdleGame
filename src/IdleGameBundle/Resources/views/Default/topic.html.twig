@@ -14,6 +14,9 @@
                 <span class="dateSection">
                     <span>{{ topic.postedAtDate.date|date("d/m/Y") }}</span>
                     <span>{{ topic.postedAtTime.date|date("H:i") }}</span>
+                    {% if topic.user==app.user or is_granted('ROLE_ADMIN') %}
+                        <span>Supprimer</span>
+                    {% endif %}
                 </span>
             </a>
         {% endfor %}

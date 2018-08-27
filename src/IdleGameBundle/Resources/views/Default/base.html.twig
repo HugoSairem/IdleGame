@@ -31,15 +31,14 @@
             {%  if app.user %}
                 <a class="save navButton" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
             {% endif %}
-            {% if is_granted('ROLE_SUPER_ADMIN') -%}
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
                 <a class="save backOfficeButton" href="{{ path('game_idle_backoffice_index') }}"><i class="fas fa-toolbox"></i></a>
             {% endif %}
         </div>
     </header>
     <div class="content">
-    {% block content %}
-    {% endblock %}
-
-</div>
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>

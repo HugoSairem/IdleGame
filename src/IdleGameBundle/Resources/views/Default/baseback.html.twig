@@ -1,11 +1,16 @@
 {% extends '@IdleGame/Default/base.html.twig' %}
 {% block content %}
     <div class="leftContent">
-        <a href={{ path('game_idle_backoffice_players') }}>
-            <div class="buttonAction"><h3>Joueurs</h3><span class="iconButton green"></span></div>
+        <a href={{ path('game_idle_backoffice_index') }}>
+            <div class="buttonAction"><h3>Vue d'ensemble</h3><span class="iconButton blue"><i class="fas fa-eye"></i></span></div>
         </a>
-        <div class="buttonAction"><h3>Categories Forum</h3><span class="iconButton green"></span></div>
+        <a href={{ path('game_idle_backoffice_players') }}>
+            <div class="buttonAction"><h3>Joueurs</h3><span class="iconButton blue"><i class="fas fa-users"></i></span></div>
+        </a>
+        <div class="buttonAction"><h3>Categories Forum</h3><span class="iconButton blue"><i class="fas fa-thumbtack"></i></span></div>
     </div>
+    <div class="middleBack">
     {% block backcontent %}
     {% endblock %}
+    </div>
 {% endblock %}

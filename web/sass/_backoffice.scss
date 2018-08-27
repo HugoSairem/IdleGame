@@ -1,0 +1,24 @@
+.middleBack{
+  width:500px;
+  margin:20px;
+}
+
+.backItemSection{
+  display: flex;
+  align-items: center;
+  width:200px;
+  height:30px;
+  background-color: white;
+  color:$secondaryColor;
+  border-bottom: 1px solid $secondaryColor;
+  text-decoration:none;
+  :first-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:20px;
+    height:30px;
+    color:white;
+    background-color: $primaryColor;
+  }
+}
