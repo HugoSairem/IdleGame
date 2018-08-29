@@ -81,3 +81,19 @@ fos_user:
     from_email:
           address: "hugo.merias@lapiscine.pro"
           sender_name: "Hugo"
+
+ivory_ck_editor:
+    configs:
+        full_config:
+            jquery: true
+            toolbar: full
+            height: '400px'
+            language: fr
+#            filebrowserBrowseRoute: elfinder
+#            filebrowserBrowseRouteParameters: []
+#            extraPlugins: 'lineutils,widget,dialog,codesnippet,widgetselection'
+        basic_config:
+            jquery: true
+            height: '250px'
+            language: fr
+            toolbar: basic

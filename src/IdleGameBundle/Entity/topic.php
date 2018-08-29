@@ -198,4 +198,120 @@ class topic
     {
         return $this->postedAtTime;
     }
+    /**
+     * @var \DateTime
+     */
+    private $lastPostDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $lastPostTime;
+
+    /**
+     * @var string
+     */
+    private $lastPostAuthor;
+
+
+    /**
+     * Set lastPostDate
+     *
+     * @param \DateTime $lastPostDate
+     *
+     * @return topic
+     */
+    public function setLastPostDate($lastPostDate)
+    {
+        $this->lastPostDate = $lastPostDate;
+
+        return $this;
+    }
+
+    /**
+     * Get lastPostDate
+     *
+     * @return \DateTime
+     */
+    public function getLastPostDate()
+    {
+        return $this->lastPostDate;
+    }
+
+    /**
+     * Set lastPostTime
+     *
+     * @param \DateTime $lastPostTime
+     *
+     * @return topic
+     */
+    public function setLastPostTime($lastPostTime)
+    {
+        $this->lastPostTime = $lastPostTime;
+
+        return $this;
+    }
+
+    /**
+     * Get lastPostTime
+     *
+     * @return \DateTime
+     */
+    public function getLastPostTime()
+    {
+        return $this->lastPostTime;
+    }
+
+    /**
+     * Set lastPostAuthor
+     *
+     * @param string $lastPostAuthor
+     *
+     * @return topic
+     */
+    public function setLastPostAuthor($lastPostAuthor)
+    {
+        $this->lastPostAuthor = $lastPostAuthor;
+
+        return $this;
+    }
+
+    /**
+     * Get lastPostAuthor
+     *
+     * @return string
+     */
+    public function getLastPostAuthor()
+    {
+        return $this->lastPostAuthor;
+    }
+    /**
+     * @var \IdleGameBundle\Entity\User
+     */
+    private $lastauthor;
+
+
+    /**
+     * Set lastauthor
+     *
+     * @param \IdleGameBundle\Entity\User $lastauthor
+     *
+     * @return topic
+     */
+    public function setLastauthor(\IdleGameBundle\Entity\User $lastauthor = null)
+    {
+        $this->lastauthor = $lastauthor;
+
+        return $this;
+    }
+
+    /**
+     * Get lastauthor
+     *
+     * @return \IdleGameBundle\Entity\User
+     */
+    public function getLastauthor()
+    {
+        return $this->lastauthor;
+    }
 }

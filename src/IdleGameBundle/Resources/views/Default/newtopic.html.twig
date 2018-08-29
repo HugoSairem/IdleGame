@@ -1,8 +1,16 @@
 {% extends '@IdleGame/Default/base.html.twig' %}
 {% block content %}
 
-{{ form_start(formView) }}
-{{ form_widget(formView) }}
-{{ form_end(formView) }}
+    <div class="forumContent">
+        <h2>Nouveau Sujet</h2>
+        {{ form_start(formView) }}
+
+        <div>
+            {{ form_widget(formView.titreTopic,{'attr': {'onfocus':"this.value=''", 'value':'CLIQUEZ POUR CHOISIR LE TITRE DU SUJET'}})}}
+        </div>
+
+        {{ form_widget(formView.firstContentTopic) }}
+        {{ form_end(formView) }}
+    </div>
 
 {% endblock %}

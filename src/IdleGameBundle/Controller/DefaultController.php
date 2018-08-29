@@ -11,7 +11,7 @@ use IdleGameBundle\Entity\dataUser;
 use IdleGameBundle\Entity\topic;
 use IdleGameBundle\Entity\post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Symfony\Component\HttpFoundation\Response;
 
 
 class DefaultController extends Controller
@@ -525,12 +525,23 @@ class DefaultController extends Controller
 
     public function topicAction($id)
     {
-        $topics = $this->getDoctrine()->getRepository(topic::class)->findBy(['categ'=>$id]);
+        $topics = $this->getDoctrine()->getRepository(topic::class)->findBy(['categ'=>$id], array('lastPostDate' => 'desc','lastPostTime'=>'desc'));
         $categorie = $this->getDoctrine()->getRepository(categoriesForum::class)->find($id);
+        $posts = $this->getDoctrine()->getRepository(post::class)->findAll();
 
         return $this->render('@IdleGame/Default/topic.html.twig',array(
             'topics'=>$topics,
+            'posts'=>$posts,
             'categorie'=>$categorie,
+        ));
+    }
+
+    public function topicCountAction($idcount)
+    {
+        $posts = $this->getDoctrine()->getRepository(post::class)->findBy(['topic'=>$idcount]);
+
+        return $this->render('@IdleGame/Default/topiccount.html.twig',array(
+            'posts'=>$posts,
         ));
     }
 
@@ -560,6 +571,7 @@ class DefaultController extends Controller
     {
         $topic = new topic();
         $iduser = $this->getUser()->getId();
+        $username = $this->getUser()->getUsername();
 
         $entitymanager = $this->getDoctrine()->getManager();
         $current_user = $entitymanager->getRepository(User::class)->find($iduser);
@@ -576,6 +588,9 @@ class DefaultController extends Controller
             $topic->setUser($current_user);
             $topic->setPostedAtDate(new \DateTime("now"));
             $topic->setPostedAtTime(new \DateTime("now"));
+            $topic->setLastPostDate(new \DateTime("now"));
+            $topic->setLastPostTime(new \DateTime("now"));
+            $topic->setLastPostAuthor($username);
 
             $entitymanager = $this->getDoctrine()->getManager();
             $entitymanager->persist($topic);
@@ -594,6 +609,7 @@ class DefaultController extends Controller
     {
         $post = new post();
         $iduser = $this->getUser()->getId();
+        $username = $this->getUser()->getUsername();
 
         $entitymanager = $this->getDoctrine()->getManager();
         $current_user = $entitymanager->getRepository(User::class)->find($iduser);
@@ -611,8 +627,13 @@ class DefaultController extends Controller
             $post->setPostedAtDate(new \DateTime("now"));
             $post->setPostedAtTime(new \DateTime("now"));
 
+            $topic->setLastPostDate(new \DateTime("now"));
+            $topic->setLastPostTime(new \DateTime("now"));
+            $topic->setLastPostAuthor($username);
+
             $entitymanager = $this->getDoctrine()->getManager();
             $entitymanager->persist($post);
+            $entitymanager->persist($topic);
             $entitymanager->flush();
             return $this->redirectToRoute('game_idle_post',array(
                 'id'=>$id,
@@ -621,6 +642,30 @@ class DefaultController extends Controller
         }
 
         return $this->render('@IdleGame/Default/newpost.html.twig',array(
+            'formView'=>$formView,
+        ));
+    }
+
+    public function editTopicAction(Request $request,$idTopic,$idCateg)
+    {
+
+        $entitymanager = $this->getDoctrine()->getManager();
+        $topic = $entitymanager->getRepository(topic::class)->find($idTopic);
+
+        $form = $this->createForm(topicType::class,$topic);
+        $formView = $form->createView();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()&& $form->isValid()){
+            $entitymanager = $this->getDoctrine()->getManager();
+            $entitymanager->flush();
+            return $this->redirectToRoute('game_idle_topic',array(
+                'id'=>$idCateg,
+            ));
+        }
+
+        return $this->render('@IdleGame/Default/edittopic.html.twig',array(
             'formView'=>$formView,
         ));
     }
@@ -661,6 +706,26 @@ class DefaultController extends Controller
         return $this->redirectToRoute('game_idle_post',array(
             'id'=>$idTopic,
             'idCateg'=>$idCateg,
+        ));
+    }
+
+    public function deleteTopicAction($idTopic,$idCateg)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $posts = $this->getDoctrine()->getRepository(post::class)->findBy(['topic'=>$idTopic]);
+
+        foreach ($posts as $post){
+            $entityManager->remove($post);
+            $entityManager->flush();
+        }
+
+        $topic = $this->getDoctrine()->getRepository(topic::class)->find($idTopic);
+
+        $entityManager->remove($topic);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('game_idle_topic',array(
+            'id'=>$idCateg,
         ));
     }
 

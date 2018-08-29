@@ -11,12 +11,18 @@
                 {{ topic.user }}
             </div>
             <div class="postContent">
-                {{ topic.firstContentTopic }}
+                {{ topic.firstContentTopic|raw }}
             </div>
             <span class="dateSection dateSectionPost">
                 <span>{{ topic.postedAtDate.date|date("d/m/Y") }}</span>
                 <span>{{ topic.postedAtTime.date|date("H:i") }}</span>
             </span>
+            {% if topic.user==app.user or is_granted('ROLE_ADMIN') %}
+                <span class="sectionActionForum">
+                        <a href={{ path('game_idle_edittopic',{'idTopic': topic.id,'idCateg': idCateg}) }}><i class="fas fa-pen"></i></a>
+                        <a href="{{ path('game_idle_deletetopic',{'idTopic': topic.id,'idCateg': idCateg}) }}" onclick="return confirm('Êtes vous sur de vouloir supprimer ce message ?')"><i class="fas fa-trash-alt"></i></a>
+                </span>
+            {% endif %}
         </div>
         {% for post in posts %}
             <div class="post">
@@ -24,17 +30,20 @@
                     {{ post.user }}
                 </div>
                 <div class="postContent">
-                    {{ post.postContent }}
+                    {{ post.postContent|raw }}
                 </div>
                 <span class="dateSection dateSectionPost">
 
                     <span>{{ post.postedAtDate.date|date("d/m/Y") }}</span>
                     <span>{{ post.postedAtTime.date|date("H:i") }}</span>
-                    {% if post.user==app.user or is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('game_idle_deletepost',{'id': post.id,'idTopic': topic.id,'idCateg': idCateg}) }}" onclick="return confirm('Êtes vous sur de vouloir supprimer ce message ?')">Supprimer</a>
-                        <a href={{ path('game_idle_editpost',{'id': post.id,'idTopic': topic.id,'idCateg': idCateg}) }}>Editer</a>
-                    {% endif %}
+
                 </span>
+                {% if post.user==app.user or is_granted('ROLE_ADMIN') %}
+                    <span class="sectionActionForum">
+                        <a href={{ path('game_idle_editpost',{'id': post.id,'idTopic': topic.id,'idCateg': idCateg}) }}><i class="fas fa-pen"></i></a>
+                        <a href="{{ path('game_idle_deletepost',{'id': post.id,'idTopic': topic.id,'idCateg': idCateg}) }}" onclick="return confirm('Êtes vous sur de vouloir supprimer ce message ?')"><i class="fas fa-trash-alt"></i></a>
+                    </span>
+                {% endif %}
             </div>
         {% endfor %}
     </div>

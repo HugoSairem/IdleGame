@@ -8,10 +8,13 @@
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <field name="titreTopic" type="text" column="titreTopic" />
+        <field name="titreTopic" type="string" column="titreTopic" />
         <field name="firstContentTopic" type="text" column="firstContentTopic" />
         <field name="postedAtDate" type="date" column="postedAtDate" />
         <field name="postedAtTime" type="time" column="postedAtTime" />
+        <field name="lastPostDate" type="date" column="lastPostDate" />
+        <field name="lastPostTime" type="time" column="lastPostTime" />
+        <field name="lastPostAuthor" type="string" column="lastPostAuthor" />
         <many-to-one
                 field="user"
                 target-entity="IdleGameBundle\Entity\User">

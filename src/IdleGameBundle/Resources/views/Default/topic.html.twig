@@ -6,19 +6,45 @@
             <a class="forumButton" href={{ path('game_idle_newtopic',{'id': categorie.id}) }}>Nouveau Sujet</a>
         </div>
         <h2>{{ categorie.labelCategorie }}</h2>
+        <div class="labelTopicForum"><span class="labelTopic">Sujet</span><span class="labelTopic">Crée</span><span class="labelTopic">Nbr Messages</span><span class="labelTopic">Dernier message</span></div>
         {% for topic in topics %}
-            <a class="sectionForum" href={{ path('game_idle_post',{'id': topic.id,'idCateg':categorie.id}) }}><h3>{{ topic.titreTopic }}</h3>
-                <span class="authorsection">
-                    {{ topic.user }}
+            <div class="sectionForum" ><a class="sectionForum" href={{ path('game_idle_post',{'id': topic.id,'idCateg':categorie.id}) }}>
+                <span>
+                    <h3>{{ topic.titreTopic }}</h3>
+                    <div>par {{ topic.user }}</div>
                 </span>
-                <span class="dateSection">
-                    <span>{{ topic.postedAtDate.date|date("d/m/Y") }}</span>
-                    <span>{{ topic.postedAtTime.date|date("H:i") }}</span>
-                    {% if topic.user==app.user or is_granted('ROLE_ADMIN') %}
-                        <span>Supprimer</span>
+                <span class="subSectionForum">
+                    <span>le {{ topic.postedAtDate.date|date("d/m/Y") }}</span>
+                    <span>a {{ topic.postedAtTime.date|date("H:i") }}</span>
+                </span>
+
+                <span class="subSectionForum">
+                    {{ render(controller('IdleGameBundle:Default:topicCount',{ 'idcount': topic.id})) }}
+                </span>
+
+                <span class="subSectionForum">
+
+                    <span>par {{ topic.lastPostAuthor }}</span>
+                    {% if topic.lastPostDate|date("m/d/Y") is same as ("now"|date("m/d/Y")) %}
+                        {% if topic.lastPostTime|date("H:i") is same as ("now"|date("H:i")) %}
+                            à l'instant
+                        {% else %}
+                            <span>aujourd'hui</span>
+                            <span>a {{ topic.lastPostTime|date("H:i") }}</span>
+                        {% endif %}
+                    {% else %}
+                        <span>le {{ topic.lastPostDate|date("d/m/Y") }}</span>
+                        <span>a {{ topic.lastPostTime|date("H:i") }}</span>
                     {% endif %}
                 </span>
-            </a>
+                </a>
+                {% if topic.user==app.user or is_granted('ROLE_ADMIN') %}
+                    <span class="sectionActionForum">
+                        <a href={{ path('game_idle_edittopic',{'idTopic': topic.id,'idCateg': categorie.id}) }}><i class="fas fa-pen"></i></a>
+                        <a onclick="return confirm('Êtes vous sur de vouloir supprimer ce message ?')"href={{ path('game_idle_deletetopic',{'idTopic': topic.id,'idCateg': categorie.id}) }} ><i class="fas fa-trash-alt"></i></a>
+                    </span>
+                {% endif %}
+            </div>
         {% endfor %}
     </div>
 

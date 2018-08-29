@@ -30,6 +30,8 @@
             <a class="save navButton" href="#">Contact</a>
             {%  if app.user %}
                 <a class="save navButton" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+            {% else %}
+                <a class="save navButton" href="{{ path('fos_user_security_login') }}">Connexion</a>
             {% endif %}
             {% if is_granted('ROLE_SUPER_ADMIN') %}
                 <a class="save backOfficeButton" href="{{ path('game_idle_backoffice_index') }}"><i class="fas fa-toolbox"></i></a>
@@ -40,5 +42,8 @@
         {% block content %}
         {% endblock %}
     </div>
+
+
+    <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
 </body>
 </html>

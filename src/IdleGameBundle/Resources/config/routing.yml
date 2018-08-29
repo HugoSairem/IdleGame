@@ -30,9 +30,17 @@ game_idle_editpost:
     path:     /editpost/{id}/{idTopic}/{idCateg}
     defaults: { _controller: IdleGameBundle:Default:editPost }
 
+game_idle_edittopic:
+    path:     /edittopic/{idTopic}/{idCateg}
+    defaults: { _controller: IdleGameBundle:Default:editTopic}
+
 game_idle_deletepost:
     path:     /deletepost/{id}/{idTopic}/{idCateg}
     defaults: { _controller: IdleGameBundle:Default:deletePost }
+
+game_idle_deletetopic:
+    path:     /deletetopic/{idTopic}/{idCateg}
+    defaults: { _controller: IdleGameBundle:Default:deleteTopic }
 
 game_idle_highscore:
     path:     /highscore

@@ -1,8 +1,9 @@
 {% extends '@IdleGame/Default/base.html.twig' %}
 {% block content %}
-
+    <div class="forumContent">
     {{ form_start(formView) }}
-    {{ form_widget(formView) }}
+        <h2>Contenu du message</h2>
+        {{ form_widget(formView.postContent,{ 'attr':{'class':'form_widget'} }) }}
     {{ form_end(formView) }}
-
+    </div>
 {% endblock %}
