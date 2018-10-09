@@ -197,13 +197,18 @@ var degatTotal=0;
 
 // ------- HERO RELATED VAR --------
 var hero = new Object();
+hero.baseDegats=5;
 hero.degatsTotal = 1;
-hero.income = 1;
+hero.income = 5;
+hero.level = 1;
+hero.exp = 0;
+hero.expNext=100;
 hero.multiplicateurIncome = 1;
 hero.tempsMission = 5000;
 hero.baseTempsMission = 5000;
 hero.inMission = false;
 
+var equipped = new Object();
 
 var degatTotalHero;
 degatTotalHero=1;

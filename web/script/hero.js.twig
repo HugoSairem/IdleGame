@@ -1,0 +1,58 @@
+function heroGainExp(){
+    hero.exp+=(2*hero.level)*ennemyBoss.level;
+    if(hero.exp>=hero.expNext){
+        hero.level += 1;
+        hero.baseDegats=hero.baseDegats*hero.level;
+        hero.expNext=hero.expNext*2
+        hero.exp=0;
+        hero.baseTempsMission=5000*(hero.level);
+        hero.income=5*((hero.level/2)+1)
+    }
+}
+
+function showHero(){
+    if(equipped.weapon){
+        hero.degatsTotal=hero.baseDegats*equipped.weapon[0];
+        baseTempsMission=hero.baseTempsMission*equipped.weapon[4];
+    } else {
+        hero.degatsTotal=hero.baseDegats
+        baseTempsMission=hero.baseTempsMission
+    }
+
+    var pourcentExp = ((hero.exp/hero.expNext)*100);
+    document.getElementById('exp').style.width= pourcentExp+'%';
+    document.getElementById('heroLevel').textContent= hero.level;
+}
+
+$('.inventoryButton').on('click', function () {
+    showInventory();
+});
+
+$('#closeInventory').on('click', function () {
+    closeInventory();
+});
+
+function showInventory(){
+    document.getElementById('inventoryButton').style.display= "none";
+    document.getElementById('inventory').style.display= "flex";
+
+    $.ajax({
+        type: 'POST',
+        url: url3,
+        timeout: 3000,
+        dataType: 'html',
+        data: "",
+        success: function (data) {
+            $('#listInventory').html(data);
+        },
+        error: function (error) {
+            console.log(error.responseText);
+        }
+    })
+}
+
+function closeInventory() {
+    document.getElementById('inventoryButton').style.display= "flex";
+    document.getElementById('inventory').style.display= "none";
+}
+

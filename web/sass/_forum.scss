@@ -73,7 +73,6 @@
 
 .post{
   display:flex;
-  align-items: center;
   position:relative;
 }
 
@@ -94,6 +93,8 @@
   width:500px;
   background-color: white;
   border-bottom: 1px solid $secondaryColor;
+  max-height:400px;
+  overflow: scroll;
 }
 
 .dateSectionPost{

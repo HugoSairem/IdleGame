@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+        http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="IdleGameBundle\Entity\equipement" repository-class="IdleGameBundle\Repository\equipement" table="equipement">
+        <id name="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="name" type="string" length="255" column="name" />
+        <field name="type" type="string" length="255" column="type" />
+        <field name="time" type="decimal" precision="5" scale="2" column="time" nullable="true"/>
+        <field name="degats" type="decimal" precision="5" scale="2" column="degats" nullable="true"/>
+        <field name="degatsTarget" type="string" length="255" column="degatsTarget" nullable="true"/>
+        <field name="bonus" type="decimal" precision="5" scale="2" column="bonus" nullable="true"/>
+        <field name="bonusTarget" type="string" length="255" column="bonusTarget" nullable="true"/>
+        <field name="description" type="text" column="description" />
+        <field name="image" type="string" length="255" column="image" nullable="true"/>
+        <field name="isEquipped" type="boolean" column="isEquipped" />
+
+        <many-to-one
+                field="data_user"
+                target-entity="IdleGameBundle\Entity\dataUser">
+            <join-column name="data_id" referenced-column-name="id"/>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

@@ -1,0 +1,95 @@
+{% if equipments %}
+    {% for equipment in equipments %}
+        {% if equipment.isEquipped == true %}
+            <div class="equipmentButton isEquipped" onclick="equipIt({{ equipment.id }})">
+                <span class="coupontooltip">
+                <h3>{{ equipment.name }}</h3>
+                    {{ equipment.type }}
+                    <p>{{ equipment.description }}</p>
+                Degats : {{ equipment.degats }}
+                    Bonus : {{ equipment.bonus }}
+            </span>
+            </div>
+        {% else %}
+        <div class="equipmentButton" onclick="equipIt({{ equipment.id }})">
+            <span class="coupontooltip">
+                <h3>{{ equipment.name }}</h3>
+                {{ equipment.type }}
+                <p>{{ equipment.description }}</p>
+                Degats : {{ equipment.degats }}
+                Bonus : {{ equipment.bonus }}
+            </span>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<script>
+    function equipIt(idEquipment) {
+        $.ajax({
+            type: 'POST',
+            url: url4,
+            timeout: 3000,
+            dataType: 'html',
+            data: "idEquip="+idEquipment,
+            success: function (data) {
+                $('#listInventory').html(data);
+            },
+            error: function (error) {
+                console.log(error.responseText);
+            }
+        })
+    };
+
+    var isweapon=false;
+    var isarmor=false;
+    var issupport=false;
+    var iscompanion=false;
+
+    {% for equipment in equipments %}
+        {% if equipment.isEquipped == true %}
+            {% if equipment.type == "weapon" %}
+                isweapon=true;
+                equipped.weapon = [
+                    {{ equipment.degats }},
+                    "{{ equipment.degatsTarget }}",
+                    {{ equipment.bonus }},
+                    "{{ equipment.bonusTarget }}",
+                    {{ equipment.time }},
+                ];
+            {% elseif equipment.type == "armor" %}
+                isarmor=true;
+                equipped.armor = [
+                    {{ equipment.degats }},
+                    "{{ equipment.degatsTarget }}",
+                    {{ equipment.bonus }},
+                    "{{ equipment.bonusTarget }}",
+                    {{ equipment.time }},
+                ];
+            {% elseif equipment.type == "support" %}
+                issupport=true;
+                equipped.support = [
+                    {{ equipment.degats }},
+                    "{{ equipment.degatsTarget }}",
+                    {{ equipment.bonus }},
+                    "{{ equipment.bonusTarget }}",
+                    {{ equipment.time }},
+                ];
+            {% elseif equipment.type == "companion" %}
+                iscompanion=true;
+                equipped.companion = [
+                    {{ equipment.degats }},
+                    "{{ equipment.degatsTarget }}",
+                    {{ equipment.bonus }},
+                    "{{ equipment.bonusTarget }}",
+                    {{ equipment.time }},
+                ];
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    if(isweapon===false){
+        equipped.weapon=null;
+    }
+
+</script>

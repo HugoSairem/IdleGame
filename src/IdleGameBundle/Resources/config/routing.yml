@@ -1,5 +1,5 @@
 game_idle_game:
-    path:     /home
+    path:     /
     defaults: { _controller: IdleGameBundle:Default:index }
 
 game_idle_save:
@@ -57,3 +57,23 @@ game_idle_backoffice_players:
 game_idle_backoffice_player:
     path:     /admin/backplayer/{id}
     defaults: { _controller: IdleGameBundle:Default:backPlayer }
+
+game_idle_landing:
+    path:     /landing
+    defaults: { _controller: IdleGameBundle:Default:landing }
+
+game_idle_contact:
+    path:     /contact
+    defaults: { _controller: IdleGameBundle:Default:contact }
+
+game_idle_equip:
+    path:     /equip
+    defaults: { _controller: IdleGameBundle:Default:saveEquip }
+
+game_idle_inventory:
+    path:     /inventory
+    defaults: { _controller: IdleGameBundle:Default:showInventory }
+
+game_idle_equipIt:
+    path:     /equipIt
+    defaults: { _controller: IdleGameBundle:Default:equipIt }

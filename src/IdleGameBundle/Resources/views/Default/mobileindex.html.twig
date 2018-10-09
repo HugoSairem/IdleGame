@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Idle War</title>
+    <link rel="icon" href="{{ asset('images/logo.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mobilestyle.css') }}">
+
+</head>
+
+<body>
+{% if is_mobile() %}
+    <header class="mobileheader">
+        <img src="{{ asset('images/logo.svg') }}" alt="">
+    </header>
+{% else %}
+    <header>
+        <div class="navContent">
+            {%  if app.user %}
+                <a class="save navButton" href="{{ path('game_idle_game') }}">Le Jeu</a>
+                <a class="save navButton" href="{{ path('fos_user_profile_show') }}">Profil</a>
+            {% else %}
+                <a class="save navButton" href="{{ path('game_idle_landing') }}">Idle War</a>
+            {% endif %}
+            <a class="save navButton" href="{{ path('game_idle_highscore') }}">Highscore</a>
+            <img class="save" src="{{ asset('images/logo.svg') }}" alt="">
+            {%  if app.user %}
+                <a class="save navButton" href="{{ path('game_idle_forum') }}">Forum</a>
+            {% endif %}
+            <a class="save navButton" href="{{ path('game_idle_landing') }}">Contact</a>
+            {%  if app.user %}
+                <a class="save navButton" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+            {% else %}
+                <a class="save navButton" href="{{ path('fos_user_security_login') }}">Connexion</a>
+            {% endif %}
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <a class="save backOfficeButton" href="{{ path('game_idle_backoffice_index') }}"><i class="fas fa-toolbox"></i></a>
+            {% endif %}
+        </div>
+    </header>
+
+{% endif %}
+
+<div class="contentmobile">
+    <div class="landingSection">
+        <h2>Idle War, c'est quoi ?</h2>
+        <p>
+            Idle war c'est un idle-game, inspiré par le célébre Cookie Clicker, sur navigateur internet.<br>
+            Il a été développé par moi même Hugo Merias pour mon projet de fin d'étude.<br>
+            Voyez le rêve futur d'allier ma passion pour le jeu vidéo et mon travail.<br>
+        </p>
+    </div>
+    <div class="landingSection">
+        <h2>Comment jouer ?</h2>
+        <p>Idle War n'est jouable que depuis un ordinateur, rendez vous à la même adresse depuis votre machine.</p>
+    </div>
+    <div class="landingSection">
+        <h2>L'histoire</h2>
+            <p>
+                Année <b>2058</b>, les "Lambdas Λ", une forme de vie extraterrestre à envahit la Terre.<br>
+                L'humanité, défaite, s'enterre dans des bunker pour plus de 7 ans.<br>
+                Dans la plus grande discrétion, les humains dévellopent de leur côté de puissantes armes.<br>
+                Les Mecanised Elite Killer Alien, apellé M.E.K.A.<br>
+                La contre-attaque est donnée et les pertes "Lambdas Λ" ne se font pas attendre.<br>
+                L'espoir renait alors que les flammes embrasent la Terre...<br>
+
+            </p>
+    </div>
+    <div class="landingSection">
+        <h2>Le But</h2>
+        <p>
+            Votre but ? Générer toujours plus d'argent, améliorer sans relâche vos unités, acheter du matériel pour votre héro et devenir le meilleur.
+        </p>
+    </div>
+
+    <div class="landingSection">
+        <h2>Communauté</h2>
+        <p>Un forum est à la disposition des joueurs. Il est d'ailleurs conseillés d'aller y faire un tour pour y lire les régles essentielles du site.</p>
+    </div>
+</div>
+
+</body>
+</html>

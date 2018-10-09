@@ -3,7 +3,12 @@
     <div class="forumContent">
         <div class=" navForum">
             <a class="forumButton" href={{ path('game_idle_forum') }}>Retour</a>
+            {% if categorie.isPrivate==1 and is_granted('ROLE_ADMIN')%}
             <a class="forumButton" href={{ path('game_idle_newtopic',{'id': categorie.id}) }}>Nouveau Sujet</a>
+            {% endif %}
+            {% if categorie.isPrivate==0 %}
+                <a class="forumButton" href={{ path('game_idle_newtopic',{'id': categorie.id}) }}>Nouveau Sujet</a>
+            {% endif %}
         </div>
         <h2>{{ categorie.labelCategorie }}</h2>
         <div class="labelTopicForum"><span class="labelTopic">Sujet</span><span class="labelTopic">Crée</span><span class="labelTopic">Nbr Messages</span><span class="labelTopic">Dernier message</span></div>
@@ -25,23 +30,27 @@
                 <span class="subSectionForum">
 
                     <span>par {{ topic.lastPostAuthor }}</span>
-                    {% if topic.lastPostDate|date("m/d/Y") is same as ("now"|date("m/d/Y")) %}
-                        {% if topic.lastPostTime|date("H:i") is same as ("now"|date("H:i")) %}
+                    {% if topic.lastPostDate.date|date("Y/m/d") is same as ("now"|date("Y/m/d")) %}
+                        {% if topic.lastPostTime.date|date("H:i") is same as ("now"|date("H:i","Europe/Paris")) %}
                             à l'instant
                         {% else %}
                             <span>aujourd'hui</span>
                             <span>a {{ topic.lastPostTime|date("H:i") }}</span>
                         {% endif %}
                     {% else %}
-                        <span>le {{ topic.lastPostDate|date("d/m/Y") }}</span>
+                        <span>le {{ topic.lastPostDate.date|date("m/d/Y") }}</span>
                         <span>a {{ topic.lastPostTime|date("H:i") }}</span>
                     {% endif %}
                 </span>
                 </a>
                 {% if topic.user==app.user or is_granted('ROLE_ADMIN') %}
                     <span class="sectionActionForum">
-                        <a href={{ path('game_idle_edittopic',{'idTopic': topic.id,'idCateg': categorie.id}) }}><i class="fas fa-pen"></i></a>
-                        <a onclick="return confirm('Êtes vous sur de vouloir supprimer ce message ?')"href={{ path('game_idle_deletetopic',{'idTopic': topic.id,'idCateg': categorie.id}) }} ><i class="fas fa-trash-alt"></i></a>
+                        <a href={{ path('game_idle_edittopic',{'idTopic': topic.id,'idCateg': categorie.id}) }}>
+                            <i class="fas fa-pen"></i>
+                        </a>
+                        <a onclick="return confirm('Êtes vous sur de vouloir supprimer ce message ?')"href={{ path('game_idle_deletetopic',{'idTopic': topic.id,'idCateg': categorie.id}) }} >
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
                     </span>
                 {% endif %}
             </div>

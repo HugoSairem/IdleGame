@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new IdleGameBundle\IdleGameBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new SunCat\MobileDetectBundle\MobileDetectBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

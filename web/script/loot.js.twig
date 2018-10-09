@@ -1,0 +1,106 @@
+function lootdrop(){
+    var dropchance = 8+(ennemyBoss.level*2);
+    var randomChance = Math.floor(Math.random() * (100 - 0) + 0);
+    //if(randomChance<=dropchance){
+        var types =['weapon','armor','support','companion']
+        var randomType = Math.floor(Math.random() * (4 - 0) + 0);
+        //var type_define = types[randomType];
+        var type_define = types[0];
+
+        if(type_define==='weapon'){
+            createWeapon();
+        } else if(type_define==='armor'){
+            createArmor();
+        }else if(type_define==='support'){
+            createSupport();
+        }else if(type_define==='companion'){
+            createCompanion();
+        }
+
+    //}
+}
+
+function saveEquipment(Equipment) {
+
+    $.ajax({
+        type: 'POST',
+        url: url2,
+        timeout: 3000,
+        dataType: 'html',
+        data: 'equipmentDegats=' + Equipment.degats +
+        '&equipmentType=' + Equipment.type +
+        '&equipmentBonus=' + Equipment.bonus +
+        '&equipmentDegatsTarget=' + Equipment.degatsTarget +
+        '&equipmentTime=' + Equipment.time +
+        '&equipmentBonusTarget=' + Equipment.bonusTarget,
+        success: function (data) {
+            $('#result').html(data);
+        },
+        error: function (error) {
+            console.log(error.responseText);
+        }
+    })
+}
+
+function createWeapon(){
+    var typesBonus = ['incomeHero','chanceDrop','gainExp'];
+
+    var randomTypeBonus = Math.floor(Math.random() * (3 - 0) + 0);
+    typesBonus = typesBonus[randomTypeBonus];
+
+    var Equipment = new Object();
+    Equipment.type="weapon";
+
+    Equipment.degatsTarget="hero";
+
+    var calcTemps = (Math.floor(Math.random() * (100 - 0)+0))
+    Equipment.time = parseFloat(((calcTemps/100)+1).toFixed(2));
+
+    var calcDegatWeapon = (Math.floor(Math.random() * (100 - 0)+0))
+    Equipment.degats=parseFloat(((calcDegatWeapon/100)+1).toFixed(2));
+
+
+    Equipment.bonus = parseFloat((createBonus(typesBonus,Equipment)).toFixed(2));
+
+    saveEquipment(Equipment);
+    save();
+    console.log(Equipment);
+}
+
+function createArmor(){
+    var Equipment = new Object();
+    Equipment.type="armor";
+    console.log(Equipment);
+}
+
+function createSupport(){
+    var Equipment = new Object();
+    Equipment.type="support";
+    console.log(Equipment);
+}
+
+function createCompanion(){
+    var Equipment = new Object();
+    Equipment.type="companion";
+    console.log(Equipment);
+}
+
+function createBonus(typeBonus,Equipment){
+    if (typeBonus==="chanceDrop"){
+        var calcBonus = (Math.floor(Math.random() * ( 100 - 0)+0))
+        calcBonus=(calcBonus/100)+1;
+        Equipment.bonusTarget=typeBonus;
+
+    } else if (typeBonus==="incomeHero"){
+
+        var calcBonus = (Math.floor(Math.random() * (100 - 0)+0))
+        calcBonus=(calcBonus/100)+1;
+        Equipment.bonusTarget=typeBonus;
+
+    } else if (typeBonus==="gainExp"){
+        var calcBonus = (Math.floor(Math.random() * (100 - 0)+0))
+        calcBonus=(calcBonus/100)+1;
+        Equipment.bonusTarget=typeBonus;
+    }
+        return calcBonus;
+}

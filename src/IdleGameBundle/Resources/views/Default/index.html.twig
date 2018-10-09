@@ -5,12 +5,12 @@
         <h2 class="userTitle">Armée de {{ app.user.username }}</h2>
         <div class="playerStats">
             <div>
-                <img src="https://png.icons8.com/metro/50/ffffff/money-bag.png">
+                <img src="https://png.icons8.com/ios/50/f39c12/money-bag-filled.png">
                 <h3>Butin :&nbsp</h3>
                 <span id="compteBanq"></span>
             </div>
             <div>
-                <img src="https://png.icons8.com/metro/50/ffffff/refund-2.png">
+                <img src="https://png.icons8.com/metro/50/f39c12/refund-2.png">
                 <h3>Income :&nbsp</h3>
                 <span id="incomePSecond"></span>
             </div>
@@ -20,8 +20,9 @@
                 <span id="DPSecond"></span>
             </div>
         </div>
-
+        Level : <span id="heroLevel"></span>
         <div class="heroContent">
+            <div class="expbarContent"><span class="exp" id="exp"></span></div>
             <div>
                 <img src="https://png.icons8.com/metro/50/ffffff/assault-rifle.png"><h3>Degats :</h3>
                 <span id="degatHero"></span>&nbsp/ s
@@ -31,6 +32,13 @@
                 <span id="incomeHero"></span>&nbsp/ s
             </div>
             <div id="imgHeros"></div>
+            <div id="inventoryButton" class="inventoryButton">
+                Inventaire
+            </div>
+            <div id="inventory" class="inventory">
+                <div id="closeInventory">X</div>
+                <div id="listInventory"></div>
+            </div>
         </div>
         <div>
             Temps avant fin de mission
@@ -58,8 +66,12 @@
 <div id="result"></div>
 
 <script>
-    $('.save').on('click', function () {
 
+    $('.save').on('click', function () {
+        save();
+    });
+
+    function save(){
         //donc je met en paramètre de ma route 0 en dur
 
         var url = "{{ path('game_idle_save') }}";
@@ -178,11 +190,15 @@
                 console.log(error.responseText);
             }
         })
-    })
+    }
 </script>
 
 <script src="{{ asset('script/varGame.js.twig') }}"></script>
 <script>
+    var url = "{{ path('game_idle_save') }}";
+    var url2 = "{{ path('game_idle_equip') }}";
+    var url3 = "{{ path('game_idle_inventory') }}";
+    var url4 = "{{ path('game_idle_equipIt') }}";
 
     compteBanquaire = {{ compteBanquaire }} ;
     ennemyDoor.life = {{ ennemyDoorLife }} ;
@@ -292,11 +308,51 @@
         return exploded;
     }
 
+    {% if heroWeapon %}
+        equipped.weapon = [
+            {{ heroWeapon.degats }},
+            "{{ heroWeapon.degatsTarget }}",
+            {{ heroWeapon.bonus }},
+            "{{ heroWeapon.bonusTarget }}",
+            {{ heroWeapon.time }},
+        ];
+    {% endif %}
+    {% if heroArmor %}
+    equipped.armor = [
+        {{ heroArmor.degats }},
+        "{{ heroArmor.degatsTarget }}",
+        {{ heroArmor.bonus }},
+        "{{ heroArmor.bonusTarget }}",
+        {{ heroArmor.time }},
+    ];
+    {% endif %}
+    {% if heroSupport %}
+    equipped.support = [
+        {{ heroSupport.degats }},
+        "{{ heroSupport.degatsTarget }}",
+        {{ heroSupport.bonus }},
+        "{{ heroSupport.bonusTarget }}",
+        {{ heroSupport.time }},
+    ];
+    {% endif %}
+    {% if heroCompanion %}
+    equipped.companion = [
+        {{ heroCompanion.degats }},
+        "{{ heroCompanion.degatsTarget }}",
+        {{ heroCompanion.bonus }},
+        "{{ heroCompanion.bonusTarget }}",
+        {{ heroCompanion.time }},
+    ];
+    {% endif %}
+
+
+
 </script>
 
-
-<script src="{{ asset('script/main.js.twig') }}"></script>
-<script src="{{ asset('script/upgradeUnit.js.twig') }}"></script>
+    <script src="{{ asset('script/hero.js.twig') }}"></script>
+    <script src="{{ asset('script/main.js.twig') }}"></script>
+    <script src="{{ asset('script/loot.js.twig') }}"></script>
+    <script src="{{ asset('script/upgradeUnit.js.twig') }}"></script>
 
 {% endblock %}
 

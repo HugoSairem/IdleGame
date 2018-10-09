@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="icon" href="{{ asset('images/logo.ico') }}" />
 
     <!-- asset s'occupe de trouver le chemin à partir du dossier web -->
 </head>
@@ -18,16 +19,20 @@
 
     <header>
         <div class="navContent">
-            <a class="save navButton" href="{{ path('game_idle_game') }}">Le Jeu</a>
+
             {%  if app.user %}
+                <a class="save navButton" href="{{ path('game_idle_game') }}">Le Jeu</a>
                 <a class="save navButton" href="{{ path('fos_user_profile_show') }}">Profil</a>
-                <a class="save navButton" href="{{ path('game_idle_highscore') }}">Highscore</a>
+            {% else %}
+                <a class="save navButton" href="{{ path('game_idle_landing') }}">Idle War</a>
             {% endif %}
-            <img src="{{ asset('images/logo.svg') }}" alt="">
+            <a class="save navButton" href="{{ path('game_idle_highscore') }}">Highscore</a>
+
+            <a href="{{ path('game_idle_landing') }}"><img src="{{ asset('images/logo.svg') }}" alt=""></a>
             {%  if app.user %}
                 <a class="save navButton" href="{{ path('game_idle_forum') }}">Forum</a>
             {% endif %}
-            <a class="save navButton" href="#">Contact</a>
+            <a class="save navButton" href="{{ path('game_idle_contact') }}">Contact</a>
             {%  if app.user %}
                 <a class="save navButton" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
             {% else %}
@@ -38,6 +43,7 @@
             {% endif %}
         </div>
     </header>
+
     <div class="content">
         {% block content %}
         {% endblock %}

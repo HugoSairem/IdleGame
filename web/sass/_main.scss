@@ -107,9 +107,14 @@ header {
     font-size: 25px;
   }
   .middleBuyButton {
+    width:50%;
     margin-left: 5%;
     display: flex;
     flex-direction: column;
+  }
+  img{
+    float:right;
+    width:70px;
   }
 }
 
@@ -138,7 +143,8 @@ header {
   margin-bottom:20px;
   color:white;
   text-align: left;
-  margin-left:20px;
+  margin-left:10px;
+  margin-right:10px;
   h3{
     display: inline-block;
     margin-right:10px;
@@ -455,4 +461,78 @@ input[type=submit]:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.upg10{
+  background-color: #338b78;
+}
+.upg25{
+  background-color: #275d8b;
+}
+.upg50{
+  background-color: #3f308b;
+}
+.upg100{
+  background-color: #75248b;
+}
+.upg150{
+  background-color: #8b1b60;
+}
+
+.upgUnit01{
+  background-image: url("../images/robot1.png");
+  background-size: cover;
+}
+
+.upgUnit02{
+  background-image: url("../images/robot2.png");
+  background-size: cover;
+}
+.upgUnit03{
+  background-image: url("../images/robot3.png");
+  background-size: cover;
+}
+.upgUnit04{
+  background-image: url("../images/robot4.png");
+  background-size: cover;
+}
+.upgUnit05{
+  background-image: url("../images/robot5.png");
+  background-size: cover;
+}
+.upgUnit06{
+  background-image: url("../images/robot6.png");
+  background-size: cover;
+}
+
+.contact{
+  color:white;
+  margin:0 auto;
+  margin-top:20px;
+  text-align: center;
+}
+
+
+
+/*    */
+
+.upgradeButton:hover .coupontooltip {
+  display: block;
+}
+
+.equipmentButton:hover .coupontooltip {
+  display: block;
+}
+
+.coupontooltip {
+  display: none;
+  background-color: $secondaryColor;
+  margin-left:10px;
+  margin-top:-60px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1000;
+  width:230px;
+  text-align: left;
+  font-weight: normal;
 }

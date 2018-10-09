@@ -1,10 +1,21 @@
 console.log("/!/!/!/!/!/!/!/!/!")
 console.log("Toute triche entraine un ban")
 console.log("/!/!/!/!/!/!/!/!/!")
-
+checkupgrade();
 
 
 showimgBoss();
+
+    var tooltip = document.querySelectorAll('.coupontooltip');
+
+    document.addEventListener('mousemove', fn, false);
+
+    function fn(e) {
+        for (var i=tooltip.length; i--;) {
+            tooltip[i].style.left = e.pageX + 'px';
+            tooltip[i].style.top = e.pageY + 'px';
+        }
+    }
 
 // Fonction de transformation des nombres trop grand
 // 1000 =1K, 1.000.000 = 1M etc...
@@ -83,11 +94,75 @@ function lectureMoney(){
     currentStage=sauvegarde.currentStage;
 }
 
-// Fonction du bouton travailler
-// Incrémente le compte banquaire de 1 à chaque clic
-function addMoney (){
-    compteBanquaire = compteBanquaire+1;
-    return compteBanquaire;
+function tooltipShow (){
+    document.getElementById("TTupgUnit01_10").textContent= translateNumber(Unit01.bonus['10GET'][1]);
+    document.getElementById("TTupgUnit01_25").textContent= translateNumber(Unit01.bonus['25GET'][1]);
+    document.getElementById("TTupgUnit01_50").textContent= translateNumber(Unit01.bonus['50GET'][1]);
+    document.getElementById("TTupgUnit01_100").textContent= translateNumber(Unit01.bonus['100GET'][1]);
+    document.getElementById("TTupgUnit01_150").textContent= translateNumber(Unit01.bonus['150GET'][1]);
+        //
+    document.getElementById("TTupgUnit02_10").textContent= translateNumber(Unit02.bonus['10GET'][1]);
+    document.getElementById("TTupgUnit02_25").textContent= translateNumber(Unit02.bonus['25GET'][1]);
+    document.getElementById("TTupgUnit02_50").textContent= translateNumber(Unit02.bonus['50GET'][1]);
+    document.getElementById("TTupgUnit02_100").textContent= translateNumber(Unit02.bonus['100GET'][1]);
+    document.getElementById("TTupgUnit02_150").textContent= translateNumber(Unit02.bonus['150GET'][1]);
+    //
+    document.getElementById("TTupgUnit03_10").textContent= translateNumber(Unit03.bonus['10GET'][1]);
+    document.getElementById("TTupgUnit03_25").textContent= translateNumber(Unit03.bonus['25GET'][1]);
+    document.getElementById("TTupgUnit03_50").textContent= translateNumber(Unit03.bonus['50GET'][1]);
+    document.getElementById("TTupgUnit03_100").textContent= translateNumber(Unit03.bonus['100GET'][1]);
+    document.getElementById("TTupgUnit03_150").textContent= translateNumber(Unit03.bonus['150GET'][1]);
+    //
+    document.getElementById("TTupgUnit04_10").textContent= translateNumber(Unit04.bonus['10GET'][1]);
+    document.getElementById("TTupgUnit04_25").textContent= translateNumber(Unit04.bonus['25GET'][1]);
+    document.getElementById("TTupgUnit04_50").textContent= translateNumber(Unit04.bonus['50GET'][1]);
+    document.getElementById("TTupgUnit04_100").textContent= translateNumber(Unit04.bonus['100GET'][1]);
+    document.getElementById("TTupgUnit04_150").textContent= translateNumber(Unit04.bonus['150GET'][1]);
+    //
+    document.getElementById("TTupgUnit05_10").textContent= translateNumber(Unit05.bonus['10GET'][1]);
+    document.getElementById("TTupgUnit05_25").textContent= translateNumber(Unit05.bonus['25GET'][1]);
+    document.getElementById("TTupgUnit05_50").textContent= translateNumber(Unit05.bonus['50GET'][1]);
+    document.getElementById("TTupgUnit05_100").textContent= translateNumber(Unit05.bonus['100GET'][1]);
+    document.getElementById("TTupgUnit05_150").textContent= translateNumber(Unit05.bonus['150GET'][1]);
+    //
+    document.getElementById("TTupgUnit06_10").textContent= translateNumber(Unit06.bonus['10GET'][1]);
+    document.getElementById("TTupgUnit06_25").textContent= translateNumber(Unit06.bonus['25GET'][1]);
+    document.getElementById("TTupgUnit06_50").textContent= translateNumber(Unit06.bonus['50GET'][1]);
+    document.getElementById("TTupgUnit06_100").textContent= translateNumber(Unit06.bonus['100GET'][1]);
+    document.getElementById("TTupgUnit06_150").textContent= translateNumber(Unit06.bonus['150GET'][1]);
+    /////////////////////////////////
+    //DMG
+    /////////////////////////////////
+    document.getElementById("TTupgDMGUnit01_10").textContent= translateNumber(Unit01.bonusD['10GET'][1]);
+    document.getElementById("TTupgDMGUnit01_25").textContent= translateNumber(Unit01.bonusD['25GET'][1]);
+    document.getElementById("TTupgDMGUnit01_50").textContent= translateNumber(Unit01.bonusD['50GET'][1]);
+    document.getElementById("TTupgDMGUnit01_100").textContent= translateNumber(Unit01.bonusD['100GET'][1]);
+    document.getElementById("TTupgDMGUnit01_150").textContent= translateNumber(Unit01.bonusD['150GET'][1]);
+    document.getElementById("TTupgDMGUnit02_10").textContent= translateNumber(Unit02.bonusD['10GET'][1]);
+    document.getElementById("TTupgDMGUnit02_25").textContent= translateNumber(Unit02.bonusD['25GET'][1]);
+    document.getElementById("TTupgDMGUnit02_50").textContent= translateNumber(Unit02.bonusD['50GET'][1]);
+    document.getElementById("TTupgDMGUnit02_100").textContent= translateNumber(Unit02.bonusD['100GET'][1]);
+    document.getElementById("TTupgDMGUnit02_150").textContent= translateNumber(Unit02.bonusD['150GET'][1]);
+    document.getElementById("TTupgDMGUnit03_10").textContent= translateNumber(Unit03.bonusD['10GET'][1]);
+    document.getElementById("TTupgDMGUnit03_25").textContent= translateNumber(Unit03.bonusD['25GET'][1]);
+    document.getElementById("TTupgDMGUnit03_50").textContent= translateNumber(Unit03.bonusD['50GET'][1]);
+    document.getElementById("TTupgDMGUnit03_100").textContent= translateNumber(Unit03.bonusD['100GET'][1]);
+    document.getElementById("TTupgDMGUnit03_150").textContent= translateNumber(Unit03.bonusD['150GET'][1]);
+    document.getElementById("TTupgDMGUnit04_10").textContent= translateNumber(Unit04.bonusD['10GET'][1]);
+    document.getElementById("TTupgDMGUnit04_25").textContent= translateNumber(Unit04.bonusD['25GET'][1]);
+    document.getElementById("TTupgDMGUnit04_50").textContent= translateNumber(Unit04.bonusD['50GET'][1]);
+    document.getElementById("TTupgDMGUnit04_100").textContent= translateNumber(Unit04.bonusD['100GET'][1]);
+    document.getElementById("TTupgDMGUnit04_150").textContent= translateNumber(Unit04.bonusD['150GET'][1]);
+    document.getElementById("TTupgDMGUnit05_10").textContent= translateNumber(Unit05.bonusD['10GET'][1]);
+    document.getElementById("TTupgDMGUnit05_25").textContent= translateNumber(Unit05.bonusD['25GET'][1]);
+    document.getElementById("TTupgDMGUnit05_50").textContent= translateNumber(Unit05.bonusD['50GET'][1]);
+    document.getElementById("TTupgDMGUnit05_100").textContent= translateNumber(Unit05.bonusD['100GET'][1]);
+    document.getElementById("TTupgDMGUnit05_150").textContent= translateNumber(Unit05.bonusD['150GET'][1]);
+    document.getElementById("TTupgDMGUnit06_10").textContent= translateNumber(Unit06.bonusD['10GET'][1]);
+    document.getElementById("TTupgDMGUnit06_25").textContent= translateNumber(Unit06.bonusD['25GET'][1]);
+    document.getElementById("TTupgDMGUnit06_50").textContent= translateNumber(Unit06.bonusD['50GET'][1]);
+    document.getElementById("TTupgDMGUnit06_100").textContent= translateNumber(Unit06.bonusD['100GET'][1]);
+    document.getElementById("TTupgDMGUnit06_150").textContent= translateNumber(Unit06.bonusD['150GET'][1]);
 }
 
 // tick toute les 33 millisecondes afin d'afficher 30 images par secondes
@@ -95,6 +170,8 @@ function addMoney (){
 function ShowBanq() {
     arrayUnit =[Unit01,Unit02,Unit03,Unit04,Unit05,Unit06];
     showUpgrade();
+    tooltipShow();
+    showHero();
     showCompteBanquaire=translateNumber(compteBanquaire);
     var div = document.getElementById("compteBanq");
     div.textContent = showCompteBanquaire;
@@ -112,15 +189,19 @@ function ShowBanq() {
     showLifeMainDoor = translateNumber(ennemyDoor.life);
 
     var div3 = document.getElementById("bossLifePoint");
+    var div4 = document.getElementById("currentStage");
     if (currentStage==="Main Door"){
         div3.textContent = showLifeMainDoor;
+        div4.textContent = "Porte du bastion";
     } else if (currentStage==="Troops"){
         div3.textContent = showLifeTroops;
+        div4.textContent = "Troupes Λ";
     } else if(currentStage==="Boss") {
         div3.textContent = showLifeBoss;
+        div4.textContent = "Boss Λ";
     }
-    var div4 = document.getElementById("currentStage");
-    div4.textContent = currentStage;
+
+
 
     setTimeout("ShowBanq()", 33);
 }
@@ -130,9 +211,9 @@ function showimgBoss(){
     if (currentStage==="Main Door"){
         document.getElementById("imgBoss").src="../images/door01.gif";
     } else if (currentStage==="Troops"){
-        document.getElementById("imgBoss").src="../images/soldat05.gif";
+        document.getElementById("imgBoss").src="../images/alien01.gif";
     } else if (currentStage==="Boss"){
-        document.getElementById("imgBoss").src="../images/boss03.gif";
+        document.getElementById("imgBoss").src="../images/alien07.gif";
     }
 }
 
@@ -473,7 +554,7 @@ function tickLoop(){
     if (currentStage==="Main Door"){
         ennemyDoor.life=ennemyDoor.life-degatTotal;
         if (ennemyDoor.life<=0) {
-            ennemyDoor.life = ((ennemyDoor.baseLife * 1.2)*ennemyDoor.level)*ennemyBoss.level;
+            ennemyDoor.life = (ennemyDoor.baseLife * 1.2)*ennemyBoss.level;
             ennemyDoor.baseLife=ennemyDoor.life;
             ennemyDoor.level = ennemyDoor.level + 1;
             compteurBossDoor = (5 + ennemyBoss.level);
@@ -485,9 +566,9 @@ function tickLoop(){
         ennemyTroops.life=ennemyTroops.life-degatTotal;
         if (ennemyTroops.life<=0){
             ennemyTroops.level=ennemyTroops.level+1;
-            ennemyTroops.life=((ennemyTroops.baseLife*1.2)*ennemyTroops.level)*ennemyBoss.level;
+            ennemyTroops.life=(ennemyTroops.baseLife*1.2)*ennemyBoss.level;
             ennemyTroops.baseLife=ennemyTroops.life;
-            compteurBossTroops=10+(ennemyBoss.level*2)
+            compteurBossTroops=9+(ennemyBoss.level)
             document.getElementById("imgBoss").src="../images/explosion01.gif";
             setTimeout("nextTickLoop()",1000);
         }
@@ -496,7 +577,7 @@ function tickLoop(){
         if (ennemyBoss.life<=0){
             ennemyBoss.bonusKill=ennemyBoss.baseLife*2;
             compteBanquaire=compteBanquaire+ennemyBoss.bonusKill;
-            ennemyBoss.life=(ennemyBoss.baseLife*2)*ennemyBoss.level;
+            ennemyBoss.life=(ennemyBoss.baseLife*1.2)*ennemyBoss.level;
             ennemyBoss.baseLife=ennemyBoss.life;
             ennemyBoss.level=ennemyBoss.level+1;
             currentStage="Main Door";
@@ -601,6 +682,21 @@ function showUpgrade(){
 // ------- CHECK UPGRADE ALREADY BOUGHT ---------
 // vérifie si des upgrades n'ont pas déja étées achetées aprés la lecture de la sauvegarde
 
+function checkupgrade(){
+    for( key in arrayUnit) {
+        for (idBonus in arrayUnit[key].bonus) {
+            if (arrayUnit[key].bonus[idBonus][0] === true) {
+                arrayUnit[key].globalBonus += 2;
+                }
+            if (arrayUnit[key].bonusD[idBonus][0] === true) {
+                arrayUnit[key].globalDmgBonus += 2;
+            }
+            }
+        }
+
+}
+
+
 // ----- Hero Section
 
 // Envoi du héro en mission
@@ -622,14 +718,14 @@ function timerMissionHero(){
 
 function missionHero(){
     if (currentStage==="Main Door"){
-        ennemyDoor.life=ennemyDoor.life-degatTotalHero;
+        ennemyDoor.life=ennemyDoor.life-hero.degatsTotal;
     } else if(currentStage==="Troops"){
-        ennemyTroops.life=ennemyTroops.life-degatTotalHero;
+        ennemyTroops.life=ennemyTroops.life-hero.degatsTotal;
 
     } else if(currentStage==="Boss") {
-        ennemyBoss.life=ennemyBoss.life-degatTotalHero;
+        ennemyBoss.life=ennemyBoss.life-hero.degatsTotal;
     }
-    compteBanquaire=compteBanquaire+incomeHero;
+    compteBanquaire=compteBanquaire+hero.income;
     var div = document.getElementById('imgHeros');
     div.src="../images/hero01.gif";
     div.style.width=100+'px';
@@ -637,6 +733,8 @@ function missionHero(){
     div.style.top =30+'%';
 
     setTimeout('resetDeplacementHero()',1000)
+    lootdrop();
+    heroGainExp();
 
 }
 
@@ -658,9 +756,9 @@ function showTimerMission(){
     var div = document.getElementById('timerMission');
     div.textContent = showableTimer;
     div =  document.getElementById('degatHero');
-    div.textContent = degatTotalHero;
+    div.textContent = hero.degatsTotal;
     div =  document.getElementById('incomeHero');
-    div.textContent = incomeHero;
+    div.textContent = hero.income;
 
 }
 
@@ -673,42 +771,19 @@ function downTimerMission(){
     }
 }
 
+
 function formateTimer(timeToTranslate){
-    var formatedTime;
-    if (timeToTranslate<60000){
-        formatedTime=timeToTranslate.toFixed(0);
-        formatedTime=formatedTime/1000;
-        if (String(formatedTime).length<2){
-            formatedTime=("00:00:0"+formatedTime)
-        } else {
-            formatedTime=("00:00:"+formatedTime);
-        }
-        //formatedTime=formatedTime+" sec"
-    } else if (timeToTranslate>=60000 && timeToTranslate<3600000){
-        formatedTime = (timeToTranslate/60000).toFixed(1);
-        formatedTime=String(formatedTime);
-        var resteFormatedTime = timeToTranslate%60000;
-        var formatedTimeSecond = resteFormatedTime.toFixed(0);
-        formatedTimeSecond=formatedTimeSecond/1000;
-        if (String(formatedTimeSecond).length<2){
-            if (formatedTime.length<4) {
-                formatedTime = ("00:0"+formatedTime[0]+":0" + formatedTimeSecond)
-            } else {
-                formatedTime = ("00:"+formatedTime[0]+formatedTime[1]+":0" + formatedTimeSecond)
-            }
-        } else {
-            if (formatedTime.length<4) {
-                formatedTime = ("00:0"+formatedTime[0]+":" + formatedTimeSecond)
-            } else {
-                formatedTime = ("00:"+formatedTime[0]+formatedTime[1]+":" + formatedTimeSecond)
-            }
-        }
-        //formatedTime=formatedTime+"min";
-    } else if (timeToTranslate>=3600000){
-        formatedTime = timeToTranslate/3600000;
-        formatedTime=formatedTime+"h";
-    }
-    return formatedTime;
+
+    var milliseconds = parseInt((timeToTranslate%1000)/100)
+        , seconds = parseInt((timeToTranslate/1000)%60)
+        , minutes = parseInt((timeToTranslate/(1000*60))%60)
+        , hours = parseInt((timeToTranslate/(1000*60*60))%24);
+
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    return hours + ":" + minutes + ":" + seconds ;
 }
 
 function hideMissionButton(){

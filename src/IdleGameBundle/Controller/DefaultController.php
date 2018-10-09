@@ -3,6 +3,7 @@
 namespace IdleGameBundle\Controller;
 
 use IdleGameBundle\Entity\categoriesForum;
+use IdleGameBundle\Entity\equipement;
 use IdleGameBundle\Form\topicType;
 use IdleGameBundle\Form\postType;
 use Symfony\Component\HttpFoundation\Request;
@@ -262,6 +263,11 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
+        $mobileDetector = $this->get('mobile_detect.mobile_detector');
+        if($mobileDetector->isMobile()){
+            return $this->redirectToRoute('game_idle_landing');
+        } else {
+
         $this->denyAccessUnlessGranted("ROLE_USER");
 
         $entitymanager = $this->getDoctrine()->getManager();
@@ -280,7 +286,7 @@ class DefaultController extends Controller
 
             $entitymanager->persist($dataUser);
             $entitymanager->flush();
-        }
+        } else {
 
         $comteBanquaire = $current_data->getAmountMoney();
 
@@ -385,6 +391,39 @@ class DefaultController extends Controller
         $unit06BonusD150 = $current_data->getUnit06BonusD150();
         $unit06GlobalBonus = $current_data->getUnit06GlobalBonus();
         $unit06GlobalDmgBonus = $current_data->getUnit06GlobalDmgBonus();
+
+        $dataId = $current_data->getId();
+        $heroWeapon = $entitymanager->getRepository(equipement::class)->findOneBy(
+            [
+                'data_user' => $dataId,
+                'type' => 'weapon',
+                'isEquipped' => true
+            ]);
+        $heroArmor = $entitymanager->getRepository(equipement::class)->findOneBy(
+            [
+                'data_user' => $dataId,
+                'type' => 'armor',
+                'isEquipped' => true
+            ]
+        );
+        $heroSupport = $entitymanager->getRepository(equipement::class)->findOneBy(
+            [
+                'data_user' => $dataId,
+                'type' => 'support',
+                'isEquipped' => true
+            ]);
+        $heroCompanion = $entitymanager->getRepository(equipement::class)->findOneBy(
+            [
+                'data_user' => $dataId,
+                'type' => 'companion',
+                'isEquipped' => true
+            ]
+        );
+
+
+
+
+        }
 
 
         return $this->render('@IdleGame/Default/index.html.twig', array(
@@ -497,7 +536,13 @@ class DefaultController extends Controller
             'unit06GlobalBonus' => $unit06GlobalBonus,
             'unit06GlobalDmgBonus' => $unit06GlobalDmgBonus,
 
+            'heroWeapon' => $heroWeapon,
+            'heroArmor' => $heroArmor,
+            'heroSupport' => $heroSupport,
+            'heroCompanion' => $heroCompanion,
+
         ));
+        }
     }
 
     public function upgradeControlAction()
@@ -517,7 +562,12 @@ class DefaultController extends Controller
 
     public function forumAction()
     {
-        $categories = $this->getDoctrine()->getRepository(categoriesForum::class)->findAll();
+        $mobileDetector = $this->get('mobile_detect.mobile_detector');
+        if($mobileDetector->isMobile()){
+            return $this->redirectToRoute('game_idle_landing');
+        } else {
+            $categories = $this->getDoctrine()->getRepository(categoriesForum::class)->findAll();
+        }
         return $this->render('@IdleGame/Default/forum.html.twig',array(
             'categories'=> $categories,
         ));
@@ -525,10 +575,17 @@ class DefaultController extends Controller
 
     public function topicAction($id)
     {
-        $topics = $this->getDoctrine()->getRepository(topic::class)->findBy(['categ'=>$id], array('lastPostDate' => 'desc','lastPostTime'=>'desc'));
-        $categorie = $this->getDoctrine()->getRepository(categoriesForum::class)->find($id);
-        $posts = $this->getDoctrine()->getRepository(post::class)->findAll();
+        $mobileDetector = $this->get('mobile_detect.mobile_detector');
+        if($mobileDetector->isMobile()){
+            return $this->redirectToRoute('game_idle_landing');
+        } else {
 
+            $topics = $this->getDoctrine()->getRepository(topic::class)->findBy(['categ' => $id], array(
+                'lastPostDate' => 'desc', 'lastPostTime' => 'desc'
+            ));
+            $categorie = $this->getDoctrine()->getRepository(categoriesForum::class)->find($id);
+            $posts = $this->getDoctrine()->getRepository(post::class)->findAll();
+        }
         return $this->render('@IdleGame/Default/topic.html.twig',array(
             'topics'=>$topics,
             'posts'=>$posts,
@@ -547,9 +604,13 @@ class DefaultController extends Controller
 
     public function postAction($id,$idCateg)
     {
-        $topic = $this->getDoctrine()->getRepository(topic::class)->find($id);
-        $posts = $this->getDoctrine()->getRepository(post::class)->findBy(['topic'=>$id]);
-
+        $mobileDetector = $this->get('mobile_detect.mobile_detector');
+        if($mobileDetector->isMobile()){
+            return $this->redirectToRoute('game_idle_landing');
+        } else {
+            $topic = $this->getDoctrine()->getRepository(topic::class)->find($id);
+            $posts = $this->getDoctrine()->getRepository(post::class)->findBy(['topic' => $id]);
+        }
         return $this->render('@IdleGame/Default/post.html.twig',array(
             'posts'=>$posts,
             'topic'=>$topic,
@@ -626,7 +687,6 @@ class DefaultController extends Controller
             $post->setUser($current_user);
             $post->setPostedAtDate(new \DateTime("now"));
             $post->setPostedAtTime(new \DateTime("now"));
-
             $topic->setLastPostDate(new \DateTime("now"));
             $topic->setLastPostTime(new \DateTime("now"));
             $topic->setLastPostAuthor($username);
@@ -765,6 +825,120 @@ class DefaultController extends Controller
         ));
     }
 
+    public function deviceCheck(){
+        $mobileDetector = $this->get('mobile_detect.mobile_detector');
+        if($mobileDetector->isMobile()){
+                return $this->redirectToRoute('game_idle_landing');
+        }
+    }
 
+    public function landingAction()
+    {
+        return $this->render('@IdleGame/Default/mobileindex.html.twig');
+    }
+
+    public function contactAction()
+    {
+        return $this->render('@IdleGame/Default/contact.html.twig');
+    }
+
+    public function inventoryListingAction(){
+
+        $entitymanager = $this->getDoctrine()->getManager();
+        $iduser = $this->getUser()->getId();
+        $current_data = $entitymanager->getRepository(dataUser::class)->findBy(['user' => $iduser]);
+        $dataId = $current_data[0]->getId();
+        $current_equipment = $entitymanager->getRepository(equipement::class)->findBy(['data_user' => $dataId]);
+
+        return $this->render('@IdleGame/Default/inventory.html.twig',array(
+            'equipments' => $current_equipment,
+        ));
+    }
+
+    public function saveEquipAction(Request $request){
+        $entitymanager = $this->getDoctrine()->getManager();
+        $iduser = $this->getUser()->getId();
+        $current_data = $entitymanager->getRepository(dataUser::class)->findBy(['user' => $iduser]);
+
+        $equipment= new equipement();
+        $equipment->setDataUser($current_data[0]);
+
+        $equipmentType = $request->request->get('equipmentType');
+        $equipmentDegats = $request->request->get('equipmentDegats');
+        $equipmentBonus = $request->request->get('equipmentBonus');
+        $equipmentBonusTarget = $request->request->get('equipmentBonusTarget');
+        $equipmentDegatsTarget = $request->request->get('equipmentDegatsTarget');
+        $equipmentTime = $request->request->get('equipmentTime');
+
+
+
+        $equipment->setName("SuperTest");
+        //$equipment->setIncome(3);
+        $equipment->setType($equipmentType);
+        $equipment->setTime($equipmentTime);
+        $equipment->setDegats($equipmentDegats);
+        $equipment->setDegatsTarget($equipmentDegatsTarget);
+        $equipment->setBonus($equipmentBonus);
+        $equipment->setBonusTarget($equipmentBonusTarget);
+        $equipment->setDescription('TestDesc');
+        $equipment->setIsEquipped(false);
+
+        $entitymanager->persist($equipment);
+        $entitymanager->flush();
+
+        return $this->render('@IdleGame/Default/saveequip.html.twig');
+    }
+
+    public function showInventoryAction(){
+        $entitymanager = $this->getDoctrine()->getManager();
+        $iduser = $this->getUser()->getId();
+        $current_data = $entitymanager->getRepository(dataUser::class)->findBy(['user' => $iduser]);
+        $dataId = $current_data[0]->getId();
+        $current_inventory = $entitymanager->getRepository(equipement::class)->findBy(['data_user' => $dataId]);
+
+        return $this->render('@IdleGame/Default/inventory.html.twig',array(
+            'equipments' => $current_inventory,
+        ));
+
+    }
+
+    public function equipItAction(Request $request){
+
+        $entitymanager = $this->getDoctrine()->getManager();
+        $iduser = $this->getUser()->getId();
+        $idEquip = $request->request->get('idEquip');
+        $equipment = $entitymanager->getRepository(equipement::class)->find($idEquip);
+
+        $current_data = $entitymanager->getRepository(dataUser::class)->findBy(['user' => $iduser]);
+        $current_data=$current_data[0];
+        $dataId = $current_data->getId();
+        $alreadyEquipped = $entitymanager->getRepository(equipement::class)->findOneBy(
+            [
+                'data_user' => $dataId,
+                'type' => $equipment->getType(),
+                'isEquipped' => true
+            ]);
+
+
+        $itIsEquipped = $equipment->getisEquipped();
+
+        if($itIsEquipped){
+            $equipment->setisEquipped(false);
+        } else {
+            if($alreadyEquipped){
+                $alreadyEquipped->setisEquipped(false);
+            }
+            $equipment->setisEquipped(true);
+        }
+
+        if(!$alreadyEquipped){
+            $entitymanager->persist($equipment);
+        } else{
+            $entitymanager->persist($equipment,$alreadyEquipped);
+        }
+
+        $entitymanager->flush();
+        return $this->redirectToRoute('game_idle_inventory');
+    }
 
 }
